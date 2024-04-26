@@ -1,0 +1,125 @@
+:root{
+    --Teal: #32a5a5;
+    --Pink: #ff96cc;
+    --Pink2: #ffbbde;
+    --Green: #88b088;
+    --Yellow: #ffe18d;
+    --LogoTypeYellow: #fff4d6;
+}
+
+/* General */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--Teal);
+    font-family: Comfortaa, Helvetica, Arial, sans-serif;
+}
+
+#wrapper{
+    padding: 0;
+}
+
+/* Footer */
+footer {
+    height: 350px;
+    background-color: #88b088;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+footer h5{
+    font-weight: bold;
+}
+
+.footerLinks{
+    margin: 0 auto;
+    max-width:  700px;
+}
+.socials a{
+    text-decoration: none;
+}
+i{
+    font-size: 30px;
+    color: var(--Pink);
+    margin: 0 3px;
+    filter: drop-shadow(#46464677 1px 1px 1px);
+}
+
+
+/* NavBar */
+
+nav {
+    padding: 10px 0;
+    background-color: var(--Green);
+}
+.navbar-nav{
+    flex: 1 1;
+}
+
+.nav-link {
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+    transition: color .25s ease-in;
+    padding: 0 1rem;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    text-decoration: underline;
+    color: white;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.navbar-nav .nav-link.active:hover, .navbar-nav .nav-link.active:active, .navbar-nav .nav-link.show:hover, .navbar-nav .nav-link.show:active {
+    color: var(--Pink2);
+}
+
+/* Main */
+
+main{
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    color: white;
+}
+
+#startDisplay{
+    position: relative;
+    text-align: center;
+}
+#startDisplay p{
+}
+
+/* Decor */
+#logo{
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.shrink{
+    margin: 0 auto;
+    width: 600px;
+}
+
+#stainedGlass{
+    width: 400px;
+    position: absolute;
+}
+
+/* The Pond */
+
+#LotusPond {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100vw;
+}
+
+@media (orientation: portrait) {
+    .shrink{
+        width: 90%;
+    }
+  }
+
