@@ -7,6 +7,11 @@
     --LogoTypeYellow: #fff4d6;
 }
 
+@font-face {
+    font-family: Rochester;
+    src: url('/assets/fonts/Rochester-Regular.ttf');
+}
+
 /* General */
 
 body {
@@ -85,10 +90,20 @@ main{
 }
 
 #startDisplay{
+    width: 600px;
     position: relative;
     text-align: center;
+    margin: 0 auto;
 }
-#startDisplay p{
+#startDName{
+    position: absolute;
+    font-family: Rochester;
+    font-weight: bold;
+    color: var(--Pink);
+    font-size: 6em;
+    left: 80px;
+    bottom: 20px;
+    filter: drop-shadow(1px 2px 1px #47808a);
 }
 
 /* Decor */
@@ -104,7 +119,6 @@ main{
 
 #stainedGlass{
     width: 400px;
-    position: absolute;
 }
 
 /* The Pond */
