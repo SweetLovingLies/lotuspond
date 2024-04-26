@@ -90,7 +90,6 @@ main{
 }
 
 #startDisplay{
-    width: 600px;
     position: relative;
     text-align: center;
     margin: 0 auto;
@@ -99,10 +98,11 @@ main{
     position: absolute;
     font-family: Rochester;
     font-weight: bold;
-    color: var(--Pink);
-    font-size: 6em;
-    left: 80px;
-    bottom: 20px;
+    color: white;
+    font-size: 5vmax;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     filter: drop-shadow(1px 2px 1px #47808a);
 }
 
@@ -118,7 +118,7 @@ main{
 }
 
 #stainedGlass{
-    width: 400px;
+    width: 20em;
 }
 
 /* The Pond */
@@ -134,6 +134,12 @@ main{
 @media (orientation: portrait) {
     .shrink{
         width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    #stainedGlass{
+        width: 15em;
     }
   }
 
