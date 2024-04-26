@@ -23,7 +23,9 @@ window.addEventListener('load', () => {
         };
     }
 
-    const waterHeight = canvas.height / 1.3; // Adjusted water height
+    const waterHeight = canvas.height / 1.3;
+    const friction = 1.0; 
+    const maxVelocityX = .6;
 
     for (let i = 0; i < numLotuses; i++) {
         const spacing = canvas.width / (numLotuses + 1);
@@ -32,19 +34,16 @@ window.addEventListener('load', () => {
         lotuses.push(lotus);
     }
 
-    const maxVelocityX = .3;
-
     canvas.addEventListener('mousemove', function(e) {
         const rect = canvas.getBoundingClientRect();
         const mouseX = e.clientX - rect.left;
         const mouseY = e.clientY - rect.top;
     
         lotuses.forEach(lotus => {
-            const dx = mouseX - (lotus.x + lotus.width / 2); // Calculate horizontal distance to lotus center
-            const dy = mouseY - (lotus.y + lotus.height); // Calculate vertical distance to lotus bottom edge
-            const distance = Math.sqrt(dx * dx + dy * dy); // Calculate distance between lotus bottom edge and mouse position
+            const dx = mouseX - (lotus.x + lotus.width / 2); 
+            const dy = mouseY - (lotus.y + lotus.height); 
+            const distance = Math.sqrt(dx * dx + dy * dy);
     
-            // Adjust lotus velocity based on distance
             const maxDistance = 60;
             const force = Math.min(2 / (distance * distance), 1);
             const angle = Math.atan2(dy, dx);
@@ -58,6 +57,10 @@ window.addEventListener('load', () => {
         drawWater();
         lotuses.forEach(lotus => {
             ctx.drawImage(lotusImage, lotus.x, lotus.y, lotus.width, lotus.height);
+        });
+    
+        lotuses.forEach(lotus => {
+            lotus.velocityX *= friction;
         });
     
         // Collision detection 
