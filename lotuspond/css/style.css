@@ -14,6 +14,10 @@
 
 /* General */
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -21,38 +25,16 @@ body {
     font-family: Comfortaa, Helvetica, Arial, sans-serif;
 }
 
-#wrapper{
+.container-fluid{
     padding: 0;
 }
 
-/* Footer */
-footer {
-    height: 350px;
-    background-color: #88b088;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-footer h5{
-    font-weight: bold;
-}
+/* NavBar Header */
 
-.footerLinks{
-    margin: 0 auto;
-    max-width:  700px;
+.navbar > .container-fluid{
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
 }
-.socials a{
-    text-decoration: none;
-}
-i{
-    font-size: 30px;
-    color: var(--Pink);
-    margin: 0 3px;
-    filter: drop-shadow(#46464677 1px 1px 1px);
-}
-
-
-/* NavBar */
 
 nav {
     padding: 10px 0;
@@ -80,30 +62,68 @@ nav {
     color: var(--Pink2);
 }
 
+/* Footer */
+footer {
+    height: 350px;
+    background-color: #88b088;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+.shrink{
+    margin: 0 auto;
+    width: 600px;
+}
+
+footer h5{
+    font-weight: bold;
+}
+
+.footerLinks{
+    margin: 0 auto;
+    max-width:  700px;
+}
+.socials a{
+    text-decoration: none;
+}
+footer i{
+    font-size: 30px;
+    color: var(--Pink);
+    margin: 0 3px;
+    filter: drop-shadow(#46464677 1px 1px 1px);
+}
+
 /* Main */
 
 main{
     position: relative;
     width: 100%;
-    height: 1000px;
     color: white;
+}
+.section{
+    padding: 40px;
+    background-color: var(--Green);
 }
 
-#startDisplay{
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-}
-#startDName{
-    position: absolute;
-    font-family: Rochester;
+/* Other */
+
+.contact{
+    margin-top: 60px;
+    font-size: larger;
     font-weight: bold;
-    color: white;
-    font-size: 5vmax;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: drop-shadow(1px 2px 1px #47808a);
+    background-color: var(--Pink2);
+    color: black;
+    border: white 1px solid;
+    border-radius: 50px;
+    padding: 10px 50px;
+    transition: background-color .25s;
+}
+.contact:hover{
+    background-color: var(--Pink);
+    color: black;
+}
+.contact:active, .contact:focus .contact:active:focus{
+    background-color: #ff84c3;
 }
 
 /* Decor */
@@ -111,14 +131,10 @@ main{
     width: 150px;
     margin-bottom: 10px;
 }
-
-.shrink{
-    margin: 0 auto;
-    width: 600px;
-}
-
-#stainedGlass{
-    width: 20em;
+.decor{
+    background-color: #6e996e;
+    padding: 5px;
+    border-radius: 20px;
 }
 
 /* The Pond */
@@ -134,12 +150,6 @@ main{
 @media (orientation: portrait) {
     .shrink{
         width: 90%;
-    }
-  }
-
-  @media screen and (max-width: 1024px) {
-    #stainedGlass{
-        width: 15em;
     }
   }
 
