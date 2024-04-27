@@ -68,9 +68,22 @@
     text-align: center;
     font-size: 1.7vmax;
 }
+@media (orientation: portrait) {
+    .shrink{
+        width: 90%;
+    }
+    .section{
+        padding: 40px 10px;
+    }
+  }
 
-@media screen and (max-width: 1024px) {
+
+
+@media screen and (max-width: 425px) {
+    #startDName{
+        font-size: 7vmax;
+    }
     #stainedGlass{
-        width: 15em;
+        width: 20em;
     }
   }

@@ -95,7 +95,8 @@ footer i{
 
 /* Main */
 
-main{
+main .container-fluid{
+    padding-top: 67px;
     position: relative;
     width: 100%;
     color: white;
@@ -150,6 +151,9 @@ main{
 @media (orientation: portrait) {
     .shrink{
         width: 90%;
+    }
+    .section{
+        padding: 40px 10px;
     }
   }
 
