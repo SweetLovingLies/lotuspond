@@ -10,7 +10,7 @@
 /* Starting Display! Gotta have a hook. */
 
 #start{
-    height: 1000px;
+    height: 100vh;
 }
 #startDisplay{
     text-align: center;
@@ -117,13 +117,19 @@
     }
   }
 
+  @media screen and (max-width: 1440px){
+    .image-container {
+        width: 24em;
+        height: 530px;
+    }
+  }
+
 @media screen and (max-width: 425px) {
     #startDName{
         font-size: 5rem;
     }
     .image-container {
         height: 500px;
-        width: 20em;
         width: 20em;
     }
   }

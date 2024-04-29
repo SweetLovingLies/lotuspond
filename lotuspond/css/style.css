@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: Rochester;
-    src: url('/assets/fonts/Rochester-Regular.ttf');
+    src: url('../assets/fonts/Rochester-Regular.ttf');
 }
 
 /* General */
@@ -88,9 +88,13 @@ footer h5{
 }
 
 .footerLinks{
-    margin: 0 auto;
     max-width:  700px;
 }
+
+footer .row{
+    margin: 0 auto;
+}
+
 .socials a{
     text-decoration: none;
 }
@@ -112,6 +116,10 @@ main .container-fluid{
 .section{
     padding: 40px;
     background-color: var(--Green);
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 /* General Styles */
@@ -201,6 +209,9 @@ td{
     }
     .section{
         padding: 40px 20px;
+    }
+    table, th, tr, td{
+        padding: 0;
     }
   }
 
