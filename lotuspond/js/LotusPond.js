@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
     const canvas = document.getElementById('LotusPond');
     const ctx = canvas.getContext('2d');
-    const numLotuses = 5;
+    let numLotuses = 5; // Default number of lotuses
 
     const lotusImage = new Image();
     lotusImage.onload = startAnimation;
@@ -12,19 +12,42 @@ window.addEventListener('load', () => {
     canvas.height = 100;
 
     const lotuses = [];
-    let lotusWidth = 71; // Default lotus width
-    let lotusHeight = 41; // Default lotus height
+
+    function createLotus(x, y, width, height) {
+        return {
+            x: x,
+            y: y,
+            width: width,
+            height: height,
+            velocityX: 0,
+        };
+    }
 
     const waterHeight = canvas.height / 1.3;
     const friction = 1.0; 
     const maxVelocityX = .6;
 
-    for (let i = 0; i < numLotuses; i++) {
-        const spacing = canvas.width / (numLotuses + 1);
-        const lotus = createLotus((i + 1) * spacing - 35, waterHeight - lotusHeight, lotusWidth, lotusHeight);
-        lotus.velocityX = Math.random() < 0.5 ? -1 : 1;
-        lotuses.push(lotus);
+    function createLotuses() {
+        for (let i = 0; i < numLotuses; i++) {
+            const spacing = canvas.width / (numLotuses + 1);
+            const lotusWidth = 71; // Default lotus width
+            const lotusHeight = 41; // Default lotus height
+            const lotus = createLotus((i + 1) * spacing - lotusWidth / 2, waterHeight - lotusHeight, lotusWidth, lotusHeight);
+            lotus.velocityX = Math.random() < 0.5 ? -1 : 1;
+            lotuses.push(lotus);
+        }
     }
+
+    function adjustForMobile() {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            numLotuses = 3; // Adjust the number of lotuses for mobile devices
+            // You can also adjust the lotus size here if needed
+        }
+    }
+
+    adjustForMobile();
+    createLotuses();
 
     canvas.addEventListener('mousemove', function(e) {
         const rect = canvas.getBoundingClientRect();
@@ -95,16 +118,6 @@ window.addEventListener('load', () => {
         ctx.fillRect(0, waterHeight, canvas.width, canvas.height - waterHeight);
     }
 
-    function createLotus(x, y, width, height) {
-        return {
-            x: x,
-            y: y,
-            width: width,
-            height: height,
-            velocityX: 0,
-        };
-    }
-
     function checkCollision(lotus1, lotus2) {
         return lotus1.x < lotus2.x + lotus2.width &&
                lotus1.x + lotus1.width > lotus2.x &&
@@ -120,38 +133,4 @@ window.addEventListener('load', () => {
     function startAnimation() {
         loop();
     }
-
-    // Resize lotus dimensions based on viewport width
-    function resizeLotusDimensions() {
-        const vw = window.innerWidth;
-        const maxLotusWidth = 71;
-        const aspectRatio = lotusImage.height / lotusImage.width;
-
-        if (vw <= maxLotusWidth) {
-            lotusWidth = vw;
-            lotusHeight = vw * aspectRatio;
-        } else {
-            lotusWidth = maxLotusWidth;
-            lotusHeight = maxLotusWidth * aspectRatio;
-        }
-
-        // Recreate lotuses with adjusted dimensions
-        lotuses.length = 0; // Clear existing lotuses
-        for (let i = 0; i < numLotuses; i++) {
-            const spacing = canvas.width / (numLotuses + 1);
-            const lotus = createLotus((i + 1) * spacing - lotusWidth / 2, waterHeight - lotusHeight, lotusWidth, lotusHeight);
-            lotus.velocityX = Math.random() < 0.5 ? -1 : 1;
-            lotuses.push(lotus);
-        }
-    }
-
-    // Adjust dimensions when the window is resized
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = 100; // You can adjust the canvas height as needed
-        resizeLotusDimensions();
-    });
-
-    // Initial adjustment of lotus dimensions
-    resizeLotusDimensions();
 });
