@@ -1,5 +1,6 @@
 :root{
     --Teal: #32a5a5;
+    --Teal2: #227FAB;
     --Pink: #ff96cc;
     --Pink2: #ffbbde;
     --Green: #88b088;
@@ -20,9 +21,10 @@ html{
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 67px 0 0 0;
     background-color: var(--Teal);
     font-family: Comfortaa, Helvetica, Arial, sans-serif;
+    color: white;
 }
 
 .container-fluid{
@@ -65,10 +67,16 @@ nav {
 /* Footer */
 footer {
     height: 350px;
+    position: relative;
     background-color: #88b088;
     color: white;
     padding: 10px 0;
     text-align: center;
+    z-index: 3;
+
+    -webkit-box-shadow: 0px -1px 10px 0px #00000060;
+    -moz-box-shadow: 0px -1px 10px 0px #00000060;
+    box-shadow: 0px -1px 10px 0px #00000060;
 }
 .shrink{
     margin: 0 auto;
@@ -96,14 +104,26 @@ footer i{
 /* Main */
 
 main .container-fluid{
-    padding-top: 67px;
     position: relative;
     width: 100%;
     color: white;
+    z-index: 2;
 }
 .section{
     padding: 40px;
     background-color: var(--Green);
+}
+
+/* General Styles */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: Raleway;
+    font-weight: bold;
 }
 
 /* Other */
@@ -127,6 +147,32 @@ main .container-fluid{
     background-color: #ff84c3;
 }
 
+table, th, tr, td{
+    padding: 10px;
+    border: 2px solid var(--Green);
+    background-color: #ffbbde;
+    color: #000;
+}
+td{
+    width: 50%;
+}
+
+/* Fade-in effect on page load */
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Decor */
 #logo{
     width: 150px;
@@ -146,6 +192,7 @@ main .container-fluid{
     bottom: 0;
     height: 100px;
     width: 100vw;
+    z-index: 3;
 }
 
 @media (orientation: portrait) {
@@ -153,7 +200,7 @@ main .container-fluid{
         width: 90%;
     }
     .section{
-        padding: 40px 10px;
+        padding: 40px 20px;
     }
   }
 

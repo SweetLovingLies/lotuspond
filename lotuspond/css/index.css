@@ -13,7 +13,6 @@
     height: 1000px;
 }
 #startDisplay{
-    position: relative;
     text-align: center;
     margin: 0 auto;
 }
@@ -21,27 +20,67 @@
     font-size: larger;
 }
 
-#startDName{
+#startDName {
     position: absolute;
     font-family: Rochester;
-    color: white;
-    font-size: 5vmax;
+    font-size: 7rem;
     bottom: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
     filter: drop-shadow(1px 2px 1px #47808a);
-    z-index: 1;
+    z-index: 3;
+    opacity: 0; /* Start with opacity 0 */
+    animation: fadeIn 3s forwards, floatglow 1000ms ease-in-out infinite alternate;
+    animation-delay: 2s;
 }
 
-#stainedGlass{
+@keyframes floatglow {
+    0% {
+		filter: drop-shadow(0 0 5px transparent);
+        translate: 0 -5px;
+    }	
+    100% {
+		filter: drop-shadow(0 0 5px #ff7dd8);
+        translate: 0 5px;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Stained Glass */
+
+#stainedGlass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 30em;
     filter: drop-shadow(0px 0px 10px #000);
+    animation: revealImage 2s forwards;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
+.image-container {
+    position: relative;
+    width: 30em;
+    height: 700px;
+    overflow: hidden;
+    margin: 0 auto;
     z-index: 2;
 }
 
-.fa-circle-arrow-down{
-    color: white;
-    font-size: 4em;
+@keyframes revealImage {
+    0% {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
 }
 
 /* A little about me */
@@ -50,6 +89,7 @@
     text-align: center;
 }
 #aboutBlurb h3{
+    font-family: Comfortaa;
     line-height: 1.7em;
     font-size: 1.7vmax;
     margin: 0 auto;
@@ -60,7 +100,7 @@
 
 #servicesHeader{
     padding: 10px;
-    background-color: var(--Teal);
+    background-color: var(--Teal2);
 }
 
 #servicesHeader h3{
@@ -77,13 +117,13 @@
     }
   }
 
-
-
 @media screen and (max-width: 425px) {
     #startDName{
-        font-size: 7vmax;
+        font-size: 5rem;
     }
-    #stainedGlass{
+    .image-container {
+        height: 500px;
+        width: 20em;
         width: 20em;
     }
   }
