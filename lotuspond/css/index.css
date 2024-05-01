@@ -1,4 +1,4 @@
-:root{
+:root {
     --Teal: #32a5a5;
     --Pink: #ff96cc;
     --Pink2: #ffbbde;
@@ -9,14 +9,16 @@
 
 /* Starting Display! Gotta have a hook. */
 
-#start{
+#start {
     height: 100vh;
 }
-#startDisplay{
+
+#startDisplay {
     text-align: center;
     margin: 0 auto;
 }
-#startDisplay p{
+
+#startDisplay p {
     font-size: larger;
 }
 
@@ -29,25 +31,29 @@
     transform: translate(-50%, -50%);
     filter: drop-shadow(1px 2px 1px #47808a);
     z-index: 3;
-    opacity: 0; /* Start with opacity 0 */
+    opacity: 0;
+    /* Start with opacity 0 */
     animation: fadeIn 3s forwards, floatglow 1000ms ease-in-out infinite alternate;
     animation-delay: 2s;
 }
 
 @keyframes floatglow {
     0% {
-		filter: drop-shadow(0 0 5px transparent);
+        filter: drop-shadow(0 0 5px transparent);
         translate: 0 -5px;
-    }	
+    }
+
     100% {
-		filter: drop-shadow(0 0 5px #ff7dd8);
+        filter: drop-shadow(0 0 5px #ff7dd8);
         translate: 0 5px;
     }
 }
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -78,6 +84,7 @@
     0% {
         clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
     }
+
     100% {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
@@ -85,10 +92,11 @@
 
 /* A little about me */
 
-#aboutBlurb{
+#aboutBlurb {
     text-align: center;
 }
-#aboutBlurb h3{
+
+#aboutBlurb h3 {
     font-family: Comfortaa;
     line-height: 1.7em;
     font-size: 1.7vmax;
@@ -98,38 +106,41 @@
 
 /* Services I provide */
 
-#servicesHeader{
+#servicesHeader {
     padding: 10px;
     background-color: var(--Teal2);
 }
 
-#servicesHeader h3{
+#servicesHeader h3 {
     font-weight: bold;
     text-align: center;
     font-size: 1.7vmax;
 }
+
 @media (orientation: portrait) {
-    .shrink{
+    .shrink {
         width: 90%;
     }
-    .section{
+
+    .section {
         padding: 40px 10px;
     }
-  }
+}
 
-  @media screen and (max-width: 1440px){
+@media screen and (max-width: 1440px) {
     .image-container {
         width: 24em;
         height: 530px;
     }
-  }
+}
 
 @media screen and (max-width: 425px) {
-    #startDName{
+    #startDName {
         font-size: 5rem;
     }
+
     .image-container {
         height: 500px;
         width: 20em;
     }
-  }
+}

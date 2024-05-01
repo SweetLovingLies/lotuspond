@@ -36,7 +36,7 @@
     align-self: flex-end;
 }
 
-#arrow{
+#arrow {
     position: absolute;
     width: 300px;
     right: -20%;
@@ -45,16 +45,19 @@
     z-index: 4;
 }
 
-.cloud1, .cloud2{
+.cloud1,
+.cloud2 {
     position: absolute;
     z-index: 4;
 }
-.cloud1{
+
+.cloud1 {
     right: 30%;
     bottom: 15%;
     transform: scale(0.5) rotate(350deg);
 }
-.cloud2{
+
+.cloud2 {
     right: -20%;
     top: -18%;
     transform: scale(0.7) rotate(10deg);
@@ -65,35 +68,38 @@
 /* #aboutMain{
 } */
 
-#funFactsRow{
+#funFactsRow {
     background-color: var(--Teal2);
 }
 
-.funFacts p{
+.funFacts p {
     max-height: 70px;
     overflow: auto;
 }
 
-@media (orientation: portrait) {
-}
+@media (orientation: portrait) {}
 
-@media screen and (max-width: 1440px){
+@media screen and (max-width: 1440px) {
     #aboutName h1 {
         font-size: 9vmin;
     }
-  }
+}
 
 @media screen and (max-width: 768px) {
     #aboutName h1 {
         margin: 0 auto;
     }
-    #headshot{
+
+    #headshot {
         display: block;
         width: 70%;
         height: auto;
         margin: 0 auto;
     }
-    .cloud1, .cloud2, #arrow{
+
+    .cloud1,
+    .cloud2,
+    #arrow {
         display: none;
     }
 }
@@ -104,7 +110,8 @@
         padding: 10px;
         width: 100%;
     }
-    #headshot{
+
+    #headshot {
         width: 100%;
     }
 

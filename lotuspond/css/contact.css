@@ -1,0 +1,17 @@
+sup{
+    font-size: xx-small;
+    vertical-align: top;
+    top: 1em;
+}
+
+
+
+@media (orientation: portrait) {}
+
+@media screen and (max-width: 1440px) {}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 540px) {}
+
+@media screen and (max-width: 425px) {}
