@@ -13,7 +13,7 @@
     src: url('../assets/fonts/Rochester-Regular.ttf');
 }
 
-/* General */
+/* General Layout */
 
 html {
     scroll-behavior: smooth;
@@ -150,29 +150,15 @@ h6 {
     text-align: center;
 }
 
+a{
+    color: var(--Yellow);
+    transition: .25s all;
+}
+a:hover{
+    color: var(--LogoTypeYellow);
+}
+
 /* Other */
-
-.contact {
-    margin-top: 60px;
-    font-size: larger;
-    font-weight: bold;
-    background-color: var(--Pink2);
-    color: black;
-    border: white 1px solid;
-    border-radius: 50px;
-    padding: 10px 50px;
-    transition: background-color .25s;
-}
-
-.contact:hover {
-    background-color: var(--Pink);
-    color: black;
-}
-
-.contact:active,
-.contact:focus .contact:active:focus {
-    background-color: #ff84c3;
-}
 
 /* Main Button (Pink Edition) */
 
@@ -245,6 +231,8 @@ td {
     width: 100vw;
     z-index: 3;
 }
+
+/* Media Queries*/
 
 @media (orientation: portrait) {
     .shrink {

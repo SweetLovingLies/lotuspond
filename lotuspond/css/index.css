@@ -104,6 +104,30 @@
     width: 90%;
 }
 
+
+/* Contact Me Button */
+.contact {
+    margin-top: 60px;
+    font-size: larger;
+    font-weight: bold;
+    background-color: var(--Pink2);
+    color: black;
+    border: white 1px solid;
+    border-radius: 50px;
+    padding: 10px 50px;
+    transition: background-color .25s;
+}
+
+.contact:hover {
+    background-color: var(--Pink);
+    color: black;
+}
+
+.contact:active,
+.contact:focus .contact:active:focus {
+    background-color: #ff84c3;
+}
+
 /* Services I provide */
 
 #servicesHeader {
@@ -113,9 +137,37 @@
 
 #servicesHeader h3 {
     font-weight: bold;
-    text-align: center;
-    font-size: 1.7vmax;
 }
+
+#services{
+    position: relative;
+    margin: auto;
+    width: 80vw;
+}
+
+.servicescol{
+position: relative;
+}
+
+#services h6{
+    float: left;
+    margin-right: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    padding: 20px 35px;
+    width: fit-content;
+
+    color: black;
+    background-color: var(--LogoTypeYellow);
+    border-radius: 999px;
+}
+
+#services h4{
+    vertical-align: middle;
+}
+
+/* Media Queries */
 
 @media (orientation: portrait) {
     .shrink {

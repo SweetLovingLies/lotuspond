@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
     const canvas = document.getElementById('LotusPond');
     const ctx = canvas.getContext('2d');
-    let numLotuses = 5; // Default number of lotuses
+    let numLotuses = 5;
 
     const lotusImage = new Image();
     lotusImage.onload = startAnimation;
@@ -25,13 +25,13 @@ window.addEventListener('load', () => {
 
     const waterHeight = canvas.height / 1.3;
     const friction = 1.0; 
-    const maxVelocityX = .6;
+    const maxVelocityX = 2;
 
     function createLotuses() {
         for (let i = 0; i < numLotuses; i++) {
             const spacing = canvas.width / (numLotuses + 1);
-            const lotusWidth = 71; // Default lotus width
-            const lotusHeight = 41; // Default lotus height
+            const lotusWidth = 71;
+            const lotusHeight = 41;
             const lotus = createLotus((i + 1) * spacing - lotusWidth / 2, waterHeight - lotusHeight, lotusWidth, lotusHeight);
             lotus.velocityX = Math.random() < 0.5 ? -1 : 1;
             lotuses.push(lotus);
@@ -41,8 +41,7 @@ window.addEventListener('load', () => {
     function adjustForMobile() {
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
-            numLotuses = 3; // Adjust the number of lotuses for mobile devices
-            // You can also adjust the lotus size here if needed
+            numLotuses = 3;
         }
     }
 
@@ -76,15 +75,16 @@ window.addEventListener('load', () => {
     
         lotuses.forEach(lotus => {
             lotus.velocityX *= friction;
+            lotus.velocityX = Math.min(Math.max(lotus.velocityX, -maxVelocityX), maxVelocityX);
         });
     
-        // Collision detection 
+        // Collisions 
         for (let i = 0; i < lotuses.length; i++) {
             for (let j = i + 1; j < lotuses.length; j++) {
                 const lotus1 = lotuses[i];
                 const lotus2 = lotuses[j];
                 if (checkCollision(lotus1, lotus2)) {
-                    // Reverse velocities to simulate bouncing
+                    // This makes the lotuses bounce... Hopefully
                     lotus1.velocityX *= -1;
                     lotus2.velocityX *= -1;
                 }
@@ -100,6 +100,7 @@ window.addEventListener('load', () => {
             } else if (lotus.x + lotus.width > canvas.width) {
                 lotus.x = canvas.width - lotus.width;
                 lotus.velocityX *= -1;
+                
             }
         });
     }
