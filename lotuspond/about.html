@@ -20,8 +20,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Font Awesome Hehe-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/fe4cec0542.js" crossorigin="anonymous"></script>
 
 </head>
@@ -48,7 +50,7 @@
                                 <a class="nav-link active" href="about.html">About Me</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="portfolio.html"> My Portfolio</a>
+                                <a class="nav-link" href="portfolio.html"> My Portfolio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact Me</a>
@@ -79,16 +81,30 @@
             </div>
             <div id="aboutMain" class="container-fluid row section">
                 <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <h1>About Me (Concise Edition)</h1>
+                <div class="d-flex col-lg-4 justify-content-center align-items-start">
+                    <img id="DefiningMe" class="img-fluid" src="assets/Defining Me.png">
+                </div>
+                <div class="col-lg-4">
+                    <h1>Big Business Treatment First!</h1>
                     <p>
-                        Hi there! I'm 19 years old and I've been exploring the digital art world since 2018! <br>
-                        There is absolutely nothing that outshines my love for a well-designed website, whether that be
-                        a professional level site or an indie site. That's what got me into this line of work!
-                        <br>
+                        Hana (Any Pronouns) is the sole owner and employee behind Lotus Pond Creative. She is a web developer, graphic
+                        designer, app developer, as well as a heavy oversharer. She is also terrible at speaking in 3rd
+                        person.
+                    </p>
+                    <p>
+                        I've been deep into the tech world for the greater portion of 10 years now, and there is
+                        absolutely nothing that outshines my love for a well-designed website, whether that be a
+                        professional level site or an indie site. That's what got me into this line of work!
+                    </p>
+                    <p>
+                        I started my career doing freelance jobs willy-nilly with the support of my father and family
+                        friends, and in 2024, I decided to begin my own design business.
+                    </p>
+                    <p>
                         I strive to inspire people like me to explore the world of digital art, as well as to express
                         themselves as authentically as possible, no matter where that might be.
-                        <br>
+                    </p>
+                    <p>
                         The first impression people get of you offline is your style! Who's to say it's any different
                         online?
                     </p>
@@ -96,47 +112,26 @@
                 <div class="col-lg-2"></div>
             </div>
 
-            <div id="funFactsRow" class="container-fluid row section">
+            <div id="certContainer" class="container-fluid row section">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
-                    <h1>(not) Government-mandated fun facts!</h1>
-                    <table class="funFacts">
-                        <tr>
-                            <td>
-                                <p>I am almost entirely self-taught in both web development and graphic design. I'm working to change that as you read this message.</p>
-                            </td>
-                            <td>
-                                <p>I'm in the process of learning how to program with Apple's Swift!</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>I started on the indie-web first. I think it's a wonderful place to start out and meet
-                                like-minded people!</p>
-                            </td>
-                            <td>
-                                <p>I love flowers! My favorites are <b>lotuses, cherry blossoms, hibiscus, chrysanthemums, and wisteria.</b></p>
-                            </td>
-                        </tr>
-                    </table>
                 </div>
                 <div class="col-lg-2"></div>
             </div>
         </main>
 
-        <footer class="container-fluid">
+        <footer class="container-fluid footer-hidden">
             <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png"></div>
-            <div class="row footerLinks"> 
+            <div class="row footerLinks">
                 <div class="col">
                     <p>© Hana Harris 2024</p>
                 </div>
                 <div class="col">
                     <h5>Not sure yet?<br> Let's connect anyways!</h5>
                     <div class=" socials">
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-facebook-square"></i></a>
-                        <a href="#"><i class="	fa fa-pinterest-square"></i></a>
-                        <a href="#"><i class="	fa fa-behance-square"></i></a>
+                        <a href="https://www.instagram.com/lotuspond.creative"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i class="fa fa-facebook-square"></i></a>      
+                        <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i class="	fa fa-linkedin-square"></i></a>
                     </div>
                     <p class="mail">LotusPondCreative@gmail.com</p>
                     <sup>You can move the lotuses by the way! ↓</sup>
@@ -147,6 +142,8 @@
 
     <canvas id="LotusPond"></canvas>
     <script src="js/LotusPond.js"></script>
+
+    <script src="js/footer.js"></script>
 </body>
 
 </html>

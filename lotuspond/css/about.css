@@ -68,13 +68,12 @@
 /* #aboutMain{
 } */
 
-#funFactsRow {
+#certContainer {
     background-color: var(--Teal2);
 }
 
-.funFacts p {
-    max-height: 70px;
-    overflow: auto;
+#DefiningMe{
+    width: 70%;
 }
 
 @media (orientation: portrait) {}

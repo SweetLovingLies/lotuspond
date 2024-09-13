@@ -25,6 +25,7 @@ body {
     background-color: var(--Teal);
     font-family: Comfortaa, Helvetica, Arial, sans-serif;
     color: white;
+    height: 100vh;
 }
 
 .container-fluid {
@@ -75,7 +76,7 @@ nav {
 /* Footer */
 footer {
     height: 350px;
-    position: relative;
+    position: fixed;
     background-color: #88b088;
     color: white;
     padding: 10px 0;
@@ -85,6 +86,15 @@ footer {
     -webkit-box-shadow: 0px -1px 10px 0px #00000060;
     -moz-box-shadow: 0px -1px 10px 0px #00000060;
     box-shadow: 0px -1px 10px 0px #00000060;
+}
+
+.footer-hidden {
+    bottom: -100px;
+    left: 0;
+}
+
+.footer-visible {
+    bottom: 0;
 }
 
 .shrink {
