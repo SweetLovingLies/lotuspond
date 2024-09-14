@@ -8,6 +8,8 @@
     --LogoTypeYellow: #fff4d6;
 }
 
+/* Toggle Tabs */
+
 #toggleTabRow{
     width: unset;
     justify-content: center;
@@ -27,10 +29,13 @@
     font-weight: bold;
     border: 1px solid black;
     border-bottom: none;
+
+    transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
 .toggleTab.is-active{
     background-color: var(--LogoTypeYellow);
+    transform: scale(1.1);
 }
 
 .portfolio-content {
@@ -39,7 +44,38 @@
 
 .portfolio-content.is-active {
     display: flex;
+    animation: fadeIn 0.5s ease-in-out forwards;
 }
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade-out Animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-in-active {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fade-out-active {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* Web Dev Portfolio */
 
 #content-web{
     padding: 50px 0;
@@ -73,13 +109,21 @@
     filter: none;
 }
 
-
-
-
 .webDevPreview p{
     margin: 0 0 3px 0;
     color: white;
 }
+
+
+/* Graphic Designer Portfolio */
+
+#content-graphic{
+    padding: 50px 0;
+    background: url("/assets/Backgrounds/Rose\ Vines.png"), var(--LogoTypeYellow);
+    border: 1px solid black;
+}
+
+/* Other */
 
 .seemore {
     font-weight: bold;
