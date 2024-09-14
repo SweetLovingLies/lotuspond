@@ -152,13 +152,18 @@ main .container-fluid {
 
 h1,
 h2,
-h3,
 h4,
 h5,
 h6 {
     color: var(--headerColor);
     font-family: Raleway;
     font-weight: bold;
+}
+
+h3{
+    font-family: Raleway;
+    font-weight: bold;
+    color: white;
 }
 
 .headerCenter {

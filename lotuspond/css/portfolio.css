@@ -43,7 +43,7 @@
 
 #content-web{
     padding: 50px 0;
-    background: url("/lotuspond/assets/Backgrounds/Vines.png"), var(--LogoTypeYellow);
+    background: url("/assets/Backgrounds/Vines.png"), var(--LogoTypeYellow);
     border: 1px solid black;
 }
 
@@ -63,12 +63,14 @@
 .displayScreenshots img {
     margin-bottom: 30px;
     transform: translateY(0);
-    transition: transform 12s ease-in-out;
+    transition: transform 12s;
+    filter: grayscale(100%) invert(10%) saturate(350%) hue-rotate(50deg) brightness(105%) contrast(95%);
 }
 
 .displayScreenshots img:hover {
     transform: translateY(calc(-100% + 540px)); 
-    transition: transform 16s ease-in-out; 
+    transition: transform 16s; 
+    filter: none;
 }
 
 
