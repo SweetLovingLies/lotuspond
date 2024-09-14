@@ -29,10 +29,10 @@
     bottom: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white;
     filter: drop-shadow(1px 2px 1px #47808a);
     z-index: 3;
     opacity: 0;
-    /* Start with opacity 0 */
     animation: fadeIn 3s forwards, floatglow 1000ms ease-in-out infinite alternate;
     animation-delay: 2s;
 }
@@ -128,12 +128,31 @@
     background-color: #ff84c3;
 }
 
-/* Services I provide */
+/* Headers */
 
-#servicesHeader {
+.indexHeaderStyling {
     padding: 10px;
     background-color: var(--Teal2);
+    color: white;
 }
+
+/* Skill sets */
+
+#skillsMarquee1, #skillsMarquee2, #skillsMarquee3{
+    gap: 20px;
+}
+
+.skilldisplay{
+    flex: 0 1 150px;
+    align-items: start;
+    background-color: var(--Yellow);
+    color: black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+/* Services I provide */
 
 #servicesHeader h3 {
     font-weight: bold;

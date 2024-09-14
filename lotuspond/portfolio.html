@@ -44,13 +44,13 @@
                     <div class="container-fluid">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                                <a class="nav-link" href="index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="about.html">About Me</a>
+                                <a class="nav-link" href="about.html">About Me</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="portfolio.html"> My Portfolio</a>
+                                <a class="nav-link active" aria-current="page" href="portfolio.html"> My Portfolio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact Me</a>
@@ -65,6 +65,59 @@
         </nav>
 
         <main class="container-fluid">
+            <div class="container-fluid">
+                <h3 class="headerCenter">Some of my works:</h3>
+            </div>
+            <!-- Tabs -->
+            <div class="container-fluid row">
+                <div class="col-lg-5"></div>
+
+                <div class="col-lg-1">
+                    <div id="tab-web" class="toggleTab d-flex">Web Design</div>
+                </div>
+                <div class="col-lg-1">
+                    <div id="tab-graphic" class="toggleTab d-flex">Graphic Design</div>
+                </div>
+                <div class="col-lg-5"></div>
+            </div>
+            <!-- Portfolios -->
+            <section id="content-web" class="portfolio-content container-fluid row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-4">
+                    <div class="webDevPreview row">
+                        <img class="img-fluid" src="assets/Filler Images/summerAnime.png">
+                        <div class="col-lg-8">
+                            <p>Client: HC Trojan</p>
+                            <p>Project: HC Trojan Website and Logo Package</p>
+                        </div>
+                        <div class="col-lg-4  d-flex align-items-center">
+                            <button type="button" class="seemore">See Website</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="webDevPreview row">
+                        <img class="img-fluid" src="assets/Filler Images/summerAnime.png">
+                        <div class="col-lg-8">
+                            <p>Client: HC Trojan</p>
+                            <p>Project: HC Trojan Website and Logo Package</p>
+                        </div>
+                        <div class="col-lg-4  d-flex align-items-center">
+                            <button type="button" class="seemore">See Website</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
+            </section>
+
+            <section id="content-graphic" class="portfolio-content container-fluid row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-4">
+                    <!-- Graphic Design Content goes here -->
+                </div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-2"></div>
+            </section>
         </main>
 
         <footer class="container-fluid footer-hidden">
@@ -77,8 +130,10 @@
                     <h5>Not sure yet?<br> Let's connect anyways!</h5>
                     <div class=" socials">
                         <a href="https://www.instagram.com/lotuspond.creative"><i class="fa fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i class="fa fa-facebook-square"></i></a>      
-                        <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i class="	fa fa-linkedin-square"></i></a>
+                        <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i
+                                class="fa fa-facebook-square"></i></a>
+                        <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i
+                                class="	fa fa-linkedin-square"></i></a>
                     </div>
                     <p class="mail">LotusPondCreative@gmail.com</p>
                     <sup>You can move the lotuses by the way! ↓</sup>
@@ -91,6 +146,39 @@
     <script src="js/LotusPond.js"></script>
 
     <script src="js/footer.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('.toggleTab');
+    const contents = document.querySelectorAll('.portfolio-content');
+
+    const activeTabId = localStorage.getItem('activeTab') || 'tab-web';
+
+    tabs.forEach(tab => tab.classList.remove('is-active'));
+    contents.forEach(content => content.classList.remove('is-active'));
+
+    const activeTab = document.getElementById(activeTabId);
+    if (activeTab) {
+        activeTab.classList.add('is-active');
+        document.getElementById(activeTabId.replace('tab-', 'content-')).classList.add('is-active');
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            tabs.forEach(t => t.classList.remove('is-active'));
+            contents.forEach(content => content.classList.remove('is-active'));
+
+            this.classList.add('is-active');
+            const targetContentId = this.id.replace('tab-', 'content-');
+            document.getElementById(targetContentId).classList.add('is-active');
+
+            localStorage.setItem('activeTab', this.id);
+        });
+    });
+});
+
+    </script>
 </body>
 
 </html>

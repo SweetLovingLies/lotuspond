@@ -6,6 +6,8 @@
     --Green: #88b088;
     --Yellow: #ffe18d;
     --LogoTypeYellow: #fff4d6;
+    --textColor: #202020;
+    --headerColor: black;
 }
 
 @font-face {
@@ -24,8 +26,8 @@ body {
     padding: 67px 0 0 0;
     background-color: var(--Teal);
     font-family: Comfortaa, Helvetica, Arial, sans-serif;
-    color: white;
-    height: 100vh;
+    color: var(--textColor);
+    padding-bottom: 350px;
 }
 
 .container-fluid {
@@ -51,7 +53,7 @@ nav {
 .nav-link {
     font-family: raleway;
     font-size: 1.5em;
-    color: white;
+    color: black;
     font-weight: bold;
     transition: color .25s ease-in;
     padding: 0 1rem;
@@ -61,6 +63,7 @@ nav {
 .navbar-nav .nav-link.show {
     text-decoration: underline;
     color: var(--Pink2);
+    -webkit-text-stroke: .5px #666666;
     font-weight: bold;
 }
 
@@ -71,30 +74,32 @@ nav {
 .navbar-nav .nav-link.show:hover,
 .navbar-nav .nav-link.show:active {
     color: var(--Pink2);
+    -webkit-text-stroke: .5px #666666;
 }
 
 /* Footer */
 footer {
     height: 350px;
-    position: fixed;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: #88b088;
-    color: white;
     padding: 10px 0;
     text-align: center;
-    z-index: 3;
-
-    -webkit-box-shadow: 0px -1px 10px 0px #00000060;
-    -moz-box-shadow: 0px -1px 10px 0px #00000060;
+    z-index: 50;
     box-shadow: 0px -1px 10px 0px #00000060;
+    transition: bottom .5s ease-in-out;
 }
 
 .footer-hidden {
-    bottom: -100px;
+    bottom: -400px;
     left: 0;
+    position: fixed; 
 }
 
 .footer-visible {
     bottom: 0;
+    position: fixed; 
 }
 
 .shrink {
@@ -130,7 +135,6 @@ footer i {
 main .container-fluid {
     position: relative;
     width: 100%;
-    color: white;
     z-index: 2;
 }
 
@@ -152,6 +156,7 @@ h3,
 h4,
 h5,
 h6 {
+    color: var(--headerColor);
     font-family: Raleway;
     font-weight: bold;
 }
@@ -161,11 +166,11 @@ h6 {
 }
 
 a{
-    color: var(--Yellow);
-    transition: .25s all;
+    color: #0044ff;
+    transition: .25s font-weight;
 }
 a:hover{
-    color: var(--LogoTypeYellow);
+    font-weight:bolder;
 }
 
 /* Other */

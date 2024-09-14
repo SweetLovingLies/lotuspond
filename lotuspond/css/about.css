@@ -31,6 +31,7 @@
 }
 
 #aboutName h1 {
+    color: white;
     font-family: Rochester;
     font-size: 5rem;
     align-self: flex-end;
