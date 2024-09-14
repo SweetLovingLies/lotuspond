@@ -69,41 +69,31 @@
                 <h3 class="headerCenter">Some of my works:</h3>
             </div>
             <!-- Tabs -->
-            <div class="container-fluid row">
-                <div class="col-lg-5"></div>
+            <div id="toggleTabRow" class="container-fluid row">
+                <div class="col-xxl-5"></div>
 
-                <div class="col-lg-1">
+                <div class="col-xxl-1">
                     <div id="tab-web" class="toggleTab d-flex">Web Design</div>
                 </div>
-                <div class="col-lg-1">
+                <div class="col-xxl-1">
                     <div id="tab-graphic" class="toggleTab d-flex">Graphic Design</div>
                 </div>
-                <div class="col-lg-5"></div>
+                <div class="col-xxl-5"></div>
             </div>
             <!-- Portfolios -->
             <section id="content-web" class="portfolio-content container-fluid row">
                 <div class="col-lg-2"></div>
-                <div class="col-lg-4">
+                <div class="col-lg">
                     <div class="webDevPreview row">
-                        <img class="img-fluid" src="assets/Filler Images/summerAnime.png">
+                        <div class="displayScreenshots">
+                            <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png">
+                        </div>
                         <div class="col-lg-8">
                             <p>Client: HC Trojan</p>
                             <p>Project: HC Trojan Website and Logo Package</p>
                         </div>
-                        <div class="col-lg-4  d-flex align-items-center">
-                            <button type="button" class="seemore">See Website</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="webDevPreview row">
-                        <img class="img-fluid" src="assets/Filler Images/summerAnime.png">
-                        <div class="col-lg-8">
-                            <p>Client: HC Trojan</p>
-                            <p>Project: HC Trojan Website and Logo Package</p>
-                        </div>
-                        <div class="col-lg-4  d-flex align-items-center">
-                            <button type="button" class="seemore">See Website</button>
+                        <div class="col-lg-4  d-flex align-items-center justify-content-end">
+                            <a href="https://www.hctrojan.com"><button type="button" class="seemore">See Website</button></a> 
                         </div>
                     </div>
                 </div>
@@ -145,8 +135,7 @@
     <canvas id="LotusPond"></canvas>
     <script src="js/LotusPond.js"></script>
 
-    <script src="js/footer.js"></script>
-    <script>
+<script>
         document.addEventListener('DOMContentLoaded', function () {
     const tabs = document.querySelectorAll('.toggleTab');
     const contents = document.querySelectorAll('.portfolio-content');
@@ -180,5 +169,7 @@
 
     </script>
 </body>
+<script src="js/footer.js"></script>
+
 
 </html>

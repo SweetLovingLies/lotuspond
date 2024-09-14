@@ -8,6 +8,15 @@
     --LogoTypeYellow: #fff4d6;
 }
 
+#toggleTabRow{
+    width: unset;
+    justify-content: center;
+}
+
+#toggleTabRow div{
+    width: unset;
+}
+
 .toggleTab{
     text-align: center;
     align-items: center;
@@ -34,7 +43,8 @@
 
 #content-web{
     padding: 50px 0;
-    background-color: var(--LogoTypeYellow);
+    background: url("/lotuspond/assets/Backgrounds/Vines.png"), var(--LogoTypeYellow);
+    border: 1px solid black;
 }
 
 .webDevPreview{
@@ -43,11 +53,26 @@
     border: 1px solid black;
 }
 
-.webDevPreview img{
+.displayScreenshots {
+    max-height: 540px;
+    overflow: hidden;
     border: 1px solid black;
     background-color: white;
-    margin-bottom: 30px;
 }
+
+.displayScreenshots img {
+    margin-bottom: 30px;
+    transform: translateY(0);
+    transition: transform 12s ease-in-out;
+}
+
+.displayScreenshots img:hover {
+    transform: translateY(calc(-100% + 540px)); 
+    transition: transform 16s ease-in-out; 
+}
+
+
+
 
 .webDevPreview p{
     margin: 0 0 3px 0;
@@ -58,7 +83,7 @@
     font-weight: bold;
     background-color: var(--LogoTypeYellow);
     color: black;
-    border: white 1px solid;
+    border: black 1px solid;
     border-radius: 50px;
     padding: 10px 50px;
     transition: background-color .25s;
