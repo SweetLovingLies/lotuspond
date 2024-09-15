@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
     const lotusImage = new Image();
     lotusImage.onload = startAnimation;
     lotusImage.onerror = () => console.error('Failed to load lotus image'); // Debugging
-    lotusImage.src = './assets/Lotus.png';
+    lotusImage.src = './assets/Branding/Lotus.png';
 
     canvas.width = window.innerWidth;
     canvas.height = 100;

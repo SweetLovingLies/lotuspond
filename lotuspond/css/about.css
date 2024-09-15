@@ -83,6 +83,11 @@
     #aboutName h1 {
         font-size: 9vmin;
     }
+    .cloud1,
+    .cloud2,
+    #arrow {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -95,12 +100,6 @@
         width: 70%;
         height: auto;
         margin: 0 auto;
-    }
-
-    .cloud1,
-    .cloud2,
-    #arrow {
-        display: none;
     }
 }
 

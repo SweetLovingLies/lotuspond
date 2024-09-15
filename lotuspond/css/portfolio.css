@@ -123,6 +123,19 @@
     border: 1px solid black;
 }
 
+#content-graphic img{
+width: 50%;
+}
+
+/*  */
+
+#content-logo{
+    padding: 50px 0;
+    background: url("/assets/Backgrounds/Rose\ Vines.png"), var(--LogoTypeYellow);
+    border: 1px solid black;
+}
+
+
 /* Other */
 
 .seemore {
