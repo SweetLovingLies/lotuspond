@@ -44,7 +44,7 @@
     <div id="wrapper" class="container-fluid">
         <nav class="navbar fixed-top navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.html" aria-label="Homepage, Lotus Pond Creative">
                     <img src="assets/Branding/LogoSideways.png" alt="Lotus Pond Creative Logo" width="60" height="auto">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -83,7 +83,7 @@
                     <h1 id="startDName">Hana Harris</h1>
                     <div class="image-container">
                         <img id="stainedGlass" class="img-fluid" src="assets/GDPortfolio/2024/StainedGlass.png"
-                            alt="Stained Glass version of the Lotus Pond Creative Lotus">
+                            aria-hidden="true" alt="Stained Glass version of the Lotus Pond Creative Lotus">
                     </div>
                     <p style="color: white;">Vector Art, Interactive Websites, Brand Design</p>
                 </div>
@@ -91,7 +91,8 @@
 
             <!-- About me Stuff -->
             <div id="aboutBlurb" class="container-fluid section">
-                <p id="aboutblurbtxt"> Hi! I'm Hana and I'm a black freelance graphic designer and web developer living in Detroit.
+                <p id="aboutblurbtxt"> Hi! I'm Hana and I'm a black freelance graphic designer and web developer living
+                    in Detroit.
                     <br>
                     I specialize in <span style="text-decoration: underline wavy #ff96cc;">playful</span> designs and
                     clients who love
@@ -107,15 +108,16 @@
                     <br>
                     I help clients like you bring their dream designs to life in an efficient manner. <b>When shall we
                         begin?</b>
-                    </p>
-                <a href="contact.html"><button type="button" class="contact">Contact Me!</button></a>
+                </p>
+                <a href="contact.html"><button type="button" class="contact" aria-label="Contact Hana Harris">Contact
+                        Me!</button></a>
             </div>
 
             <!-- Skills List -->
             <div id="skills" class="indexHeaderStyling container-fluid headerCenter">
                 <h3>My Skills are in...</h3>
             </div>
-            <div class="container-fluid section">
+            <div class="container-fluid section" aria-labelledby="skills1-heading">
                 <div id="skillsMarquee1" class="row justify-content-center">
                     <p class="skilldisplay">HTML</p>
                     <p class="skilldisplay">Javascript</p>
@@ -123,7 +125,7 @@
                     <p class="skilldisplay">Swift</p>
                 </div>
 
-                <div id="skillsMarquee2" class="row justify-content-center">
+                <div id="skillsMarquee2" class="row justify-content-center" aria-labelledby="skills1-heading">
                     <p class="skilldisplay">CSS</p>
                     <p class="skilldisplay">Bootstrap</p>
                     <p class="skilldisplay">Tailwind</p>
@@ -132,7 +134,7 @@
                     <p class="skilldisplay">SwiftUI</p>
                 </div>
 
-                <div id="skillsMarquee3" class="row justify-content-center">
+                <div id="skillsMarquee3" class="row justify-content-center" aria-labelledby="skills1-heading">
                     <p class="skilldisplay">VSCode</p>
                     <p class="skilldisplay">XCode</p>
                     <p class="skilldisplay">Illustrator</p>
@@ -150,7 +152,7 @@
     </div>
     <div class="container-fluid section">
         <div id="services" class="row">
-            <div class="servicescol col-lg-4">
+            <div class="servicescol col-lg-4" aria-labelledby="service1-heading">
                 <div class="d-flex align-items-center">
                     <h6>1</h6>
                     <h4>Custom <br> Vector Art</h4>
@@ -194,12 +196,12 @@
             <div class="col">
                 <h5>Not sure yet?<br> Let's connect anyways!</h5>
                 <div class=" socials">
-                    <a href="https://www.instagram.com/lotuspond.creative"><i class="fa fa-instagram"
-                            alt="Instagram Link"></i></a>
-                    <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i class="fa fa-facebook-square"
-                            alt="Facebook Link"></i></a>
-                    <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i class="	fa fa-linkedin-square"
-                            alt="LinkedIn Link"></i></a>
+                    <a href="https://www.instagram.com/lotuspond.creative" aria-label="Instagram Link"><i
+                            class="fa fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG" aria-label="Facebook Link"><i
+                            class="fa fa-facebook-square"></i></a>
+                    <a href="https://www.linkedin.com/in/morgan-harris-51a968281/" aria-label="LinkedIn Link"><i
+                            class="fa fa-linkedin-square"></i></a>
                 </div>
                 <p class="mail">LotusPondCreative@gmail.com</p>
                 <sup>You can move the lotuses by the way! ↓</sup>
@@ -208,7 +210,7 @@
     </footer>
     </div>
 
-    <canvas id="LotusPond"></canvas>
+    <canvas id="LotusPond" aria-hidden="true"></canvas>
     <script src="js/LotusPond.js"></script>
 
 </body>

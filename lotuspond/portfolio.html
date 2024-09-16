@@ -34,7 +34,7 @@
     <div id="wrapper" class="container-fluid">
         <nav class="navbar fixed-top navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.html" aria-label="Homepage, Lotus Pond Creative">
                     <img src="assets/Branding/LogoSideways.png" alt="Lotus Pond Creative Logo" width="60" height="auto">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -72,14 +72,14 @@
             </div>
             <!-- Tabs -->
             <div id="toggleTabRow" class="justify-content-center">
-                <div id="tab-web" class="toggleTab d-flex">Web Design</div>
-                <div id="tab-graphic" class="toggleTab d-flex">Graphic Design</div>
-                <div id="tab-logo" class="toggleTab d-flex">Logo Design</div>
+                <div id="tab-web" class="toggleTab d-flex" aria-controls="content-web">Web Design</div>
+                <div id="tab-graphic" class="toggleTab d-flex" aria-controls="content-graphic">Graphic Design</div>
+                <div id="tab-logo" class="toggleTab d-flex" aria-controls="content-logo">Logo Design</div>
             </div>
     </div>
 
     <!-- Web Dev Portfolio -->
-    <section id="content-web" class="portfolio-content row">
+    <section id="content-web" class="portfolio-content row" aria-labelledby="tab-web">
         <div class="col-lg-2"></div>
         <div class="col-lg">
             <div class="webDevPreview row">
@@ -91,7 +91,7 @@
                     <p>Project: HC Trojan Website and Logo Package</p>
                 </div>
                 <div class="col-lg-4  d-flex align-items-center justify-content-end">
-                    <a href="https://www.hctrojan.com"><button type="button" class="seemore">See Website</button></a>
+                    <a href="https://www.hctrojan.com"><button type="button" class="seemore" aria-label="Visit HC Trojan Website">See Website</button></a>
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
     </section>
 
     <!-- Graphic Dev Portfolio -->
-    <section id="content-graphic" class="portfolio-content container-fluid row">
+    <section id="content-graphic" class="portfolio-content container-fluid row" aria-labelledby="tab-graphic">
         <div id="graphicWrapper" class="d-flex">
             <div class="col-lg-2">
             </div>
@@ -146,7 +146,7 @@
     </section>
 
     <!-- Brand Design Portfolio -->
-    <section id="content-logo" class="portfolio-content container-fluid row">
+    <section id="content-logo" class="portfolio-content container-fluid row" aria-labelledby="tab-logo">
         <div class="col-lg-2"></div>
         <div class="col-lg">
             <img id="HMSBrand" class="logos img-fluid" src="assets/BrandIdentities/HMSDisplayVer.png" loading="lazy" alt="Harris Mobility Solutions Logo Display!">
@@ -165,12 +165,12 @@
             <div class="col">
                 <h5>Not sure yet?<br> Let's connect anyways!</h5>
                 <div class=" socials">
-                    <a href="https://www.instagram.com/lotuspond.creative"><i class="fa fa-instagram"
-                            alt="Instagram Link"></i></a>
-                    <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i class="fa fa-facebook-square"
-                            alt="Facebook Link"></i></a>
-                    <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i class="	fa fa-linkedin-square"
-                            alt="LinkedIn Link"></i></a>
+                    <a href="https://www.instagram.com/lotuspond.creative" aria-label="Instagram Link"><i
+                            class="fa fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG" aria-label="Facebook Link"><i
+                            class="fa fa-facebook-square"></i></a>
+                    <a href="https://www.linkedin.com/in/morgan-harris-51a968281/" aria-label="LinkedIn Link"><i
+                            class="fa fa-linkedin-square"></i></a>
                 </div>
                 <p class="mail">LotusPondCreative@gmail.com</p>
                 <sup>You can move the lotuses by the way! ↓</sup>
@@ -179,7 +179,7 @@
     </footer>
     </div>
 
-    <canvas id="LotusPond"></canvas>
+    <canvas id="LotusPond" aria-hidden="true"></canvas>
     <script src="js/LotusPond.js"></script>
 
 </body>

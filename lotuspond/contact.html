@@ -38,7 +38,7 @@
     <div id="wrapper" class="container-fluid">
         <nav class="navbar fixed-top navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.html" aria-label="Homepage, Lotus Pond Creative">
                     <img src="assets/Branding/LogoSideways.png" alt="Lotus Pond Creative Logo" width="60" height="auto">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -85,31 +85,32 @@
                     </p>
                 </div>
                 <div class="col-md-5">
+                    <h2 id="contact-form-heading">Contact Form</h2>
                     <div id="contactform">
-                        <form method="POST" id="form">
+                        <form method="POST" id="form" aria-labelledby="contact-form-heading">
                             <input type="hidden" name="access_key" value="545c82ab-9c75-4234-9cc1-439a02ff90bc">
                             <input type="hidden" name="subject" value="I'm interested in your services!">
-    
+                        
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full Name</label>
-                                <input type="text" name="name" class="form-control" id="name">
+                                <input type="text" name="name" class="form-control" id="name" aria-required="true">
                             </div>
-    
+                        
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email Address</label>
-                                <input type="email" name="email" class="form-control" id="email">
+                                <input type="email" name="email" class="form-control" id="email" aria-required="true">
                             </div>
-    
+                        
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                                <textarea class="form-control" name="message" id="message" rows="3" aria-required="true"></textarea>
                             </div>
-    
+                        
                             <div class="h-captcha" data-captcha="true"></div>
-    
+                        
                             <button type="submit" class="btn bt-pink">Submit</button>
-    
                         </form>
+                        
     
                         <div id="result"></div>
                     </div>
@@ -119,7 +120,8 @@
         </main>
 
         <footer class="container-fluid footer-hidden">
-            <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png" alt="Full version of the Lotus Pond Creative Logo "></div>
+            <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png"
+                    alt="Full version of the Lotus Pond Creative Logo "></div>
             <div class="row footerLinks">
                 <div class="col">
                     <p>© Hana Harris 2024</p>
@@ -127,9 +129,12 @@
                 <div class="col">
                     <h5>Not sure yet?<br> Let's connect anyways!</h5>
                     <div class=" socials">
-                        <a href="https://www.instagram.com/lotuspond.creative"><i class="fa fa-instagram" alt="Instagram Link"></i></a>
-                        <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i class="fa fa-facebook-square" alt="Facebook Link"></i></a>      
-                        <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i class="	fa fa-linkedin-square" alt="LinkedIn Link"></i></a>
+                        <a href="https://www.instagram.com/lotuspond.creative" aria-label="Instagram Link"><i
+                                class="fa fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG" aria-label="Facebook Link"><i
+                                class="fa fa-facebook-square"></i></a>
+                        <a href="https://www.linkedin.com/in/morgan-harris-51a968281/" aria-label="LinkedIn Link"><i
+                                class="fa fa-linkedin-square"></i></a>
                     </div>
                     <p class="mail">LotusPondCreative@gmail.com</p>
                     <sup>You can move the lotuses by the way! ↓</sup>
@@ -138,13 +143,11 @@
         </footer>
     </div>
 
-    <canvas id="LotusPond"></canvas>
+    <canvas id="LotusPond" aria-hidden="true"></canvas>
     <script src="js/LotusPond.js"></script>
-
-    <script src="https://web3forms.com/client/script.js" async defer></script>
-    <script src="js/contact.js"></script>
-
-    <script src="js/footer.js"></script>
 </body>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+<script src="js/contact.js"></script>
+<script src="js/footer.js"></script>
 
 </html>

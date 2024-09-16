@@ -31,7 +31,7 @@
     <div id="wrapper" class="container-fluid">
         <nav class="navbar fixed-top navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.html" aria-label="Homepage, Lotus Pond Creative">
                     <img src="assets/Branding/LogoSideways.png" alt="Lotus Pond Creative Logo" width="60" height="auto">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -67,21 +67,21 @@
             <div id="displayWrapper" class="row">
                 <div class="col-lg-2"></div>
                 <div id="aboutName" class="col-lg-4 col-md-12 d-flex flex-column">
-                    <img id="arrow" src="assets/decor/arrow.png" alt="A decorative arrow">
-                    <img class="cloud1" src="assets/decor/Cloud1.png" alt="A decorative cloud">
+                    <img id="arrow" src="assets/decor/arrow.png" alt="" aria-hidden="true">
+                    <img class="cloud1" src="assets/decor/Cloud1.png" alt="" aria-hidden="true">
                     <h1>Hi<span style="color: #ff96cc; font-size: larger;">!</span> I'm Hana<span
                             style="color: #ff96cc; font-size: larger;">.</span></h1>
                 </div>
                 <div id="aboutImg" class="col-lg-4 col-md-12 ">
-                    <img id="headshot" class="img-fluid" src="assets/Me/MyHeadshot.png" alt="A headshot of me!">
-                    <img class="cloud2" src="assets/decor/Cloud2.png" alt="A decorative arrow">
+                    <img id="headshot" class="img-fluid" src="assets/Me/MyHeadshot.png" alt="A headshot of Hana Harris">
+                    <img class="cloud2" src="assets/decor/Cloud2.png" alt="" aria-hidden="true">
                 </div>
                 <div class="col-lg-2"></div>
             </div>
             <div id="aboutMain" class="container-fluid row section">
                 <div class="col-lg-2"></div>
                 <div class="d-flex col-lg-4 justify-content-center align-items-start">
-                    <img id="DefiningMe" class="img-fluid" src="assets/decor/Defining Me.png" alt="Some things that define me are: Autism, ADHD, LGBTQ, Plural">
+                    <img id="DefiningMe" class="img-fluid" src="assets/decor/Defining Me.png" alt="Things that define me: Autism, ADHD, LGBTQ, Plural">
                 </div>
                 <div class="col-lg-4">
                     <h1>Let's get to know each other!</h1>
@@ -120,7 +120,8 @@
         </main>
 
         <footer class="container-fluid footer-hidden">
-            <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png" alt="Full version of the Lotus Pond Creative Logo "></div>
+            <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png"
+                    alt="Full version of the Lotus Pond Creative Logo "></div>
             <div class="row footerLinks">
                 <div class="col">
                     <p>© Hana Harris 2024</p>
@@ -128,9 +129,12 @@
                 <div class="col">
                     <h5>Not sure yet?<br> Let's connect anyways!</h5>
                     <div class=" socials">
-                        <a href="https://www.instagram.com/lotuspond.creative"><i class="fa fa-instagram" alt="Instagram Link"></i></a>
-                        <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i class="fa fa-facebook-square" alt="Facebook Link"></i></a>      
-                        <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i class="	fa fa-linkedin-square" alt="LinkedIn Link"></i></a>
+                        <a href="https://www.instagram.com/lotuspond.creative" aria-label="Instagram Link"><i
+                                class="fa fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG" aria-label="Facebook Link"><i
+                                class="fa fa-facebook-square"></i></a>
+                        <a href="https://www.linkedin.com/in/morgan-harris-51a968281/" aria-label="LinkedIn Link"><i
+                                class="fa fa-linkedin-square"></i></a>
                     </div>
                     <p class="mail">LotusPondCreative@gmail.com</p>
                     <sup>You can move the lotuses by the way! ↓</sup>
@@ -139,7 +143,7 @@
         </footer>
     </div>
 
-    <canvas id="LotusPond"></canvas>
+    <canvas id="LotusPond" aria-hidden="true"></canvas>
     <script src="js/LotusPond.js"></script>
 
 </body>
