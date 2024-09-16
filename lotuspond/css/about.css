@@ -1,0 +1,121 @@
+:root {
+    --Teal: #32a5a5;
+    --Teal2: #227FAB;
+    --Pink: #ff96cc;
+    --Pink2: #ffbbde;
+    --Green: #88b088;
+    --Yellow: #ffe18d;
+    --LogoTypeYellow: #fff4d6;
+}
+
+/* That display at the top */
+#displayWrapper {
+    margin: 25px auto;
+    padding: 40px;
+}
+
+#aboutImg {
+    position: relative;
+    padding: 0;
+}
+
+#headshot {
+    width: 100%;
+    border-radius: 15px;
+    border: 5px dashed var(--LogoTypeYellow);
+}
+
+#aboutName {
+    position: relative;
+    justify-content: flex-end;
+}
+
+#aboutName h1 {
+    color: white;
+    font-family: Rochester;
+    font-size: 5rem;
+    align-self: flex-end;
+}
+
+#arrow {
+    position: absolute;
+    width: 300px;
+    right: -20%;
+    bottom: 40%;
+    transform: rotate(330deg);
+    z-index: 4;
+}
+
+.cloud1,
+.cloud2 {
+    position: absolute;
+    z-index: 4;
+}
+
+.cloud1 {
+    right: 30%;
+    bottom: 15%;
+    transform: scale(0.5) rotate(350deg);
+}
+
+.cloud2 {
+    right: -20%;
+    top: -18%;
+    transform: scale(0.7) rotate(10deg);
+}
+
+/* Where I begin to yap */
+
+/* #aboutMain{
+} */
+
+#certContainer {
+    background-color: var(--Teal2);
+}
+
+#DefiningMe{
+    width: 70%;
+}
+
+@media (orientation: portrait) {}
+
+@media screen and (max-width: 1440px) {
+    #aboutName h1 {
+        font-size: 9vmin;
+    }
+    .cloud1,
+    .cloud2,
+    #arrow {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #aboutName h1 {
+        margin: 0 auto;
+    }
+
+    #headshot {
+        display: block;
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+    #aboutWrapper {
+        padding: 10px;
+        width: 100%;
+    }
+
+    #headshot {
+        width: 100%;
+    }
+
+    #aboutName h1 {
+        font-size: 2.4rem;
+        text-align: center;
+    }
+}
