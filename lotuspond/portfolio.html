@@ -13,10 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Masonry.js -->
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
-        integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
-        async></script>
+    <!-- Fancybox Lightboxes -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
     <!-- My Styles-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
@@ -28,9 +27,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/fe4cec0542.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body class="fade-in">
@@ -74,15 +73,9 @@
                 <h3 class="headerCenter">Some of my works:</h3>
             </div>
             <!-- Tabs -->
-            <div id="toggleTabRow" class="container-fluid row justify-content-center">
-
-                <div class="col-xxl-1">
-                    <div id="tab-web" class="toggleTab d-flex">Web Design</div>
-                </div>
-                <div class="col-xxl-1">
-                    <div id="tab-graphic" class="toggleTab d-flex">Graphic Design</div>
-                </div>
-                <div class="col-xxl-1"></div>
+            <div id="toggleTabRow" class="justify-content-center">
+                <div id="tab-web" class="toggleTab d-flex">Web Design</div>
+                <div id="tab-graphic" class="toggleTab d-flex">Graphic Design</div>
                 <div id="tab-logo" class="toggleTab d-flex">Logo Design</div>
             </div>
     </div>
@@ -110,26 +103,57 @@
     </section>
 
     <!-- Graphic Dev Portfolio -->
-    <section id="content-graphic" class="portfolio-content container-fluid">
-        <div class="col-lg-2">
+    <section id="content-graphic" class="portfolio-content container-fluid row">
+        <div id="graphicWrapper" class="d-flex">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <a href="assets/PortfolioGraphics/2024/ZephyrEmblem.png" data-fancybox="gallery"
+                    data-caption=" The Zephyr <br> A very personal piece displaying a dream animal from my childhood.">
+                    <img class="img-fluid" src="assets/PortfolioGraphics/2024/ZephyrEmblem.png">
+                </a>
+
+                <a href="assets/PortfolioGraphics/2024/StainedGlass.png" data-fancybox="gallery"
+                    data-caption=" Stained Glass (Brand Edition) <br> I created this piece with this site in mind! I wanted something eyecatching as a focalpoint for the index page, and I think this worked out perfect.">
+                    <img class="img-fluid" src="assets/PortfolioGraphics/2024/StainedGlass.png">
+                </a>
+
+                <a href="assets/PortfolioGraphics/2023/TravelHawk.png" data-fancybox="gallery"
+                    data-caption=" Travel Hawk Logo <br> Travel Hawk was a concept me and my coursemates at the ADA foundations program made. This was my first experience making something more corperately acceptable.">
+                    <img class="img-fluid" src="assets/PortfolioGraphics/2023/TravelHawk.png">
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <a href="assets/PortfolioGraphics/2024/50slogoV2.png" data-fancybox="gallery"
+                    data-caption=" Diner-Style Emblem <br> More art indicative of my interests. I love the aesthetics of the 1950s. I took my own modern spin on the emblem though and gave it some youthful life while keeping the classic text-style and delivery.">
+                    <img class="img-fluid" src="assets/PortfolioGraphics/2024/50slogoV2.png">
+                </a>
+                <a href="assets/PortfolioGraphics/2024/DeliciousIcon.png" data-fancybox="gallery"
+                    data-caption=" Delicious! <br> I made this for a Discord server icon!">
+                    <img class="img-fluid" src="assets/PortfolioGraphics/2024/DeliciousIcon.png">
+                </a>
+                <a href="assets/PortfolioGraphics/2023/SweetLovingLiesHeader.png" data-fancybox="gallery"
+                    data-caption=" Tell me lies, tell me... <br> At some point, I settled on this as a username. All of my accounts have a similar motif now. Unheard of from my side of life.">
+                    <img class="img-fluid" src="assets/PortfolioGraphics/2023/SweetLovingLiesHeader.png">
+                </a>
+                <a href="assets/PortfolioGraphics/2023/ShugareSnap! Logo.png" data-fancybox="gallery"
+                    data-caption=" Shugare Snap! <br> The first name I ever branded myself under. I have since moved on from the bakery-style motif I had, but maybe I'll turn this concept into a brand identity in the future.">
+                    <img class="img-fluid" src="assets/PortfolioGraphics/2023/ShugareSnap! Logo.png">
+                </a>
+                <a href="assets/PortfolioGraphics/2024/StainedGlassRose.png" data-fancybox="gallery"
+                    data-caption=" Stained Glass (Rose Edition) <br> This was the first version of the stained glass concept I made. I wanted to make sure I actually understood how to get the effect before making the brand version. I still like this one quite a lot! But the linework annoys me a bit.">
+                    <img class="img-fluid" src="assets/PortfolioGraphics/2024/StainedGlassRose.png">
+                </a>
+            </div>
+            <div class="col-lg-2"></div>
         </div>
-        <div class="col-lg-4">
-            <img class="img-fluid" src="assets/portfoliographics/2024/ZephyrEmblem.png">
-        </div>
-        <div class="col-lg-4">
-            <img class="img-fluid" src="assets/portfoliographics/2024/50slogoV2.png">
-        </div>
-        <div class="col-lg-2"></div>
     </section>
 
     <!-- Brand Design Portfolio -->
     <section id="content-logo" class="portfolio-content container-fluid row">
         <div class="col-lg-2"></div>
-        <div class="col-lg-4">
-            <img src="">
-        </div>
-        <div class="col-lg-4">
-            <img>
+        <div class="col-lg">
+            <img id="HMSBrand" class="logos img-fluid" src="assets/BrandIdentities/HMSDisplayVer.png">
         </div>
         <div class="col-lg-2"></div>
     </section>
@@ -165,10 +189,8 @@
             const tabs = document.querySelectorAll('.toggleTab');
             const contents = document.querySelectorAll('.portfolio-content');
 
-            // Retrieve active tab from localStorage, default to 'tab-web' (Web Design tab)
             const activeTabId = localStorage.getItem('activeTab') || 'tab-web';
 
-            // Get the corresponding active tab and content
             const activeTab = document.getElementById(activeTabId);
             const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
 
@@ -190,7 +212,6 @@
                 tab.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    // Remove active class from all tabs and trigger fade-out for the current content
                     tabs.forEach(t => t.classList.remove('is-active'));
                     contents.forEach(content => {
                         if (content.classList.contains('is-active')) {
@@ -205,24 +226,26 @@
                         }
                     });
 
-                    // Add active class to the clicked tab and display the corresponding content
                     this.classList.add('is-active');
                     const targetContentId = this.id.replace('tab-', 'content-');
                     const targetContent = document.getElementById(targetContentId);
 
                     setTimeout(() => {
                         targetContent.classList.remove('fade-out-active');
-                        targetContent.style.display = 'flex'; // Ensure visibility before fade-in
-                        targetContent.classList.add('is-active', 'fade-in-active'); // Trigger fade-in
+                        targetContent.style.display = 'flex'; 
+                        targetContent.classList.add('is-active', 'fade-in-active');
                     }, 500);
 
-                    // Save the active tab in localStorage
                     localStorage.setItem('activeTab', this.id);
                 });
             });
         });
     </script>
 </body>
+<script>
+    Fancybox.bind('[data-fancybox]', {
+    });     
+</script>
 <script src="js/footer.js"></script>
 
 

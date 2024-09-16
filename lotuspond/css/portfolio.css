@@ -10,17 +10,15 @@
 
 /* Toggle Tabs */
 
-#toggleTabRow{
-    width: unset;
-    justify-content: center;
+#toggleTabRow {
+    display: flex;
+    gap: 20px;
 }
 
-#toggleTabRow div{
-    width: unset;
-}
-
-.toggleTab{
+.toggleTab {
+    flex: 0 1 150px;
     text-align: center;
+    justify-content: center;
     align-items: center;
     background-color: #d1bf8c;
     padding: 5px 15px;
@@ -33,7 +31,7 @@
     transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
-.toggleTab.is-active{
+.toggleTab.is-active {
     background-color: var(--LogoTypeYellow);
     transform: scale(1.1);
 }
@@ -52,6 +50,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -62,6 +61,7 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
@@ -77,13 +77,13 @@
 
 /* Web Dev Portfolio */
 
-#content-web{
+#content-web {
     padding: 50px 0;
     background: url("/assets/Backgrounds/Vines.png"), var(--LogoTypeYellow);
     border: 1px solid black;
 }
 
-.webDevPreview{
+.webDevPreview {
     background-color: var(--Teal2);
     padding: 30px;
     border: 1px solid black;
@@ -104,12 +104,12 @@
 }
 
 .displayScreenshots img:hover {
-    transform: translateY(calc(-100% + 540px)); 
-    transition: transform 16s; 
+    transform: translateY(calc(-100% + 540px));
+    transition: transform 16s;
     filter: none;
 }
 
-.webDevPreview p{
+.webDevPreview p {
     margin: 0 0 3px 0;
     color: white;
 }
@@ -117,22 +117,40 @@
 
 /* Graphic Designer Portfolio */
 
-#content-graphic{
+#content-graphic {
     padding: 50px 0;
-    background: url("/assets/Backgrounds/Rose\ Vines.png"), var(--LogoTypeYellow);
+    background: url("/assets/Backgrounds/Roses.png"), var(--LogoTypeYellow);
     border: 1px solid black;
 }
 
-#content-graphic img{
-width: 50%;
+#graphicWrapper{
+    gap: 20px;
 }
 
-/*  */
+#graphicWrapper img{
+    border: 5px solid var(--Pink);
+    padding: 10px;
+    background-color: var(--Yellow);
+    margin-bottom: 20px;
 
-#content-logo{
+    border-radius: 50px;
+}
+
+/*  Logo Designer Portfolio */
+
+#content-logo {
     padding: 50px 0;
-    background: url("/assets/Backgrounds/Rose\ Vines.png"), var(--LogoTypeYellow);
+    background: url("/assets/Backgrounds/RoseVines.png"), var(--LogoTypeYellow);
     border: 1px solid black;
+}
+
+.logos{
+    padding: 20px;
+}
+
+#HMSBrand{
+    background-color: var(--Teal2);
+    border: 5px solid white;
 }
 
 
