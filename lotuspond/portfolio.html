@@ -14,7 +14,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Masonry.js -->
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+        integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+        async></script>
 
     <!-- My Styles-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
@@ -72,8 +74,7 @@
                 <h3 class="headerCenter">Some of my works:</h3>
             </div>
             <!-- Tabs -->
-            <div id="toggleTabRow" class="container-fluid row">
-                <div class="col-xxl-5"></div>
+            <div id="toggleTabRow" class="container-fluid row justify-content-center">
 
                 <div class="col-xxl-1">
                     <div id="tab-web" class="toggleTab d-flex">Web Design</div>
@@ -81,120 +82,145 @@
                 <div class="col-xxl-1">
                     <div id="tab-graphic" class="toggleTab d-flex">Graphic Design</div>
                 </div>
-                <div class="col-xxl-5"></div>
+                <div class="col-xxl-1"></div>
+                <div id="tab-logo" class="toggleTab d-flex">Logo Design</div>
             </div>
-            <!-- Portfolios -->
-            <section id="content-web" class="portfolio-content container-fluid row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg">
-                    <div class="webDevPreview row">
-                        <div class="displayScreenshots">
-                            <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png">
-                        </div>
-                        <div class="col-lg-8">
-                            <p>Client: HC Trojan</p>
-                            <p>Project: HC Trojan Website and Logo Package</p>
-                        </div>
-                        <div class="col-lg-4  d-flex align-items-center justify-content-end">
-                            <a href="https://www.hctrojan.com"><button type="button" class="seemore">See Website</button></a> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </section>
+    </div>
 
-            <section id="content-graphic" class="portfolio-content container-fluid row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4">
-                    <!-- Graphic Design Content goes here -->
-                </div>
-                <div class="col-lg-4"></div>
-                <div class="col-lg-2"></div>
-            </section>
-        </main>
+    <!-- Portfolios -->
 
-        <footer class="container-fluid footer-hidden">
-            <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png"></div>
-            <div class="row footerLinks">
-                <div class="col">
-                    <p>© Hana Harris 2024</p>
+    <!-- Web Dev Portfolio -->
+    <section id="content-web" class="portfolio-content row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg">
+            <div class="webDevPreview row">
+                <div class="displayScreenshots">
+                    <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png">
                 </div>
-                <div class="col">
-                    <h5>Not sure yet?<br> Let's connect anyways!</h5>
-                    <div class=" socials">
-                        <a href="https://www.instagram.com/lotuspond.creative"><i class="fa fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i
-                                class="fa fa-facebook-square"></i></a>
-                        <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i
-                                class="	fa fa-linkedin-square"></i></a>
-                    </div>
-                    <p class="mail">LotusPondCreative@gmail.com</p>
-                    <sup>You can move the lotuses by the way! ↓</sup>
+                <div class="col-lg-8">
+                    <p>Client: HC Trojan</p>
+                    <p>Project: HC Trojan Website and Logo Package</p>
+                </div>
+                <div class="col-lg-4  d-flex align-items-center justify-content-end">
+                    <a href="https://www.hctrojan.com"><button type="button" class="seemore">See Website</button></a>
                 </div>
             </div>
-        </footer>
+        </div>
+        <div class="col-lg-2"></div>
+    </section>
+
+    <!-- Graphic Dev Portfolio -->
+    <section id="content-graphic" class="portfolio-content container-fluid">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-4">
+            <img class="img-fluid" src="assets/portfoliographics/2024/ZephyrEmblem.png">
+        </div>
+        <div class="col-lg-4">
+            <img class="img-fluid" src="assets/portfoliographics/2024/50slogoV2.png">
+        </div>
+        <div class="col-lg-2"></div>
+    </section>
+
+    <!-- Brand Design Portfolio -->
+    <section id="content-logo" class="portfolio-content container-fluid row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4">
+            <img src="">
+        </div>
+        <div class="col-lg-4">
+            <img>
+        </div>
+        <div class="col-lg-2"></div>
+    </section>
+
+    </main>
+
+    <footer class="container-fluid footer-hidden">
+        <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png"></div>
+        <div class="row footerLinks">
+            <div class="col">
+                <p>© Hana Harris 2024</p>
+            </div>
+            <div class="col">
+                <h5>Not sure yet?<br> Let's connect anyways!</h5>
+                <div class=" socials">
+                    <a href="https://www.instagram.com/lotuspond.creative"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG"><i class="fa fa-facebook-square"></i></a>
+                    <a href="https://www.linkedin.com/in/morgan-harris-51a968281/"><i
+                            class="	fa fa-linkedin-square"></i></a>
+                </div>
+                <p class="mail">LotusPondCreative@gmail.com</p>
+                <sup>You can move the lotuses by the way! ↓</sup>
+            </div>
+        </div>
+    </footer>
     </div>
 
     <canvas id="LotusPond"></canvas>
     <script src="js/LotusPond.js"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const tabs = document.querySelectorAll('.toggleTab');
-    const contents = document.querySelectorAll('.portfolio-content');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.toggleTab');
+            const contents = document.querySelectorAll('.portfolio-content');
 
-    // Get the active tab from localStorage, default to Web Design tab
-    const activeTabId = localStorage.getItem('activeTab') || 'tab-web';
+            // Retrieve active tab from localStorage, default to 'tab-web' (Web Design tab)
+            const activeTabId = localStorage.getItem('activeTab') || 'tab-web';
 
-    // Make sure to apply initial classes for the first tab
-    const activeTab = document.getElementById(activeTabId);
-    const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
+            // Get the corresponding active tab and content
+            const activeTab = document.getElementById(activeTabId);
+            const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
 
-    tabs.forEach(tab => tab.classList.remove('is-active'));
-    contents.forEach(content => {
-        content.style.display = 'none';
-        content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
-    });
-
-    if (activeTab) {
-        activeTab.classList.add('is-active');
-        activeContent.style.display = 'flex'; // Show the first content by default
-        activeContent.classList.add('is-active', 'fade-in-active'); // Make it fade in initially
-    }
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            tabs.forEach(t => t.classList.remove('is-active'));
+            // Clear all active states on load
+            tabs.forEach(tab => tab.classList.remove('is-active'));
             contents.forEach(content => {
-                if (content.classList.contains('is-active')) {
-                    content.classList.remove('fade-in-active');
-                    content.classList.add('fade-out-active');
-
-                    setTimeout(() => {
-                        content.style.display = 'none'; 
-                        content.classList.remove('is-active');
-                    }, 500);
-                }
+                content.style.display = 'none';
+                content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
             });
 
-            this.classList.add('is-active');
-            const targetContentId = this.id.replace('tab-', 'content-');
-            const targetContent = document.getElementById(targetContentId);
+            // Apply the 'is-active' class to the active tab and content
+            if (activeTab && activeContent) {
+                activeTab.classList.add('is-active');
+                activeContent.style.display = 'flex';
+                activeContent.classList.add('is-active', 'fade-in-active');
+            }
 
-            setTimeout(() => {
-                targetContent.classList.remove('fade-out-active');
-                targetContent.style.display = 'flex';
-                targetContent.classList.add('is-active', 'fade-in-active'); 
-            }, 500);
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function (e) {
+                    e.preventDefault();
 
-            localStorage.setItem('activeTab', this.id); 
+                    // Remove active class from all tabs and trigger fade-out for the current content
+                    tabs.forEach(t => t.classList.remove('is-active'));
+                    contents.forEach(content => {
+                        if (content.classList.contains('is-active')) {
+                            content.classList.remove('fade-in-active');
+                            content.classList.add('fade-out-active');
+
+                            // Wait for the fade-out animation to complete before hiding the content
+                            setTimeout(() => {
+                                content.style.display = 'none';
+                                content.classList.remove('is-active');
+                            }, 500);
+                        }
+                    });
+
+                    // Add active class to the clicked tab and display the corresponding content
+                    this.classList.add('is-active');
+                    const targetContentId = this.id.replace('tab-', 'content-');
+                    const targetContent = document.getElementById(targetContentId);
+
+                    setTimeout(() => {
+                        targetContent.classList.remove('fade-out-active');
+                        targetContent.style.display = 'flex'; // Ensure visibility before fade-in
+                        targetContent.classList.add('is-active', 'fade-in-active'); // Trigger fade-in
+                    }, 500);
+
+                    // Save the active tab in localStorage
+                    localStorage.setItem('activeTab', this.id);
+                });
+            });
         });
-    });
-});
-
-
     </script>
 </body>
 <script src="js/footer.js"></script>
