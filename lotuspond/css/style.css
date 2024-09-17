@@ -1,0 +1,301 @@
+:root {
+    --Teal: #32a5a5;
+    --Teal2: #227FAB;
+    --Pink: #ff96cc;
+    --Pink2: #ffbbde;
+    --Green: #88b088;
+    --Yellow: #ffe18d;
+    --LogoTypeYellow: #fff4d6;
+    --SunsetRed: #ff6767;
+    --SunsetOrange: #ffb12b;
+    --WaterTeal1: #004d81;
+    --WaterBlue1: #003481;
+    --WaterBlue2:#0b2a44;
+    --SunsetGradient: linear-gradient(0deg, rgba(255,103,103,1) 0%, rgba(255,177,43,1) 50%, rgba(255,225,141,1) 100%);
+    --SunsetGradient2: linear-gradient(0deg, rgba(0,101,255,1) 0%, rgba(0,101,255,1) 10%, rgba(255,103,103,1) 10%, rgba(255,177,43,1) 50%, rgba(255,225,141,1) 100%);
+
+    /* Other */
+    --textColor: #202020;
+    --headerColor: black;
+}
+
+@font-face {
+    font-family: Rochester;
+    src: url('/fonts/Rochester-Regular.ttf');
+}
+
+@font-face {
+    font-family: Solitude;
+    src: url('/fonts/Solitude.ttf');
+}
+
+
+/* General Layout */
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 67px 0 0 0;
+    background-color: var(--Teal);
+    font-family: Comfortaa, Helvetica, Arial, sans-serif;
+    color: var(--textColor);
+    padding-bottom: 350px;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+/* NavBar Header */
+
+.navbar>.container-fluid {
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+}
+
+nav {
+    padding: 10px 0;
+    background-color: var(--Green);
+}
+
+.navbar-nav {
+    flex: 1 1;
+}
+
+.nav-link {
+    font-family: raleway;
+    font-size: 1.5em;
+    color: black;
+    font-weight: bold;
+    transition: color .25s ease-in;
+    padding: 0 1rem;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    text-decoration: underline;
+    color: var(--WaterBlue1);
+    font-weight: bold;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.navbar-nav .nav-link.active:hover,
+.navbar-nav .nav-link.active:active,
+.navbar-nav .nav-link.show:hover,
+.navbar-nav .nav-link.show:active {
+    color: var(--WaterBlue1);
+}
+
+/* Footer */
+footer {
+    height: 350px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #88b088;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 50;
+    box-shadow: 0px -1px 10px 0px #00000060;
+    transition: bottom .5s ease-in-out;
+
+    z-index: 10;
+}
+
+.footer-hidden {
+    bottom: -400px;
+    left: 0;
+    position: fixed; 
+}
+
+.footer-visible {
+    bottom: 0;
+    position: fixed; 
+}
+
+.shrink {
+    margin: 0 auto;
+    width: 600px;
+}
+
+footer h5 {
+    font-weight: bold;
+}
+
+.footerLinks {
+    max-width: 700px;
+}
+
+footer .row {
+    margin: 0 auto;
+}
+
+.socials a {
+    text-decoration: none;
+}
+
+footer i {
+    font-size: 30px;
+    color: var(--WaterTeal1);
+    margin: 0 3px;
+    filter: drop-shadow(#46464677 1px 1px 1px);
+}
+
+/* Main */
+
+main .container-fluid {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
+
+.section {
+    padding: 40px;
+    background-color: var(--Green);
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* General Styles */
+
+h1,
+h2,
+h4,
+h5,
+h6 {
+    color: var(--headerColor);
+    font-family: Solitude;
+    font-weight: bold;
+}
+
+h1{
+    font-size: 4em;
+}
+
+h3{
+    font-family: Solitude;
+    font-weight: bold;
+    color: white;
+    font-size: 3em;
+}
+
+h4{
+    font-size: 2em;
+}
+
+.headerCenter {
+    text-align: center;
+}
+
+a{
+    color: var(--WaterBlue1);
+    transition: .25s font-weight;
+}
+a:hover{
+    font-weight:bolder;
+}
+
+/* Other */
+
+/* Main Button (Pink Edition) */
+
+.bt-pink {
+    background-color: var(--Pink2);
+    color: black;
+    transition: background-color .25s;
+}
+
+.bt-pink:hover {
+    background-color: var(--Pink);
+    color: black;
+}
+
+.bt-pink:active,
+.bt-pink:focus .bt-pink:active:focus {
+    background-color: #ff84c3;
+}
+
+table,
+th,
+tr,
+td {
+    padding: 10px;
+    border: 2px solid var(--Green);
+    background-color: #ffbbde;
+    color: #000;
+}
+
+td {
+    width: 50%;
+}
+
+/* Fade-in effect on page load */
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Decor */
+#logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.decor {
+    background-color: #6e996e;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+/* The Pond */
+
+#LotusPond {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100vw;
+    z-index: 20;
+}
+
+/* Media Queries*/
+
+@media (orientation: portrait) {
+    .shrink {
+        width: 90%;
+    }
+
+    .section {
+        padding: 40px 20px;
+    }
+
+    table,
+    th,
+    tr,
+    td {
+        padding: 0;
+    }
+}

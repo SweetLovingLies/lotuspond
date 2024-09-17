@@ -1,0 +1,70 @@
+main{
+    margin-bottom: 20px;
+}
+
+sup{
+    font-family: comfortaa;
+    font-size: small;
+    vertical-align: top;
+    top: 1em;
+}
+
+tag{
+    align-self: start;
+}
+
+#contactHeader {
+    position: relative;
+    height: 20em;
+    justify-content: center;
+    align-items: center;
+    background: var(--SunsetGradient2);
+    border-bottom: 5px solid white;
+    overflow: hidden;
+}
+
+#duck {
+    position: absolute;
+    bottom: 31px;
+    left: 0; 
+    width: 3em;
+    animation: duck 180s linear 4s infinite;
+    user-select: none;
+    pointer-events: none;
+}
+
+@keyframes duck {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(100vw); 
+    }
+}
+
+#GetinTouch{
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color: var(--Pink2);
+    filter: drop-shadow(1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px  1px 0px var(--WaterTeal1)) drop-shadow(-1px  -1px 0px var(--WaterTeal1));
+}
+
+h2{
+    width:  400px;
+    font-size: 4.5em;
+} 
+
+#GetinTouch p{
+    font-weight: bold;
+    width: 350px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #duck {
+        animation: none; 
+        left: 0;
+    }
+}
