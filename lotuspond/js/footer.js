@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const scrollTop = window.scrollY;
         const clientHeight = window.innerHeight;
 
-        if (scrollHeight <= clientHeight || scrollTop + clientHeight >= scrollHeight - 50) {
+        if (scrollTop + clientHeight >= scrollHeight - 50) {
             footer.classList.add('footer-visible');
         } else {
             footer.classList.remove('footer-visible');

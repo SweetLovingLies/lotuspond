@@ -126,11 +126,13 @@
 
 /* Skill sets */
 
-#skillsMarquee1, #skillsMarquee2, #skillsMarquee3{
+#skillsMarquee1,
+#skillsMarquee2,
+#skillsMarquee3 {
     gap: 20px;
 }
 
-.skilldisplay{
+.skilldisplay {
     flex: 0 1 150px;
     align-items: start;
     background-color: var(--Yellow);
@@ -146,17 +148,17 @@
     font-weight: bold;
 }
 
-#services{
+#services {
     position: relative;
     margin: auto;
     width: 80vw;
 }
 
-.servicescol{
-position: relative;
+.servicescol {
+    position: relative;
 }
 
-#services h6{
+#services h6 {
     float: left;
     margin-right: 20px;
 
@@ -170,14 +172,14 @@ position: relative;
     border-radius: 999px;
 }
 
-#services h4{
+#services h4 {
     vertical-align: middle;
 }
 
 /* Featured Works (Modified from Portfolio!) */
 
 .displayCase {
-    min-height: 460px;
+    height: 450px;
     background-color: var(--Teal2);
     padding: 30px;
     border: 1px solid black;
@@ -197,19 +199,20 @@ position: relative;
     filter: grayscale(100%) invert(10%) saturate(350%) hue-rotate(50deg) brightness(105%) contrast(95%);
 }
 
-.longimg:hover, .longimg:focus{
+.longimg:hover,
+.longimg:focus {
     transform: translateY(calc(-100% + 540px));
     transition: transform 16s;
     filter: none;
 }
 
-.smallimg{
+.smallimg {
     object-fit: contain;
-    width: 100%; 
+    width: 100%;
     height: 100%;
 }
 
-.projectDetails{
+.projectDetails {
     display: flex;
     min-height: 125px;
 }
@@ -261,18 +264,29 @@ position: relative;
         width: 24em;
         height: 530px;
     }
-    .projectDetails{
+
+    .projectDetails {
         flex-direction: column;
     }
+
     .projectDetails p {
         text-align: center;
     }
+
     .projectButton {
         margin: 0;
     }
 }
 
+@media screen and (max-width: 900px) {
+    .displayCase {
+        height: unset;
+        margin-bottom: 20px;
+    }
+}
+
 @media screen and (max-width: 425px) {
+
     #startDName {
         font-size: 5rem;
     }
