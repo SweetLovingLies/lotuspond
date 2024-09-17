@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Let's get in contact with each other!" />
+    <title>Thanks for Visiting!</title>
+    <meta name="description" content="Let's get in contact with each other!" />
     <link rel="icon" type="image/x-icon" href="assets/Branding/LogoSideways.png">
 
     <!-- Bootstrap -->
@@ -15,7 +15,7 @@
     <!-- My Styles-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/contact.css" rel="stylesheet" type="text/css" media="all">
-    
+
     <!-- My JS-->
     <script>
         window.onload = function () {
@@ -71,48 +71,49 @@
         </nav>
 
         <main class="container-fluid">
-            <div>
-                <h1 class="headerCenter">Shall we talk?</h1>
+            <div id="contactHeader" class="d-flex">
+                <h1 class=" headerCenter">Shall we talk?</h1>
             </div>
-            <div class="container-fluid row" style="margin-bottom: 10px;">
+            <div class="container-fluid row" style="margin-top: 10px;">
                 <div class="col-md-1"></div>
-                <div class="col-md-5">
-                    <h2>Our love story begins here!<sup>or by email...</sup></h2>
-                    <p>
-                        Well! Thanks for considering me for your wonderful ideas. If the contact form doesn't work for you, please feel free to send me a direct email at <span>LotusPondCreative@gmail.com</span>. 
-                        <br>
-                        It's not a professional level email yet but we all have to start somewhere!
-                    </p>
+                <div id="GetinTouch" class="col-md-5 d-flex flex-column">
+                    <div>
+                        <tag>Get in Touch!</tag>
+                        <h2>Our love story begins here!<sup>or by email...</sup></h2>
+                        <p class="txt">
+                            It's easy to reach me. Just send a friendly "hello" my way! I love making connections and I
+                            can't wake to make one with you.
+                        </p>
+                    </div>
                 </div>
                 <div class="col-md-5">
-                    <h2 id="contact-form-heading">Contact Form</h2>
+                    <h4 id="contact-form-heading">Contact Form</h4>
                     <div id="contactform">
                         <form method="POST" id="form" aria-labelledby="contact-form-heading">
                             <input type="hidden" name="access_key" value="545c82ab-9c75-4234-9cc1-439a02ff90bc">
                             <input type="hidden" name="subject" value="I'm interested in your services!">
-                        
+
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full Name</label>
                                 <input type="text" name="name" class="form-control" id="name" aria-required="true">
                             </div>
-                        
+
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email Address</label>
                                 <input type="email" name="email" class="form-control" id="email" aria-required="true">
                             </div>
-                        
+
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" name="message" id="message" rows="3" aria-required="true"></textarea>
+                                <textarea class="form-control" name="message" id="message" rows="3"
+                                    aria-required="true"></textarea>
                             </div>
-                        
-                            <div class="h-captcha" data-captcha="true"></div>
-                        
-                            <button type="submit" class="btn bt-pink">Submit</button>
+
+                            <div class="h-captcha" data-captcha="true" tabindex="0"></div>
+
+                            <button type="submit" tabindex="0" class="btn bt-pink">Submit</button>
+                            <div id="result"></div>
                         </form>
-                        
-    
-                        <div id="result"></div>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -121,7 +122,7 @@
 
         <footer class="container-fluid footer-hidden">
             <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png"
-                    alt="Full version of the Lotus Pond Creative Logo "></div>
+                    alt="Full version of the Lotus Pond Creative Logo"></div>
             <div class="row footerLinks">
                 <div class="col">
                     <p>© Hana Harris 2024</p>

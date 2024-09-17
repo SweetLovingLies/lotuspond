@@ -6,14 +6,28 @@
     --Green: #88b088;
     --Yellow: #ffe18d;
     --LogoTypeYellow: #fff4d6;
+    --SunsetRed: #ff6767;
+    --SunsetOrange: #ffb12b;
+    --WaterTeal1: #004d81;
+    --WaterBlue1: #003481;
+    --WaterBlue2:#0b2a44;
+    --SunsetGradient: linear-gradient(0deg, rgba(255,103,103,1) 0%, rgba(255,177,43,1) 50%, rgba(255,225,141,1) 100%);
+
+    /* Other */
     --textColor: #202020;
     --headerColor: black;
 }
 
 @font-face {
     font-family: Rochester;
-    src: url('../assets/fonts/Rochester-Regular.ttf');
+    src: url('/fonts/Rochester-Regular.ttf');
 }
+
+@font-face {
+    font-family: Solitude;
+    src: url('/fonts/Solitude.ttf');
+}
+
 
 /* General Layout */
 
@@ -67,8 +81,7 @@ nav {
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
     text-decoration: underline;
-    color: var(--Pink2);
-    -webkit-text-stroke: .5px #666666;
+    color: var(--WaterBlue1);
     font-weight: bold;
 }
 
@@ -78,8 +91,7 @@ nav {
 .navbar-nav .nav-link.active:active,
 .navbar-nav .nav-link.show:hover,
 .navbar-nav .nav-link.show:active {
-    color: var(--Pink2);
-    -webkit-text-stroke: .5px #666666;
+    color: var(--WaterBlue1);
 }
 
 /* Footer */
@@ -94,6 +106,8 @@ footer {
     z-index: 50;
     box-shadow: 0px -1px 10px 0px #00000060;
     transition: bottom .5s ease-in-out;
+
+    z-index: 10;
 }
 
 .footer-hidden {
@@ -130,7 +144,7 @@ footer .row {
 
 footer i {
     font-size: 30px;
-    color: var(--Pink);
+    color: var(--WaterTeal1);
     margin: 0 3px;
     filter: drop-shadow(#46464677 1px 1px 1px);
 }
@@ -161,14 +175,23 @@ h4,
 h5,
 h6 {
     color: var(--headerColor);
-    font-family: Raleway;
+    font-family: Solitude;
     font-weight: bold;
 }
 
+h1{
+    font-size: 4em;
+}
+
 h3{
-    font-family: Raleway;
+    font-family: Solitude;
     font-weight: bold;
     color: white;
+    font-size: 3em;
+}
+
+h4{
+    font-size: 2em;
 }
 
 .headerCenter {
@@ -176,7 +199,7 @@ h3{
 }
 
 a{
-    color: #0044ff;
+    color: var(--WaterBlue1);
     transition: .25s font-weight;
 }
 a:hover{
@@ -254,7 +277,7 @@ td {
     bottom: 0;
     height: 100px;
     width: 100vw;
-    z-index: 3;
+    z-index: 20;
 }
 
 /* Media Queries*/

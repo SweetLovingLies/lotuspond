@@ -1,7 +1,44 @@
+main{
+    margin-bottom: 20px;
+}
+
 sup{
-    font-size: xx-small;
+    font-family: comfortaa;
+    font-size: small;
     vertical-align: top;
     top: 1em;
+}
+
+tag{
+    align-self: start;
+}
+
+#contactHeader{
+    height: 20em;
+    justify-content: center;
+    align-items: center;
+    background: var(--SunsetGradient);
+    border-bottom: 5px solid white;
+}
+
+#GetinTouch{
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color: var(--Pink2);
+    filter: drop-shadow(1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px  1px 0px var(--WaterTeal1)) drop-shadow(-1px  -1px 0px var(--WaterTeal1));
+}
+
+h2{
+    width:  400px;
+    font-size: 4.5em;
+} 
+
+#GetinTouch p{
+    font-weight: bold;
+    width: 350px;
 }
 
 

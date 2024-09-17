@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotus Pond Creative</title>
     <meta name="description" content="My works and wares. Do you like what you see?" />
     <link rel="icon" type="image/x-icon" href="assets/Branding/LogoSideways.png">
 
@@ -67,14 +68,21 @@
         </nav>
 
         <main class="container-fluid">
-            <div class="container-fluid">
-                <h3 class="headerCenter">Some of my works:</h3>
+            <div id="portfolioHeader" class="d-flex flex-column container-fluid">
+                <div>
+                    <sub>Just some of... </sub>
+                    <h1 class="headerCenter">My Favorite Things</h1>
+                    <p> Click them to zoom in! </p>
+                </div>
             </div>
             <!-- Tabs -->
             <div id="toggleTabRow" class="justify-content-center">
-                <div id="tab-web" class="toggleTab d-flex" aria-controls="content-web">Web Design</div>
-                <div id="tab-graphic" class="toggleTab d-flex" aria-controls="content-graphic">Graphic Design</div>
-                <div id="tab-logo" class="toggleTab d-flex" aria-controls="content-logo">Logo Design</div>
+                <div id="tab-web" class="toggleTab d-flex" role="button" tabindex="0" aria-controls="content-web">Web
+                    Design</div>
+                <div id="tab-graphic" class="toggleTab d-flex" tabindex="0" role="button"
+                    aria-controls="content-graphic">Graphic Design</div>
+                <div id="tab-logo" class="toggleTab d-flex" tabindex="0" role="button" aria-controls="content-logo">Logo
+                    Design</div>
             </div>
     </div>
 
@@ -84,14 +92,18 @@
         <div class="col-lg">
             <div class="webDevPreview row">
                 <div class="displayScreenshots">
-                    <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png" alt="HCTrojan Official Website Screenshot">
+                    <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png"
+                        alt="HCTrojan Official Website Screenshot">
                 </div>
-                <div class="col-lg-8">
-                    <p>Client: HC Trojan</p>
-                    <p>Project: HC Trojan Website and Logo Package</p>
-                </div>
-                <div class="col-lg-4  d-flex align-items-center justify-content-end">
-                    <a href="https://www.hctrojan.com"><button type="button" class="seemore" aria-label="Visit HC Trojan Website">See Website</button></a>
+                <div class="projectDetails">
+                    <div class="aboutProject">
+                        <p>Client: HC Trojan</p>
+                        <p>Project: HC Trojan Website and Logo Package</p>
+                    </div>
+                    <div class="d-flex projectButton justify-content-center">
+                        <a href="https://www.hctrojan.com"><button type="button" class="seemore"
+                                aria-label="Visit HC Trojan Website">See Website</button></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,46 +111,54 @@
     </section>
 
     <!-- Graphic Dev Portfolio -->
-    <section id="content-graphic" class="portfolio-content container-fluid row" aria-labelledby="tab-graphic">
-        <div id="graphicWrapper" class="d-flex">
+    <section id="content-graphic" class="portfolio-content container-fluid" aria-labelledby="tab-graphic">
+        <div id="graphicWrapper" class="d-flex row">
             <div class="col-lg-2">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-12">
                 <a href="assets/GDPortfolio/2024/ZephyrEmblem.png" data-fancybox="gallery"
                     data-caption=" The Zephyr <br> A very personal piece displaying a dream animal from my childhood.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/ZephyrEmblem.png" loading="lazy" alt="The Zephyr. Click me for a caption.">
+                    <img class="img-fluid" src="assets/GDPortfolio/2024/ZephyrEmblem.png" loading="lazy"
+                        alt="The Zephyr. Click me for a caption.">
                 </a>
 
                 <a href="assets/GDPortfolio/2024/StainedGlass.png" data-fancybox="gallery"
                     data-caption=" Stained Glass (Brand Edition) <br> I created this piece with this site in mind! I wanted something eyecatching as a focalpoint for the index page, and I think this worked out perfect.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlass.png" loading="lazy" alt="Stained Glass (Brand Edition). Click me for a caption.">
+                    <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlass.png" loading="lazy"
+                        alt="Stained Glass (Brand Edition). Click me for a caption.">
                 </a>
 
                 <a href="assets/GDPortfolio/2023/TravelHawk.png" data-fancybox="gallery"
                     data-caption=" Travel Hawk Logo <br> Travel Hawk was a concept me and my coursemates at the ADA foundations program made. This was my first experience making something more corperately acceptable.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2023/TravelHawk.png" loading="lazy" alt="Travel Hawk Logo. Click me for a caption.">
+                    <img class="img-fluid" src="assets/GDPortfolio/2023/TravelHawk.png" loading="lazy"
+                        alt="Travel Hawk Logo. Click me for a caption.">
                 </a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-12">
                 <a href="assets/GDPortfolio/2024/50slogoV2.png" data-fancybox="gallery"
                     data-caption=" Diner-Style Emblem <br> More art indicative of my interests. I love the aesthetics of the 1950s. I took my own modern spin on the emblem though and gave it some youthful life while keeping the classic text-style and delivery.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/50slogoV2.png" loading="lazy" alt="50s Style Diner Logo. Click me for a caption.">
+                    <img class="img-fluid" src="assets/GDPortfolio/2024/50slogoV2.png" loading="lazy"
+                        alt="50s Style Diner Logo. Click me for a caption.">
                 </a>
                 <a href="assets/GDPortfolio/2024/DeliciousIcon.png" data-fancybox="gallery"
                     data-caption=" Delicious! <br> I made this for a Discord server icon!">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/DeliciousIcon.png" loading="lazy" alt="Delicious! Icon. Click me for a caption.">
+                    <img class="img-fluid" src="assets/GDPortfolio/2024/DeliciousIcon.png" loading="lazy"
+                        alt="Delicious! Icon. Click me for a caption.">
                 </a>
                 <a href="assets/GDPortfolio/2023/SweetLovingLiesHeader.png" data-fancybox="gallery"
                     data-caption=" Tell me lies, tell me... <br> At some point, I settled on this as a username. All of my accounts have a similar motif now. Unheard of from my side of life.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2023/SweetLovingLiesHeader.png" loading="lazy" alt="SweetLovingLies Header. Click me for a caption.">
+                    <img class="img-fluid" src="assets/GDPortfolio/2023/SweetLovingLiesHeader.png" loading="lazy"
+                        alt="SweetLovingLies Header. Click me for a caption.">
                 </a>
                 <a href="assets/GDPortfolio/2023/ShugareSnap! Logo.png" data-fancybox="gallery"
                     data-caption=" Shugare Snap! <br> The first name I ever branded myself under. I have since moved on from the bakery-style motif I had, but maybe I'll turn this concept into a brand identity in the future.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2023/ShugareSnap! Logo.png" loading="lazy" alt="Shugare Snap Logo. Click me for a caption.">
+                    <img class="img-fluid" src="assets/GDPortfolio/2023/ShugareSnap! Logo.png" loading="lazy"
+                        alt="Shugare Snap Logo. Click me for a caption.">
                 </a>
                 <a href="assets/GDPortfolio/2024/StainedGlassRose.png" data-fancybox="gallery"
                     data-caption=" Stained Glass (Rose Edition) <br> This was the first version of the stained glass concept I made. I wanted to make sure I actually understood how to get the effect before making the brand version. I still like this one quite a lot! But the linework annoys me a bit.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlassRose.png" loading="lazy" alt="Stained Glass (Rose Edition). Click me for a caption.">
+                    <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlassRose.png" loading="lazy"
+                        alt="Stained Glass (Rose Edition). Click me for a caption.">
                 </a>
             </div>
             <div class="col-lg-2"></div>
@@ -149,7 +169,11 @@
     <section id="content-logo" class="portfolio-content container-fluid row" aria-labelledby="tab-logo">
         <div class="col-lg-2"></div>
         <div class="col-lg">
-            <img id="HMSBrand" class="logos img-fluid" src="assets/BrandIdentities/HMSDisplayVer.png" loading="lazy" alt="Harris Mobility Solutions Logo Display!">
+            <a href="assets/BrandIdentities/HMSDisplayVer.png" data-fancybox="gallery"
+                data-caption=" Harris Mobility Solutions">
+                <img id="HMSBrand" class="logos img-fluid" src="assets/BrandIdentities/HMSDisplayVer.png" loading="lazy"
+                    alt="Harris Mobility Solutions Logo Display!">
+            </a>
         </div>
         <div class="col-lg-2"></div>
     </section>
@@ -237,6 +261,15 @@
 
                 localStorage.setItem('activeTab', this.id);
             });
+        });
+    });
+
+    document.querySelectorAll('.toggleTab').forEach(tab => {
+        tab.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                tab.click();  // Trigger the click event when Enter or Space is pressed
+            }
         });
     });
 

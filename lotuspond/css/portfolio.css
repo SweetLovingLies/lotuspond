@@ -1,18 +1,27 @@
-:root {
-    --Teal: #32a5a5;
-    --Teal2: #227FAB;
-    --Pink: #ff96cc;
-    --Pink2: #ffbbde;
-    --Green: #88b088;
-    --Yellow: #ffe18d;
-    --LogoTypeYellow: #fff4d6;
+/* Toggle Tabs */
+
+#portfolioHeader {
+    height: 20em;
+    justify-content: center;
+    align-items: center;
+    background: var(--SunsetGradient);
 }
 
-/* Toggle Tabs */
+h1 {
+    color: var(--Pink2);
+    filter: drop-shadow(1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px -1px 0px var(--WaterTeal1));
+}
+
+sub {
+    display: block;
+    transform: rotate(-1deg);
+}
 
 #toggleTabRow {
     display: flex;
     gap: 20px;
+    background-color: var(--SunsetRed);
+    padding-top: 10px;
 }
 
 .toggleTab {
@@ -90,73 +99,41 @@
 }
 
 .displayScreenshots {
-    max-height: 540px;
+    margin-bottom: 20px;
+    height: 540px;
     overflow: hidden;
     border: 1px solid black;
-    background-color: white;
+    background: var(--SunsetGradient);
 }
 
 .displayScreenshots img {
-    margin-bottom: 30px;
     transform: translateY(0);
     transition: transform 12s;
     filter: grayscale(100%) invert(10%) saturate(350%) hue-rotate(50deg) brightness(105%) contrast(95%);
 }
 
-.displayScreenshots img:hover {
+.displayScreenshots img:hover, .displayScreenshots img:focus{
     transform: translateY(calc(-100% + 540px));
     transition: transform 16s;
     filter: none;
 }
 
-.webDevPreview p {
+.projectDetails{
+    display: flex;
+    min-height: 125px;
+}
+
+.projectDetails p {
     margin: 0 0 3px 0;
     color: white;
 }
 
-
-/* Graphic Designer Portfolio */
-
-#content-graphic {
-    padding: 50px 0;
-    background: url("/assets/Backgrounds/Roses.png"), var(--LogoTypeYellow);
-    border: 1px solid black;
+.projectButton {
+    margin-left: auto;
 }
-
-#graphicWrapper{
-    gap: 20px;
-}
-
-#graphicWrapper img{
-    border: 5px solid var(--Pink);
-    padding: 10px;
-    background-color: var(--Yellow);
-    margin-bottom: 20px;
-
-    border-radius: 50px;
-}
-
-/*  Logo Designer Portfolio */
-
-#content-logo {
-    padding: 50px 0;
-    background: url("/assets/Backgrounds/RoseVines.png"), var(--LogoTypeYellow);
-    border: 1px solid black;
-}
-
-.logos{
-    padding: 20px;
-}
-
-#HMSBrand{
-    background-color: white;
-    border: 5px solid var(--Teal2);
-}
-
-
-/* Other */
 
 .seemore {
+    height: 70px;
     font-weight: bold;
     background-color: var(--LogoTypeYellow);
     color: black;
@@ -174,4 +151,59 @@
 .seemore:active,
 .seemore:focus .seemore:active:focus {
     background-color: var(--Yellow);
+}
+
+
+/* Graphic Designer Portfolio */
+
+#content-graphic {
+    padding: 50px 0;
+    background: url("/assets/Backgrounds/Roses.png"), var(--LogoTypeYellow);
+    border: 1px solid black;
+}
+
+#graphicWrapper {
+    gap: 20px;
+}
+
+#graphicWrapper img {
+    border: 5px solid var(--Pink);
+    padding: 10px;
+    background-color: var(--Yellow);
+    margin-bottom: 20px;
+
+    border-radius: 50px;
+}
+
+/*  Logo Designer Portfolio */
+
+#content-logo {
+    padding: 50px 0;
+    background: url("/assets/Backgrounds/RoseVines.png"), var(--LogoTypeYellow);
+    border: 1px solid black;
+}
+
+.logos {
+    padding: 20px;
+}
+
+#HMSBrand {
+    background-color: white;
+    border: 5px solid var(--Teal2);
+}
+
+@media screen and (max-width: 425px) {
+    .displayScreenshots {
+        max-height: 200px;
+    }
+
+    .projectDetails{
+        flex-direction: column;
+    }
+    .projectDetails p {
+        text-align: center;
+    }
+    .projectButton {
+        margin: 0;
+    }
 }

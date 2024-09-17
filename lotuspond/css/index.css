@@ -1,14 +1,3 @@
-:root {
-    --Teal: #32a5a5;
-    --Pink: #ff96cc;
-    --Pink2: #ffbbde;
-    --Green: #88b088;
-    --Yellow: #ffe18d;
-    --LogoTypeYellow: #fff4d6;
-}
-
-/* Starting Display! Gotta have a hook. */
-
 #start {
     height: 100vh;
 }
@@ -177,12 +166,82 @@ position: relative;
     width: fit-content;
 
     color: black;
-    background-color: var(--LogoTypeYellow);
+    background: var(--SunsetGradient);
     border-radius: 999px;
 }
 
 #services h4{
     vertical-align: middle;
+}
+
+/* Featured Works (Modified from Portfolio!) */
+
+.displayCase {
+    min-height: 460px;
+    background-color: var(--Teal2);
+    padding: 30px;
+    border: 1px solid black;
+}
+
+.displayScreenshots {
+    margin-bottom: 20px;
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid black;
+    background: var(--SunsetGradient);
+}
+
+.longimg {
+    transform: translateY(0);
+    transition: transform 12s;
+    filter: grayscale(100%) invert(10%) saturate(350%) hue-rotate(50deg) brightness(105%) contrast(95%);
+}
+
+.longimg:hover, .longimg:focus{
+    transform: translateY(calc(-100% + 540px));
+    transition: transform 16s;
+    filter: none;
+}
+
+.smallimg{
+    object-fit: contain;
+    width: 100%; 
+    height: 100%;
+}
+
+.projectDetails{
+    display: flex;
+    min-height: 125px;
+}
+
+.projectDetails p {
+    margin: 0 0 3px 0;
+    color: white;
+}
+
+.projectButton {
+    margin-left: auto;
+}
+
+.seemore {
+    height: 70px;
+    font-weight: bold;
+    background-color: var(--LogoTypeYellow);
+    color: black;
+    border: black 1px solid;
+    border-radius: 50px;
+    padding: 10px 50px;
+    transition: background-color .25s;
+}
+
+.seemore:hover {
+    background-color: var(--Yellow);
+    color: black;
+}
+
+.seemore:active,
+.seemore:focus .seemore:active:focus {
+    background-color: var(--Yellow);
 }
 
 /* Media Queries */
@@ -201,6 +260,15 @@ position: relative;
     .image-container {
         width: 24em;
         height: 530px;
+    }
+    .projectDetails{
+        flex-direction: column;
+    }
+    .projectDetails p {
+        text-align: center;
+    }
+    .projectButton {
+        margin: 0;
     }
 }
 
