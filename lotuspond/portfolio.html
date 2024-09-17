@@ -208,66 +208,96 @@
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const tabs = document.querySelectorAll('.toggleTab');
-        const contents = document.querySelectorAll('.portfolio-content');
+    const tabs = document.querySelectorAll('.toggleTab');
+    const contents = document.querySelectorAll('.portfolio-content');
 
-        const activeTabId = localStorage.getItem('activeTab') || 'tab-web';
+    // Function to get the tab ID from the URL hash or localStorage
+    const getActiveTabId = () => {
+        return window.location.hash ? window.location.hash.replace('#', 'tab-') : localStorage.getItem('activeTab') || 'tab-web';
+    };
 
-        const activeTab = document.getElementById(activeTabId);
-        const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
+    let activeTabId = getActiveTabId();
+    const activeTab = document.getElementById(activeTabId);
+    const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
 
-        // Clear all active states on load
+    // Clear all active states on load
+    tabs.forEach(tab => tab.classList.remove('is-active'));
+    contents.forEach(content => {
+        content.style.display = 'none';
+        content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
+    });
+
+    // Apply the 'is-active' class to the active tab and content
+    if (activeTab && activeContent) {
+        activeTab.classList.add('is-active');
+        activeContent.style.display = 'flex';
+        activeContent.classList.add('is-active', 'fade-in-active');
+    }
+
+    // Event listener for each tab click
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            tabs.forEach(t => t.classList.remove('is-active'));
+            contents.forEach(content => {
+                if (content.classList.contains('is-active')) {
+                    content.classList.remove('fade-in-active');
+                    content.classList.add('fade-out-active');
+
+                    // Wait for the fade-out animation to complete before hiding the content
+                    setTimeout(() => {
+                        content.style.display = 'none';
+                        content.classList.remove('is-active');
+                    }, 500);
+                }
+            });
+
+            this.classList.add('is-active');
+            const targetContentId = this.id.replace('tab-', 'content-');
+            const targetContent = document.getElementById(targetContentId);
+
+            setTimeout(() => {
+                targetContent.classList.remove('fade-out-active');
+                targetContent.style.display = 'flex';
+                targetContent.classList.add('is-active', 'fade-in-active');
+            }, 500);
+
+            // Update the URL without reloading the page
+            const newUrl = '#' + this.id.replace('tab-', '');
+            history.pushState(null, null, newUrl);
+
+            localStorage.setItem('activeTab', this.id);
+        });
+    });
+
+    // Handle back/forward browser navigation to load correct tab based on URL
+    window.addEventListener('popstate', function () {
+        activeTabId = getActiveTabId();
+
         tabs.forEach(tab => tab.classList.remove('is-active'));
         contents.forEach(content => {
             content.style.display = 'none';
             content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
         });
 
-        // Apply the 'is-active' class to the active tab and content
+        const activeTab = document.getElementById(activeTabId);
+        const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
+
         if (activeTab && activeContent) {
             activeTab.classList.add('is-active');
             activeContent.style.display = 'flex';
             activeContent.classList.add('is-active', 'fade-in-active');
         }
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                tabs.forEach(t => t.classList.remove('is-active'));
-                contents.forEach(content => {
-                    if (content.classList.contains('is-active')) {
-                        content.classList.remove('fade-in-active');
-                        content.classList.add('fade-out-active');
-
-                        // Wait for the fade-out animation to complete before hiding the content
-                        setTimeout(() => {
-                            content.style.display = 'none';
-                            content.classList.remove('is-active');
-                        }, 500);
-                    }
-                });
-
-                this.classList.add('is-active');
-                const targetContentId = this.id.replace('tab-', 'content-');
-                const targetContent = document.getElementById(targetContentId);
-
-                setTimeout(() => {
-                    targetContent.classList.remove('fade-out-active');
-                    targetContent.style.display = 'flex';
-                    targetContent.classList.add('is-active', 'fade-in-active');
-                }, 500);
-
-                localStorage.setItem('activeTab', this.id);
-            });
-        });
     });
+});
+
 
     document.querySelectorAll('.toggleTab').forEach(tab => {
         tab.addEventListener('keydown', function (event) {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
-                tab.click();  // Trigger the click event when Enter or Space is pressed
+                tab.click(); 
             }
         });
     });
