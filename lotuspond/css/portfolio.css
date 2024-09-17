@@ -2,9 +2,14 @@
 
 #portfolioHeader {
     height: 20em;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--SunsetGradient);
+    background: url(/assets/decor/Palm.svg) no-repeat, var(--SunsetGradient);
+    background-size: contain;
+    background-position: bottom right, center;
+    position: relative; 
 }
 
 h1 {
@@ -20,8 +25,10 @@ sub {
 #toggleTabRow {
     display: flex;
     gap: 20px;
-    background-color: var(--SunsetRed);
-    padding-top: 10px;
+    position: absolute;
+    bottom: 0; 
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .toggleTab {
@@ -120,7 +127,6 @@ sub {
 
 .projectDetails{
     display: flex;
-    min-height: 125px;
 }
 
 .projectDetails p {
@@ -193,6 +199,11 @@ sub {
 }
 
 @media screen and (max-width: 425px) {
+
+    sub, #portfolioHeader p {
+        text-align: center;
+    }
+
     .displayScreenshots {
         max-height: 200px;
     }

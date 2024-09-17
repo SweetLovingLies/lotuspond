@@ -17,8 +17,11 @@ tag{
     height: 20em;
     justify-content: center;
     align-items: center;
-    background: var(--SunsetGradient);
+    background: url(/assets/decor/Duck.svg) no-repeat, var(--SunsetGradient2);
+    background-size: 4em;
+    background-position: bottom 31px left 20px, center;
     border-bottom: 5px solid white;
+    
 }
 
 #GetinTouch{
