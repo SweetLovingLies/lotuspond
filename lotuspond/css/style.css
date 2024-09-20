@@ -288,6 +288,10 @@ td {
         width: 90%;
     }
 
+    footer sup{
+        display: none;
+    }
+
     .section {
         padding: 40px 20px;
     }

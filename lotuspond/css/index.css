@@ -179,7 +179,7 @@
 /* Featured Works (Modified from Portfolio!) */
 
 .displayCase {
-    height: 450px;
+    min-height: 450px;
     background-color: var(--Teal2);
     padding: 30px;
     border: 1px solid black;
