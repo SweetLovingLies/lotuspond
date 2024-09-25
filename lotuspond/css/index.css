@@ -1,8 +1,11 @@
+
+
 #start {
     height: 100vh;
 }
 
 #startDisplay {
+    position: relative;
     text-align: center;
     margin: 0 auto;
 }
@@ -13,15 +16,19 @@
 
 #startDName {
     position: absolute;
-    font-family: Rochester;
-    font-size: 7rem;
     bottom: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    filter: drop-shadow(1px 2px 1px #47808a);
     z-index: 3;
+
+    font-family: Rochester;
+    font-size: 7rem;
+    letter-spacing: -2.5px;
+
+    color: white;
+    filter: drop-shadow(0 0 5px transparent);
     opacity: 0;
+
     animation: fadeIn 3s forwards, floatglow 1000ms ease-in-out infinite alternate;
     animation-delay: 2s;
 }
@@ -124,6 +131,10 @@
     background-color: var(--Teal2);
 }
 
+.indexHeaderStyling h2{
+    color: white;
+}
+
 /* Skill sets */
 
 #skillsMarquee1,
@@ -144,36 +155,14 @@
 
 /* Services I provide */
 
-#servicesHeader h3 {
-    font-weight: bold;
-}
-
 #services {
     position: relative;
     margin: auto;
     width: 80vw;
 }
 
-.servicescol {
-    position: relative;
-}
-
-#services h6 {
-    float: left;
-    margin-right: 20px;
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.5rem;
-    padding: 20px 35px;
-    width: fit-content;
-
-    color: black;
-    background: var(--SunsetGradient);
-    border-radius: 999px;
-}
-
-#services h4 {
-    vertical-align: middle;
+#services h4{
+    flex: 0 1 90%;
 }
 
 /* Featured Works (Modified from Portfolio!) */
@@ -183,6 +172,7 @@
     background-color: var(--Teal2);
     padding: 30px;
     border: 1px solid black;
+    margin: 0; 
 }
 
 .displayScreenshots {

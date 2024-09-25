@@ -16,7 +16,7 @@
 
     /* Other */
     --textColor: #202020;
-    --headerColor: black;
+    --headerColor: var(--WaterTeal1);
 }
 
 @font-face {
@@ -128,6 +128,7 @@ footer {
 }
 
 footer h5 {
+    color: black;
     font-weight: bold;
 }
 
@@ -152,26 +153,24 @@ footer i {
 
 /* Main */
 
-main .container-fluid {
-    position: relative;
-    width: 100%;
+.container-fluid {
     z-index: 2;
 }
 
-.section {
+.Green {
     padding: 40px;
     background-color: var(--Green);
 }
 
-.row {
-    margin-left: 0;
-    margin-right: 0;
+#COA{
+    width:  80%;
 }
 
 /* General Styles */
 
 h1,
 h2,
+h3,
 h4,
 h5,
 h6 {
@@ -184,11 +183,13 @@ h1{
     font-size: 4em;
 }
 
-h3{
+h2{
     font-family: Solitude;
     font-weight: bold;
-    color: white;
-    font-size: 3em;
+}
+
+h3{
+    font-size: 2.2em;
 }
 
 h4{
@@ -202,6 +203,7 @@ h4{
 a{
     color: var(--WaterBlue1);
     transition: .25s font-weight;
+    text-decoration: none;
 }
 a:hover{
     font-weight:bolder;
@@ -209,11 +211,37 @@ a:hover{
 
 /* Other */
 
+numdot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 20px;
+    flex: 1 0 90px;
+    height: 90px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+
+    color: black;
+    font-weight: bold;
+    background: var(--SunsetGradient);
+    border-radius: 999px;
+}
+
 /* Main Button (Pink Edition) */
 
 .bt-pink {
+    display: block;
+    font-size: larger;
+    font-weight: bold;
+    padding: 10px 50px;
+
     background-color: var(--Pink2);
     color: black;
+    border: white 1px solid;
+    border-radius: 50px;
+
     transition: background-color .25s;
 }
 
@@ -225,20 +253,6 @@ a:hover{
 .bt-pink:active,
 .bt-pink:focus .bt-pink:active:focus {
     background-color: #ff84c3;
-}
-
-table,
-th,
-tr,
-td {
-    padding: 10px;
-    border: 2px solid var(--Green);
-    background-color: #ffbbde;
-    color: #000;
-}
-
-td {
-    width: 50%;
 }
 
 /* Fade-in effect on page load */
@@ -270,6 +284,13 @@ td {
     border-radius: 20px;
 }
 
+.showcaseIMG{
+    display: block;
+    max-width:  500px;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
 /* The Pond */
 
 #LotusPond {
@@ -283,6 +304,12 @@ td {
 
 /* Media Queries*/
 
+@media (prefers-reduced-motion: reduce) {
+    #LotusPond {
+        display: none;
+    }
+}
+
 @media (orientation: portrait) {
     .shrink {
         width: 90%;
@@ -294,12 +321,5 @@ td {
 
     .section {
         padding: 40px 20px;
-    }
-
-    table,
-    th,
-    tr,
-    td {
-        padding: 0;
     }
 }

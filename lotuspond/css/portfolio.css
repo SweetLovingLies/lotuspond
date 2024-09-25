@@ -1,5 +1,3 @@
-/* Toggle Tabs */
-
 #portfolioHeader {
     height: 20em;
     display: flex;
@@ -17,10 +15,14 @@ h1 {
     filter: drop-shadow(1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px -1px 0px var(--WaterTeal1));
 }
 
-sub {
+.titlesub {
+    font-size: 1.1em;
     display: block;
-    transform: rotate(-1deg);
+    transform: rotate(-3deg);
+    margin: 0;
 }
+
+/* Toggle Tabs */
 
 #toggleTabRow {
     display: flex;
@@ -173,6 +175,7 @@ sub {
 }
 
 #graphicWrapper img {
+    max-width: 100%;
     border: 5px solid var(--Pink);
     padding: 10px;
     background-color: var(--Yellow);
