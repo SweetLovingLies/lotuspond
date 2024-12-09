@@ -97,7 +97,8 @@ h1 {
 
 #content-web {
     padding: 50px 0;
-    background: url("/assets/Backgrounds/Vines.png"), var(--LogoTypeYellow);
+    /* background: url("/assets/Backgrounds/Vines.png"), var(--LogoTypeYellow); */
+    background-color: var(--LogoTypeYellow);
     border: 1px solid black;
 }
 
@@ -166,7 +167,8 @@ h1 {
 
 #content-graphic {
     padding: 50px 0;
-    background: url("/assets/Backgrounds/Roses.png"), var(--LogoTypeYellow);
+    /* background: url("/assets/Backgrounds/Roses.png"), var(--LogoTypeYellow); */
+    background-color: var(--LogoTypeYellow);
     border: 1px solid black;
 }
 
@@ -188,7 +190,8 @@ h1 {
 
 #content-logo {
     padding: 50px 0;
-    background: url("/assets/Backgrounds/RoseVines.png"), var(--LogoTypeYellow);
+    /* background: url("/assets/Backgrounds/RoseVines.png"), var(--LogoTypeYellow); */
+    background-color: var(--LogoTypeYellow);
     border: 1px solid black;
 }
 

@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const footer = document.querySelector('.footer-hidden');
-    
-    function toggleFooter() {
+    window.addEventListener('scroll', function () {
+        const footer = document.querySelector('.footer-hidden');
         const scrollHeight = document.documentElement.scrollHeight;
-        const scrollTop = window.scrollY;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const clientHeight = window.innerHeight;
 
         if (scrollTop + clientHeight >= scrollHeight - 50) {
@@ -11,11 +10,5 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             footer.classList.remove('footer-visible');
         }
-    }
-
-    toggleFooter();
-
-    window.addEventListener('scroll', toggleFooter);
-
-    window.addEventListener('resize', toggleFooter);
+    });
 });

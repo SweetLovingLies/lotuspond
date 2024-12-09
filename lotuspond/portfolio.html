@@ -27,8 +27,8 @@
         href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/fe4cec0542.js" crossorigin="anonymous"></script>
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 </head>
 
 <body class="fade-in">
@@ -199,15 +199,10 @@
                             class="fa fa-linkedin-square"></i></a>
                 </div>
                 <p class="mail">LotusPondCreative@gmail.com</p>
-                <sup>You can move the lotuses by the way! ↓</sup>
             </div>
         </div>
     </footer>
     </div>
-
-    <canvas id="LotusPond" aria-hidden="true"></canvas>
-    <script src="js/LotusPond.js"></script>
-
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -248,7 +243,7 @@
                     content.classList.remove('fade-in-active');
                     content.classList.add('fade-out-active');
 
-                    // Wait for the fade-out animation to complete before hiding the content
+                    // Wait for the fade-out animation to complete before hiding the content (.5s)
                     setTimeout(() => {
                         content.style.display = 'none';
                         content.classList.remove('is-active');

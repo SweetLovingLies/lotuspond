@@ -1,4 +1,4 @@
-// Adds a page delay for the fade-in animation
+// ! Adds a page delay for the fade-in animation
 
 document.addEventListener("DOMContentLoaded", function() {
     const allLinks = document.querySelectorAll("a");

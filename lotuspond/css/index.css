@@ -21,9 +21,9 @@
     transform: translate(-50%, -50%);
     z-index: 3;
 
-    font-family: Rochester;
+    font-family: var(--h1Fonts);
     font-size: 7rem;
-    letter-spacing: -2.5px;
+    letter-spacing: 0px;
 
     color: white;
     filter: drop-shadow(0 0 5px transparent);
@@ -93,7 +93,6 @@
 }
 
 #aboutblurbtxt {
-    font-family: Comfortaa;
     line-height: 1.7em;
     font-size: 1.7vmax;
     margin: 0 auto;
@@ -146,11 +145,15 @@
 .skilldisplay {
     flex: 0 1 150px;
     align-items: start;
+
     background-color: var(--Yellow);
+
     color: black;
+    font-weight: bold;
+    text-align: center;
+
     border-radius: 5px;
     padding: 5px 10px;
-    text-align: center;
 }
 
 /* Services I provide */
@@ -235,6 +238,17 @@
 .seemore:active,
 .seemore:focus .seemore:active:focus {
     background-color: var(--Yellow);
+}
+
+/* ~ The Pond */
+
+#LotusPond {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100vw;
+    z-index: 20;
 }
 
 /* Media Queries */

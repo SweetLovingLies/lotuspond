@@ -10,13 +10,18 @@
     --SunsetOrange: #ffb12b;
     --WaterTeal1: #004d81;
     --WaterBlue1: #003481;
-    --WaterBlue2:#0b2a44;
-    --SunsetGradient: linear-gradient(0deg, rgba(255,103,103,1) 0%, rgba(255,177,43,1) 50%, rgba(255,225,141,1) 100%);
-    --SunsetGradient2: linear-gradient(0deg, rgba(0,101,255,1) 0%, rgba(0,101,255,1) 10%, rgba(255,103,103,1) 10%, rgba(255,177,43,1) 50%, rgba(255,225,141,1) 100%);
+    --WaterBlue2: #0b2a44;
+    --SunsetGradient: linear-gradient(0deg, rgba(255, 103, 103, 1) 0%, rgba(255, 177, 43, 1) 50%, rgba(255, 225, 141, 1) 100%);
+    --SunsetGradient2: linear-gradient(0deg, rgba(0, 101, 255, 1) 0%, rgba(0, 101, 255, 1) 10%, rgba(255, 103, 103, 1) 10%, rgba(255, 177, 43, 1) 50%, rgba(255, 225, 141, 1) 100%);
 
     /* Other */
     --textColor: #202020;
     --headerColor: var(--WaterTeal1);
+
+    --h1Fonts: "Rochester", Times, serif;
+    --mainHeaderFonts: "BrideCondensed", Times, serif;
+    --boldHeaderFonts: "BrideBold", Times, serif;
+    --regularFontspace: "LavenderFont", Helvetica, sans-serif;
 }
 
 @font-face {
@@ -25,16 +30,34 @@
 }
 
 @font-face {
-    font-family: Solitude;
-    src: url('/fonts/Solitude.ttf');
+    font-family: LavenderFont;
+    src: url('/fonts/LavenderExtended.ttf');
+}
+
+@font-face {
+    font-family: Bride;
+    src: url('/fonts/Bride/BrideRegularExtended.otf');
+}
+
+@font-face {
+    font-family: BrideCondensed;
+    src: url('/fonts/Bride/BrideRegularCondensed.otf');
+}
+
+@font-face {
+    font-family: BrideBold;
+    src: url('/fonts/Bride/BrideBoldExtended.otf');
 }
 
 
 /* General Layout */
 
-html, body{
+html,
+body {
     margin: 0;
     padding: 0;
+
+    overflow-x: hidden;
 }
 
 html {
@@ -45,7 +68,7 @@ body {
     margin: 0;
     padding: 67px 0 0 0;
     background-color: var(--Teal);
-    font-family: Comfortaa, Helvetica, Arial, sans-serif;
+    font-family: var(--regularFontspace);
     color: var(--textColor);
     padding-bottom: 350px;
 }
@@ -71,7 +94,7 @@ nav {
 }
 
 .nav-link {
-    font-family: raleway;
+    font-family: var(--mainHeaderFonts);
     font-size: 1.5em;
     color: black;
     font-weight: bold;
@@ -95,6 +118,10 @@ nav {
     color: var(--WaterBlue1);
 }
 
+.nav-link.disabled, .nav-link:disabled {
+    cursor: not-allowed;
+}
+
 /* Footer */
 footer {
     height: 350px;
@@ -114,12 +141,12 @@ footer {
 .footer-hidden {
     bottom: -400px;
     left: 0;
-    position: fixed; 
+    position: fixed;
 }
 
 .footer-visible {
     bottom: 0;
-    position: fixed; 
+    position: fixed;
 }
 
 .shrink {
@@ -129,7 +156,7 @@ footer {
 
 footer h5 {
     color: black;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .footerLinks {
@@ -162,8 +189,8 @@ footer i {
     background-color: var(--Green);
 }
 
-#COA{
-    width:  80%;
+#COA {
+    width: 80%;
 }
 
 /* General Styles */
@@ -175,38 +202,40 @@ h4,
 h5,
 h6 {
     color: var(--headerColor);
-    font-family: Solitude;
-    font-weight: bold;
+    font-family: var(--mainHeaderFonts);
+    font-weight: normal;
 }
 
-h1{
+h1 {
+    font-family: var(--h1Fonts);
     font-size: 4em;
 }
 
-h2{
-    font-family: Solitude;
+h2 {
     font-weight: bold;
 }
 
-h3{
+h3 {
     font-size: 2.2em;
 }
 
-h4{
-    font-size: 2em;
+h4 {
+    font-family: var(--boldHeaderFonts);
+    font-size: 1.6em;
 }
 
 .headerCenter {
     text-align: center;
 }
 
-a{
+a {
     color: var(--WaterBlue1);
     transition: .25s font-weight;
     text-decoration: none;
 }
-a:hover{
-    font-weight:bolder;
+
+a:hover {
+    font-weight: bolder;
 }
 
 /* Other */
@@ -220,7 +249,7 @@ numdot {
     flex: 1 0 90px;
     height: 90px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 2.5rem;
 
     color: black;
@@ -234,7 +263,6 @@ numdot {
 .bt-pink {
     display: block;
     font-size: larger;
-    font-weight: bold;
     padding: 10px 50px;
 
     background-color: var(--Pink2);
@@ -272,7 +300,8 @@ numdot {
     }
 }
 
-/* Decor */
+/* ~ Decor */
+
 #logo {
     width: 150px;
     margin-bottom: 10px;
@@ -284,22 +313,11 @@ numdot {
     border-radius: 20px;
 }
 
-.showcaseIMG{
+.showcaseIMG {
     display: block;
-    max-width:  500px;
+    max-width: 500px;
     margin: 0 auto;
     border-radius: 20px;
-}
-
-/* The Pond */
-
-#LotusPond {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    height: 100px;
-    width: 100vw;
-    z-index: 20;
 }
 
 /* Media Queries*/
@@ -315,7 +333,7 @@ numdot {
         width: 90%;
     }
 
-    footer sup{
+    footer sup {
         display: none;
     }
 

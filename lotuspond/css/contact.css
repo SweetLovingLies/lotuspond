@@ -3,7 +3,7 @@ main{
 }
 
 sup{
-    font-family: comfortaa;
+    font-family: "Bride", Times, serif;
     font-size: small;
     vertical-align: top;
     top: 1em;
@@ -54,7 +54,7 @@ h1{
 
 h2{
     width:  400px;
-    font-size: 4.5em;
+    font-size: 4em;
 } 
 
 #GetinTouch p{
