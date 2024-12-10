@@ -122,31 +122,31 @@ nav {
     cursor: not-allowed;
 }
 
-/* Footer */
-footer {
-    height: 350px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #88b088;
-    padding: 10px 0;
-    text-align: center;
-    z-index: 50;
-    box-shadow: 0px -1px 10px 0px #00000060;
-    transition: bottom .5s ease-in-out;
+/* ~ Footer */
 
-    z-index: 10;
+footer {
+    width: 100%;
+    height: 350px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    z-index: 50;
+
+    background-color: #88b088;
+    box-shadow: 0px -1px 10px 0px #00000060;
+
+    text-align: center;
+
+    transition: bottom .5s ease-in-out;
 }
 
 .footer-hidden {
     bottom: -400px;
-    left: 0;
-    position: fixed;
 }
 
 .footer-visible {
     bottom: 0;
-    position: fixed;
 }
 
 .shrink {
@@ -154,7 +154,25 @@ footer {
     width: 600px;
 }
 
-footer h5 {
+.socials {
+    flex-flow: row wrap;
+    gap: 10px 30px;
+    margin-bottom: 10px;
+}
+
+.socials a {
+    flex: 1 0 calc(50% - 30px);
+    text-align: left;
+    border-bottom: 1px solid var(--LogoTypeYellow);
+}
+
+footer .row {
+    margin: 0 auto;
+    width: 70%;
+}
+
+footer h4 {
+    text-align: left;
     color: black;
     font-weight: normal;
 }
@@ -163,19 +181,16 @@ footer h5 {
     max-width: 700px;
 }
 
-footer .row {
-    margin: 0 auto;
-}
-
-.socials a {
-    text-decoration: none;
-}
-
-footer i {
+footer iconify-icon {
     font-size: 30px;
     color: var(--WaterTeal1);
     margin: 0 3px;
     filter: drop-shadow(#46464677 1px 1px 1px);
+}
+
+.mail iconify-icon {
+    font-size: inherit;
+    vertical-align: middle;
 }
 
 /* Main */
@@ -230,12 +245,11 @@ h4 {
 
 a {
     color: var(--WaterBlue1);
-    transition: .25s font-weight;
     text-decoration: none;
 }
 
 a:hover {
-    font-weight: bolder;
+    font-style: italic;
 }
 
 /* Other */
@@ -269,7 +283,6 @@ numdot {
     color: black;
     border: white 1px solid;
     border-radius: 50px;
-
     transition: background-color .25s;
 }
 

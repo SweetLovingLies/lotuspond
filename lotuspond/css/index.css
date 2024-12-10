@@ -149,7 +149,7 @@
     background-color: var(--Yellow);
 
     color: black;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-align: center;
 
     border-radius: 5px;
