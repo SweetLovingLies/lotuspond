@@ -21,10 +21,12 @@ Create App Portfolio
     * Remember to display the process! We have the slides!
 
 Services:
+Update Service Packages Header
 
 
 Contact Me:
 Remove the contact form entirely and replace it with links out
+Update the water on the header to match the lake!
 
 Other:
 Add Bluesky to my DNS
