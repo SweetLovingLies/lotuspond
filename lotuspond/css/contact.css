@@ -13,7 +13,7 @@ tag{
     align-self: start;
 }
 
-#contactHeader {
+header {
     position: relative;
     height: 20em;
     justify-content: center;

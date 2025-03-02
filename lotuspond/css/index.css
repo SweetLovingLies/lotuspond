@@ -136,13 +136,11 @@
 
 /* Skill sets */
 
-#skillsMarquee1,
-#skillsMarquee2,
-#skillsMarquee3 {
+.skillsMarquee {
     gap: 20px;
 }
 
-.skilldisplay {
+.skillsMarquee p {
     flex: 0 1 150px;
     align-items: start;
 
@@ -154,6 +152,10 @@
 
     border-radius: 5px;
     padding: 5px 10px;
+}
+
+.skilldisplay {
+    
 }
 
 /* Services I provide */
@@ -201,6 +203,12 @@
 
 .smallimg {
     object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.mediumimg {
+    object-fit: cover;
     width: 100%;
     height: 100%;
 }

@@ -32,7 +32,6 @@
 </head>
 
 <body class="fade-in">
-    <div id="wrapper" class="container-fluid">
         <nav class="navbar fixed-top navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html" aria-label="Homepage, Lotus Pond Creative">
@@ -71,120 +70,194 @@
         </nav>
 
         <main class="container-fluid">
-            <div id="portfolioHeader" class="d-flex flex-column container-fluid">
+            <!-- Header and Tabs -->
+            <header class="d-flex flex-column container-fluid">
                 <div>
                     <sub>Just some of... </sub>
                     <h1 class="headerCenter">My Favorite Things</h1>
-                    <p> Click them to zoom in! </p>
+                    <p> Click the images to zoom in! </p>
                 </div>
                 <div id="toggleTabRow" class="justify-content-center">
-                    <div id="tab-web" class="toggleTab d-flex" role="button" tabindex="0" aria-controls="content-web">Web
+                    <div id="tab-web" class="toggleTab d-flex" role="button" tabindex="0" aria-controls="content-web">
+                        Web
                         Design</div>
                     <div id="tab-graphic" class="toggleTab d-flex" tabindex="0" role="button"
                         aria-controls="content-graphic">Graphic Design</div>
-                    <div id="tab-logo" class="toggleTab d-flex" tabindex="0" role="button" aria-controls="content-logo">Logo
+                    <div id="tab-logo" class="toggleTab d-flex" tabindex="0" role="button" aria-controls="content-logo">
+                        Logo
                         Design</div>
+                    <div id="tab-apps" class="toggleTab d-flex" tabindex="0" role="button" aria-controls="content-apps">
+                        App
+                        Development</div>
                 </div>
-            </div>
-    </div>
+            </header>
 
-    <!-- Web Dev Portfolio -->
-    <section id="content-web" class="portfolio-content row" aria-labelledby="tab-web">
-        <div class="col-lg-2"></div>
-        <div class="col-lg">
-            <div class="webDevPreview row">
-                <div class="displayScreenshots">
-                    <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png"
-                        alt="HCTrojan Official Website Screenshot">
-                </div>
-                <div class="projectDetails">
-                    <div class="aboutProject">
-                        <p>Client: HC Trojan</p>
-                        <p>Project: HC Trojan Website and Logo Package</p>
+            <!-- Web Dev Portfolio -->
+            <section id="content-web" class="portfolio-content row" aria-labelledby="tab-web">
+                <div class="col-lg-2"></div>
+                <div class="col-lg">
+                    <div class="webDevPreview row">
+                        <div class="displayScreenshots">
+                            <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png"
+                                alt="HCTrojan Official Website Screenshot">
+                        </div>
+                        <div class="projectDetails">
+                            <div class="aboutProject">
+                                <p>Client: HC Trojan</p>
+                                <p>Project: HC Trojan Website and Logo Package</p>
+                            </div>
+                            <div class="d-flex flex-column projectButton align-items-center">
+                                <a href="projects/hctrojan.html"><button type="button" class="seemore"
+                                        aria-label="Project Details">Project Details</button></a>
+                                <a href="https://www.hctrojan.com/" target="_blank">
+                                    View Site
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex projectButton justify-content-center">
-                        <a href="https://www.hctrojan.com"><button type="button" class="seemore"
-                                aria-label="Visit HC Trojan Website">See Website</button></a>
+                </div>
+                <div class="col-lg-2"></div>
+            </section>
+
+            <!-- Graphic Dev Portfolio -->
+            <section id="content-graphic" class="portfolio-content container-fluid" aria-labelledby="tab-graphic">
+                <div id="graphicWrapper" class="d-flex row">
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <a href="assets/GDPortfolio/2024/ZephyrEmblem.png" data-fancybox="gallery"
+                            data-caption=" The Zephyr <br> A very personal piece displaying a dream animal from my childhood.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2024/ZephyrEmblem.png" loading="lazy"
+                                alt="The Zephyr. Click me for a caption.">
+                        </a>
+
+                        <a href="assets/GDPortfolio/2024/StainedGlass.png" data-fancybox="gallery"
+                            data-caption=" Stained Glass (Brand Edition) <br> I created this piece with this site in mind! I wanted something eyecatching as a focalpoint for the index page, and I think this worked out perfect.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlass.png" loading="lazy"
+                                alt="Stained Glass (Brand Edition). Click me for a caption.">
+                        </a>
+
+                        <a href="assets/GDPortfolio/2023/TravelHawk.png" data-fancybox="gallery"
+                            data-caption=" Travel Hawk Logo <br> Travel Hawk was a concept me and my coursemates at the ADA foundations program made. This was my first experience making something more corperately acceptable.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2023/TravelHawk.png" loading="lazy"
+                                alt="Travel Hawk Logo. Click me for a caption.">
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <a href="assets/GDPortfolio/2024/50slogoV2.png" data-fancybox="gallery"
+                            data-caption=" Diner-Style Emblem <br> More art indicative of my interests. I love the aesthetics of the 1950s. I took my own modern spin on the emblem though and gave it some youthful life while keeping the classic text-style and delivery.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2024/50slogoV2.png" loading="lazy"
+                                alt="50s Style Diner Logo. Click me for a caption.">
+                        </a>
+                        <a href="assets/GDPortfolio/2024/DeliciousIcon.png" data-fancybox="gallery"
+                            data-caption=" Delicious! <br> I made this for a Discord server icon!">
+                            <img class="img-fluid" src="assets/GDPortfolio/2024/DeliciousIcon.png" loading="lazy"
+                                alt="Delicious! Icon. Click me for a caption.">
+                        </a>
+                        <a href="assets/GDPortfolio/2023/SweetLovingLiesHeader.png" data-fancybox="gallery"
+                            data-caption=" Tell me lies, tell me... <br> At some point, I settled on this as a username. All of my accounts have a similar motif now. Unheard of from my side of life.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2023/SweetLovingLiesHeader.png"
+                                loading="lazy" alt="SweetLovingLies Header. Click me for a caption.">
+                        </a>
+                        <a href="assets/GDPortfolio/2023/ShugareSnap! Logo.png" data-fancybox="gallery"
+                            data-caption=" Shugare Snap! <br> The first name I ever branded myself under. I have since moved on from the bakery-style motif I had, but maybe I'll turn this concept into a brand identity in the future.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2023/ShugareSnap! Logo.png" loading="lazy"
+                                alt="Shugare Snap Logo. Click me for a caption.">
+                        </a>
+                        <a href="assets/GDPortfolio/2024/StainedGlassRose.png" data-fancybox="gallery"
+                            data-caption=" Stained Glass (Rose Edition) <br> This was the first version of the stained glass concept I made. I wanted to make sure I actually understood how to get the effect before making the brand version. I still like this one quite a lot! But the linework annoys me a bit.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlassRose.png" loading="lazy"
+                                alt="Stained Glass (Rose Edition). Click me for a caption.">
+                        </a>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </section>
+
+            <!-- Brand Design Portfolio -->
+            <section id="content-logo" class="portfolio-content container-fluid row" aria-labelledby="tab-logo">
+                <div class="col-lg-2"></div>
+                <div class="col-lg">
+                    <a href="assets/BrandIdentities/HMSDisplayVer.png" data-fancybox="gallery"
+                        data-caption=" Harris Mobility Solutions">
+                        <img id="HMSBrand" class="logos img-fluid" src="assets/BrandIdentities/HMSDisplayVer.png"
+                            loading="lazy" alt="Harris Mobility Solutions Logo Display!">
+                    </a>
+                </div>
+                <div class="col-lg-2"></div>
+            </section>
+
+            <!-- App Development Portfolio -->
+            <section id="content-apps" class="portfolio-content container-fluid row" aria-labelledby="tab-apps">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg app-portfolio-grid">
+                    <h3>Pink for games, teal for business apps!</h3>
+                    <p>These are ordered by when they were created! Thanks for visiting!</p>
+
+                    <div class="d-flex flex-wrap justify-content-center" style="gap: 20px;">
+
+                        <a href="portfolioProjects/apps/business/lockin.html">
+                            <div class="app-card d-flex flex-column align-items-center business-app">
+                                <img src="assets/AppPortfolio/business/LockIn/LockInIcon.png"
+                                    alt="An open lock, the icon for the LockIn! app" class="app-icon">
+                                <h3 class="app-title">Lock In!</h3>
+                                <p class="app-description">A team-developed focus app tailored to our client's specific
+                                    needs and interests.</p>
+                            </div>
+                        </a>
+
+                        <a href="portfolioProjects/apps/games/aethersedge.html">
+                            <div class="app-card d-flex flex-column align-items-center game-app">
+                                <img src="assets/AppPortfolio/games/aethersEdge/AethersEdgeIcon.png" alt="Game App Icon" class="app-icon">
+                                <h3 class="app-title">Aether's Edge</h3>
+                                <p class="app-description">A team-developed Command Line choose your own adventure game!
+                                </p>
+                            </div>
+                        </a>
+
+                        <a href="portfolioProjects/apps/games/mobpunks.html">
+                            <div class="app-card d-flex flex-column align-items-center game-app">
+                                <img src="assets/AppPortfolio/games/mobpunks/MobpunksIcon.png"
+                                    alt="An emoji face, the icon for the MobPunks game" class="app-icon">
+                                <h3 class="app-title">Mob Punks</h3>
+                                <p class="app-description">A quirky and socially progressive RPG game!</p>
+                            </div>
+                        </a>
+
+                        <a href="portfolioProjects/apps/business/anglercorner.html">
+                            <div class="app-card d-flex flex-column align-items-center business-app">
+                                <img src="assets/AppPortfolio/business/AnglerCorner/AnglerCornerIcon.png"
+                                    alt="A generic fish, the icon for the Angler Corner app" class="app-icon">
+                                <h3 class="app-title">Angler Corner</h3>
+                                <p class="app-description">A simple leaderboard app with a player queue, a hall of fame,
+                                    and
+                                    non-destructive data handling.</p>
+                            </div>
+                        </a>
+
+                        <!-- <a href="portfolioProjects/apps/games/mellowdown.html">
+                            <div class="app-card d-flex flex-column align-items-center game-app">
+                                <img src="" alt="Game App Icon" class="app-icon">
+                                <h3 class="app-title">Mellow Down</h3>
+                                <p class="app-description">A work-in-progress self-care app designed with autistic
+                                    people in
+                                    mind.</p>
+                            </div>
+                        </a> -->
+
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-2"></div>
-    </section>
 
-    <!-- Graphic Dev Portfolio -->
-    <section id="content-graphic" class="portfolio-content container-fluid" aria-labelledby="tab-graphic">
-        <div id="graphicWrapper" class="d-flex row">
-            <div class="col-lg-2">
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <a href="assets/GDPortfolio/2024/ZephyrEmblem.png" data-fancybox="gallery"
-                    data-caption=" The Zephyr <br> A very personal piece displaying a dream animal from my childhood.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/ZephyrEmblem.png" loading="lazy"
-                        alt="The Zephyr. Click me for a caption.">
-                </a>
+                <div class="col-lg-2"></div>
+            </section>
 
-                <a href="assets/GDPortfolio/2024/StainedGlass.png" data-fancybox="gallery"
-                    data-caption=" Stained Glass (Brand Edition) <br> I created this piece with this site in mind! I wanted something eyecatching as a focalpoint for the index page, and I think this worked out perfect.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlass.png" loading="lazy"
-                        alt="Stained Glass (Brand Edition). Click me for a caption.">
-                </a>
+        </main>
 
-                <a href="assets/GDPortfolio/2023/TravelHawk.png" data-fancybox="gallery"
-                    data-caption=" Travel Hawk Logo <br> Travel Hawk was a concept me and my coursemates at the ADA foundations program made. This was my first experience making something more corperately acceptable.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2023/TravelHawk.png" loading="lazy"
-                        alt="Travel Hawk Logo. Click me for a caption.">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <a href="assets/GDPortfolio/2024/50slogoV2.png" data-fancybox="gallery"
-                    data-caption=" Diner-Style Emblem <br> More art indicative of my interests. I love the aesthetics of the 1950s. I took my own modern spin on the emblem though and gave it some youthful life while keeping the classic text-style and delivery.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/50slogoV2.png" loading="lazy"
-                        alt="50s Style Diner Logo. Click me for a caption.">
-                </a>
-                <a href="assets/GDPortfolio/2024/DeliciousIcon.png" data-fancybox="gallery"
-                    data-caption=" Delicious! <br> I made this for a Discord server icon!">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/DeliciousIcon.png" loading="lazy"
-                        alt="Delicious! Icon. Click me for a caption.">
-                </a>
-                <a href="assets/GDPortfolio/2023/SweetLovingLiesHeader.png" data-fancybox="gallery"
-                    data-caption=" Tell me lies, tell me... <br> At some point, I settled on this as a username. All of my accounts have a similar motif now. Unheard of from my side of life.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2023/SweetLovingLiesHeader.png" loading="lazy"
-                        alt="SweetLovingLies Header. Click me for a caption.">
-                </a>
-                <a href="assets/GDPortfolio/2023/ShugareSnap! Logo.png" data-fancybox="gallery"
-                    data-caption=" Shugare Snap! <br> The first name I ever branded myself under. I have since moved on from the bakery-style motif I had, but maybe I'll turn this concept into a brand identity in the future.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2023/ShugareSnap! Logo.png" loading="lazy"
-                        alt="Shugare Snap Logo. Click me for a caption.">
-                </a>
-                <a href="assets/GDPortfolio/2024/StainedGlassRose.png" data-fancybox="gallery"
-                    data-caption=" Stained Glass (Rose Edition) <br> This was the first version of the stained glass concept I made. I wanted to make sure I actually understood how to get the effect before making the brand version. I still like this one quite a lot! But the linework annoys me a bit.">
-                    <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlassRose.png" loading="lazy"
-                        alt="Stained Glass (Rose Edition). Click me for a caption.">
-                </a>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-    </section>
-
-    <!-- Brand Design Portfolio -->
-    <section id="content-logo" class="portfolio-content container-fluid row" aria-labelledby="tab-logo">
-        <div class="col-lg-2"></div>
-        <div class="col-lg">
-            <a href="assets/BrandIdentities/HMSDisplayVer.png" data-fancybox="gallery"
-                data-caption=" Harris Mobility Solutions">
-                <img id="HMSBrand" class="logos img-fluid" src="assets/BrandIdentities/HMSDisplayVer.png" loading="lazy"
-                    alt="Harris Mobility Solutions Logo Display!">
-            </a>
-        </div>
-        <div class="col-lg-2"></div>
-    </section>
-    </main>
-
-   <footer class="container-fluid footer-hidden">
+        <footer class="container-fluid footer-hidden">
             <div class="shrink"><img class="img-fluid" src="assets/Branding/FullName.png"
                     alt="Full version of the Lotus Pond Creative Logo">
-                </div>
+            </div>
             <div class="row footerLinks">
                 <h4>Not sure yet? Let's connect anyways!</h4>
                 <div class="d-flex socials">
@@ -211,100 +284,99 @@
                 </a>
             </div>
         </footer>
-    </div>
 </body>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-    const tabs = document.querySelectorAll('.toggleTab');
-    const contents = document.querySelectorAll('.portfolio-content');
+        const tabs = document.querySelectorAll('.toggleTab');
+        const contents = document.querySelectorAll('.portfolio-content');
 
-    // Function to get the tab ID from the URL hash or localStorage
-    const getActiveTabId = () => {
-        return window.location.hash ? window.location.hash.replace('#', 'tab-') : localStorage.getItem('activeTab') || 'tab-web';
-    };
+        // Function to get the tab ID from the URL hash or localStorage
+        const getActiveTabId = () => {
+            return window.location.hash ? window.location.hash.replace('#', 'tab-') : localStorage.getItem('activeTab') || 'tab-web';
+        };
 
-    let activeTabId = getActiveTabId();
-    const activeTab = document.getElementById(activeTabId);
-    const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
+        let activeTabId = getActiveTabId();
+        const activeTab = document.getElementById(activeTabId);
+        const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
 
-    // Clear all active states on load
-    tabs.forEach(tab => tab.classList.remove('is-active'));
-    contents.forEach(content => {
-        content.style.display = 'none';
-        content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
-    });
-
-    // Apply the 'is-active' class to the active tab and content
-    if (activeTab && activeContent) {
-        activeTab.classList.add('is-active');
-        activeContent.style.display = 'flex';
-        activeContent.classList.add('is-active', 'fade-in-active');
-    }
-
-    // Event listener for each tab click
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            tabs.forEach(t => t.classList.remove('is-active'));
-            contents.forEach(content => {
-                if (content.classList.contains('is-active')) {
-                    content.classList.remove('fade-in-active');
-                    content.classList.add('fade-out-active');
-
-                    // Wait for the fade-out animation to complete before hiding the content (.5s)
-                    setTimeout(() => {
-                        content.style.display = 'none';
-                        content.classList.remove('is-active');
-                    }, 500);
-                }
-            });
-
-            this.classList.add('is-active');
-            const targetContentId = this.id.replace('tab-', 'content-');
-            const targetContent = document.getElementById(targetContentId);
-
-            setTimeout(() => {
-                targetContent.classList.remove('fade-out-active');
-                targetContent.style.display = 'flex';
-                targetContent.classList.add('is-active', 'fade-in-active');
-            }, 500);
-
-            // Update the URL without reloading the page
-            const newUrl = '#' + this.id.replace('tab-', '');
-            history.pushState(null, null, newUrl);
-
-            localStorage.setItem('activeTab', this.id);
-        });
-    });
-
-    // Handle back/forward browser navigation to load correct tab based on URL
-    window.addEventListener('popstate', function () {
-        activeTabId = getActiveTabId();
-
+        // Clear all active states on load
         tabs.forEach(tab => tab.classList.remove('is-active'));
         contents.forEach(content => {
             content.style.display = 'none';
             content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
         });
 
-        const activeTab = document.getElementById(activeTabId);
-        const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
-
+        // Apply the 'is-active' class to the active tab and content
         if (activeTab && activeContent) {
             activeTab.classList.add('is-active');
             activeContent.style.display = 'flex';
             activeContent.classList.add('is-active', 'fade-in-active');
         }
-    });
-});
 
+        // Event listener for each tab click
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                tabs.forEach(t => t.classList.remove('is-active'));
+                contents.forEach(content => {
+                    if (content.classList.contains('is-active')) {
+                        content.classList.remove('fade-in-active');
+                        content.classList.add('fade-out-active');
+
+                        // Wait for the fade-out animation to complete before hiding the content (.5s)
+                        setTimeout(() => {
+                            content.style.display = 'none';
+                            content.classList.remove('is-active');
+                        }, 500);
+                    }
+                });
+
+                this.classList.add('is-active');
+                const targetContentId = this.id.replace('tab-', 'content-');
+                const targetContent = document.getElementById(targetContentId);
+
+                setTimeout(() => {
+                    targetContent.classList.remove('fade-out-active');
+                    targetContent.style.display = 'flex';
+                    targetContent.classList.add('is-active', 'fade-in-active');
+                }, 500);
+
+                // Update the URL without reloading the page
+                const newUrl = '#' + this.id.replace('tab-', '');
+                history.pushState(null, null, newUrl);
+
+                localStorage.setItem('activeTab', this.id);
+            });
+        });
+
+        // Handle back/forward browser navigation to load correct tab based on URL
+        window.addEventListener('popstate', function () {
+            activeTabId = getActiveTabId();
+
+            tabs.forEach(tab => tab.classList.remove('is-active'));
+            contents.forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
+            });
+
+            const activeTab = document.getElementById(activeTabId);
+            const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
+
+            if (activeTab && activeContent) {
+                activeTab.classList.add('is-active');
+                activeContent.style.display = 'flex';
+                activeContent.classList.add('is-active', 'fade-in-active');
+            }
+        });
+    });
 
     document.querySelectorAll('.toggleTab').forEach(tab => {
         tab.addEventListener('keydown', function (event) {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
-                tab.click(); 
+                tab.click();
             }
         });
     });
@@ -312,7 +384,7 @@
     Fancybox.bind('[data-fancybox]', {
     });     
 </script>
-<script src="js/footer.js"></script>
 
+<script src="js/footer.js"></script>
 
 </html>

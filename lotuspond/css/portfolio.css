@@ -1,4 +1,8 @@
-#portfolioHeader {
+body {
+    color: var(--greenTextColor);
+}
+
+header {
     height: 20em;
     display: flex;
     flex-direction: column;
@@ -7,7 +11,7 @@
     background: url(/assets/decor/Palm.svg) no-repeat, var(--SunsetGradient);
     background-size: contain;
     background-position: bottom right, center;
-    position: relative; 
+    position: relative;
 }
 
 h1 {
@@ -28,7 +32,7 @@ h1 {
     display: flex;
     gap: 20px;
     position: absolute;
-    bottom: 0; 
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -122,13 +126,14 @@ h1 {
     filter: grayscale(100%) invert(10%) saturate(350%) hue-rotate(50deg) brightness(105%) contrast(95%);
 }
 
-.displayScreenshots img:hover, .displayScreenshots img:focus{
+.displayScreenshots img:hover,
+.displayScreenshots img:focus {
     transform: translateY(calc(-100% + 540px));
     transition: transform 16s;
     filter: none;
 }
 
-.projectDetails{
+.projectDetails {
     display: flex;
 }
 
@@ -139,6 +144,11 @@ h1 {
 
 .projectButton {
     margin-left: auto;
+}
+
+.projectButton a {
+    color: var(--LogoTypeYellow);
+    text-decoration: underline solid black;
 }
 
 .seemore {
@@ -204,9 +214,81 @@ h1 {
     border: 5px solid var(--Teal2);
 }
 
-@media screen and (max-width: 425px) {
+/* App Development Portfolio */
 
-    sub, #portfolioHeader p {
+#content-apps {
+    padding: 50px 0;
+    /* background: url("/assets/Backgrounds/Roses.png"), var(--LogoTypeYellow); */
+    background-color: var(--LogoTypeYellow);
+    border: 1px solid black;
+}
+
+.app-portfolio-grid {
+    justify-content: center;
+}
+
+.app-portfolio-grid h3, 
+.app-portfolio-grid p {
+    text-align: center;
+}
+
+.app-card {
+    position: relative;
+    
+    width: 250px;
+    height: 310px;
+    border-radius: 12px;
+    padding: 16px;
+
+    text-align: center;
+
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.3s ease, box-shadow 0.2s ease;
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    font-style: normal;
+}
+
+.app-icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.app-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.app-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 4px;
+}
+
+.game-app {
+    border: 2px solid var(--Pink);
+}
+
+.business-app {
+    border: 2px solid var(--Teal2);
+}
+
+/* Media Queries! */
+
+@media screen and (max-width: 425px) {
+    sub,
+    #portfolioHeader p {
         text-align: center;
     }
 
@@ -214,12 +296,14 @@ h1 {
         max-height: 200px;
     }
 
-    .projectDetails{
+    .projectDetails {
         flex-direction: column;
     }
+
     .projectDetails p {
         text-align: center;
     }
+
     .projectButton {
         margin: 0;
     }
