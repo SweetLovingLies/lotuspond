@@ -8,6 +8,8 @@ header {
     /* background-size: contain;
     background-position: bottom right, center; */
     position: relative; 
+
+    color: black;
 }
 
 h1 {
