@@ -1,0 +1,274 @@
+/* 🌸 ----------------------------------------------------------------------------------
+    ~ Welcome! Here is where you can customize almost everything at the highest level.
+----------------------------------------------------------------------------------- 🌸 */
+
+:root {
+    /* The Main Color Palette */
+    --pink: #ff99c8;
+    --yellow: #fcf6bd;
+    --mint: #d0f4de;
+    --blue: #a9def9;
+    --lavender: #e4c1f9;
+
+    /* Text Colors. Remember to pay attention to contrast! */
+    --text-dark: #444;
+    --text-light: #fff;
+
+    /* Fonts for the header and body text */
+    --headerFont: 'Cherry Bomb One', sans-serif;
+    --bodyFont: 'Fredoka', sans-serif;
+
+
+    --globalBorderRadius: 1rem; /* If you don't like rounded corners, set the border radiuses to 0 */
+    --mainContainerBorderRadius: 1.5em;
+}
+/* 
+    Wherever there is a comment (like this!) below this point, you may want to customize it. 
+
+    Also, remember that you do not have to use the same colors everywhere! If you're a maximalist like me, maybe you'll add more! Feel free to create your own variables and use them as needed. 
+
+    Finally, unless you are familiar with HTML and CSS, I would not change anything that isn't commented! 
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--blue); /* Feel free to change any of the colors you see! You can use hex values like #FFFFF or use variables like I am using here! Just rememeber to remove the `var` part if you use hex values */
+    
+    background-image: radial-gradient(circle at top left, var(--lavender), var(--blue));  /* See the README for some background customization options! */
+
+    font-family: var(--bodyFont);
+    color: var(--text-dark);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow: auto;
+}
+
+.bg-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* 🌸 -----------------------------------
+      The modal (Main Website Container)
+  ------------------------------------ 🌸 */
+
+.modal {
+    background-color: var(--yellow); /* If you want a different main background color, change this */
+    width: 100%;
+    max-width: 750px;
+    border-radius: var(--mainContainerBorderRadius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 3px groove var(--lavender); /* Or the border Color */
+    position: relative;
+    overflow: hidden;
+}
+
+.modal header,
+.modal section,
+.modal footer {
+    margin-bottom: 2rem;
+}
+
+.modal #before {
+    color: var(--text-light);
+    font-weight: bold;
+
+    display: flex;
+
+    width: 100%;
+    padding: 0.5rem 1rem;
+
+    background-color: var(--pink);
+    color: var(--text-dark);
+
+    vertical-align: bottom;
+
+    margin-bottom: 15px;
+}
+
+.modal #before iconify-icon {
+    padding-right: 10px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+/* 🌸 -------------------
+      Header + Nav Section
+  -------------------- 🌸 */
+
+header {
+    background-color: var(--pink);
+    color: var(--text-dark);
+    padding: 1rem 0;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    color: var(--yellow);
+}
+
+/* 🌸 -------------------
+      Links Section
+  -------------------- 🌸 */
+
+#links {
+    background-color: var(--pink);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.link-list {
+    padding: 0;
+}
+
+.link-list .imgWrapper {
+    position: relative;
+}
+
+.link-list .imgWrapper img {
+    max-width: 250px;
+    object-fit: cover;
+}
+
+.link-list .imgWrapper iconify-icon {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: var(--globalBorderRadius) 0 .5em 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--lavender);
+
+    transition: all .3s;
+}
+
+
+.link-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.link-list a {
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    width: 100%;
+    margin-top: 0.5em;
+    border-radius: var(--globalBorderRadius);
+
+
+    background: var(--yellow);
+    color: var(--text-dark);
+    font-weight: bold;
+    text-decoration: none;
+
+    box-shadow: 2px 4px 0 var(--lavender);
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.link-list a:hover,
+.link-list a:focus {
+    background: #fcf6bd;
+    transform: translateY(-2px);
+    box-shadow: 3px 6px 0 var(--blue);
+}
+
+/* 🌸 -------------------
+      Footer
+  -------------------- 🌸 */
+
+footer {
+    background-color: var(--lavender);
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+/* 🌸 -------------------
+      Helpers
+  -------------------- 🌸 */
+
+.imgCenter {
+    margin: 0 auto;
+}
+
+/* 🌸 -------------------
+      General
+  -------------------- 🌸 */
+
+h2 {
+    text-decoration: underline 4px solid var(--pink);
+    margin-bottom: 10px;
+}
+
+#links h2 {
+    text-decoration: underline 4px solid var(--yellow);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: var(--globalBorderRadius);
+}
+
+ul {
+    padding-left: 2.3rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--headerFont);
+    letter-spacing: .13em; /* If you change the font for the headers, you might want to remove this line. It's up to what you like though. */
+}
