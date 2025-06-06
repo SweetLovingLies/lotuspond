@@ -15,7 +15,8 @@
     --SunsetGradient2: linear-gradient(0deg, rgba(0, 101, 255, 1) 0%, rgba(0, 101, 255, 1) 10%, rgba(255, 103, 103, 1) 10%, rgba(255, 177, 43, 1) 50%, rgba(255, 225, 141, 1) 100%);
 
     /* Other */
-    --textColor: #202020;
+    --textColor: white;
+    --greenTextColor: #202020;
     --headerColor: var(--WaterTeal1);
 
     --h1Fonts: "Rochester", Times, serif;
@@ -96,7 +97,7 @@ nav {
 .nav-link {
     font-family: var(--mainHeaderFonts);
     font-size: 1.5em;
-    color: black;
+    color: var(--greenTextColor);
     font-weight: bold;
     transition: color .25s ease-in;
     padding: 0 1rem;
@@ -173,7 +174,7 @@ footer .row {
 
 footer h4 {
     text-align: left;
-    color: black;
+    color: var(--greenTextColor);
     font-weight: normal;
 }
 
@@ -202,6 +203,7 @@ footer iconify-icon {
 .Green {
     padding: 40px;
     background-color: var(--Green);
+    color: var(--greenTextColor);
 }
 
 #COA {

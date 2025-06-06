@@ -1,4 +1,4 @@
-#MyServicesHeader {
+header {
     height: 20em;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,8 @@
     /* background-size: contain;
     background-position: bottom right, center; */
     position: relative; 
+
+    color: black;
 }
 
 h1 {
