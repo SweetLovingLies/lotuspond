@@ -1,35 +1,16 @@
-/* 🌸 ----------------------------------------------------------------------------------
-    ~ Welcome! Here is where you can customize almost everything at the highest level.
------------------------------------------------------------------------------------ 🌸 */
-
 :root {
-    /* The Main Color Palette */
     --pink: #ff99c8;
     --yellow: #fcf6bd;
     --mint: #d0f4de;
     --blue: #a9def9;
     --lavender: #e4c1f9;
-
-    /* Text Colors. Remember to pay attention to contrast! */
     --text-dark: #444;
     --text-light: #fff;
-
-    /* Fonts for the header and body text */
     --headerFont: 'Cherry Bomb One', sans-serif;
     --bodyFont: 'Fredoka', sans-serif;
-
-
-    --globalBorderRadius: 1rem; /* If you don't like rounded corners, set the border radiuses to 0 */
+    --globalBorderRadius: 1rem;
     --mainContainerBorderRadius: 1.5em;
 }
-/* 
-    Wherever there is a comment (like this!) below this point, you may want to customize it. 
-
-    Also, remember that you do not have to use the same colors everywhere! If you're a maximalist like me, maybe you'll add more! Feel free to create your own variables and use them as needed. 
-
-    Finally, unless you are familiar with HTML and CSS, I would not change anything that isn't commented! 
-*/
-
 
 * {
     margin: 0;
@@ -39,10 +20,8 @@
 }
 
 body {
-    background-color: var(--blue); /* Feel free to change any of the colors you see! You can use hex values like #FFFFF or use variables like I am using here! Just rememeber to remove the `var` part if you use hex values */
-    
-    background-image: radial-gradient(circle at top left, var(--lavender), var(--blue));  /* See the README for some background customization options! */
-
+    background-color: var(--blue);
+    background-image: radial-gradient(circle at top left, var(--lavender), var(--blue));
     font-family: var(--bodyFont);
     color: var(--text-dark);
 
@@ -60,17 +39,13 @@ body {
     width: 100%;
 }
 
-/* 🌸 -----------------------------------
-      The modal (Main Website Container)
-  ------------------------------------ 🌸 */
-
 .modal {
-    background-color: var(--yellow); /* If you want a different main background color, change this */
+    background-color: var(--yellow);
     width: 100%;
     max-width: 750px;
     border-radius: var(--mainContainerBorderRadius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border: 3px groove var(--lavender); /* Or the border Color */
+    border: 3px groove var(--lavender);
     position: relative;
     overflow: hidden;
 }
@@ -109,10 +84,6 @@ body {
     padding: 1rem 0;
 }
 
-/* 🌸 -------------------
-      Header + Nav Section
-  -------------------- 🌸 */
-
 header {
     background-color: var(--pink);
     color: var(--text-dark);
@@ -145,10 +116,6 @@ nav a {
 nav a:hover {
     color: var(--yellow);
 }
-
-/* 🌸 -------------------
-      Links Section
-  -------------------- 🌸 */
 
 #links {
     background-color: var(--pink);
@@ -186,7 +153,6 @@ nav a:hover {
     transition: all .3s;
 }
 
-
 .link-list {
     list-style: none;
     display: flex;
@@ -220,10 +186,6 @@ nav a:hover {
     box-shadow: 3px 6px 0 var(--blue);
 }
 
-/* 🌸 -------------------
-      Footer
-  -------------------- 🌸 */
-
 footer {
     background-color: var(--lavender);
     text-align: center;
@@ -232,17 +194,9 @@ footer {
     color: var(--text-dark);
 }
 
-/* 🌸 -------------------
-      Helpers
-  -------------------- 🌸 */
-
 .imgCenter {
     margin: 0 auto;
 }
-
-/* 🌸 -------------------
-      General
-  -------------------- 🌸 */
 
 h2 {
     text-decoration: underline 4px solid var(--pink);
@@ -270,5 +224,5 @@ h4,
 h5,
 h6 {
     font-family: var(--headerFont);
-    letter-spacing: .13em; /* If you change the font for the headers, you might want to remove this line. It's up to what you like though. */
+    letter-spacing: .13em;
 }
