@@ -110,6 +110,8 @@ h1 {
     background-color: var(--Teal2);
     padding: 30px;
     border: 1px solid black;
+
+    margin-bottom: 20px;
 }
 
 .displayScreenshots {
