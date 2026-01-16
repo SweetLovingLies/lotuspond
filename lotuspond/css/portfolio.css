@@ -238,7 +238,7 @@ h1 {
     position: relative;
     
     width: 250px;
-    height: 310px;
+    height: 330px;
     border-radius: 12px;
     padding: 16px;
 
@@ -267,23 +267,23 @@ h1 {
 }
 
 .app-title {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: bold;
     margin: 0;
 }
 
 .app-description {
-    font-size: 0.9rem;
-    color: #555;
+    font-size: 1rem;
+    color: black;
     margin-top: 4px;
 }
 
 .game-app {
-    border: 2px solid var(--Pink);
+    border: 3px solid var(--Pink);
 }
 
 .business-app {
-    border: 2px solid var(--Teal2);
+    border: 3px solid var(--Teal2);
 }
 
 /* Media Queries! */

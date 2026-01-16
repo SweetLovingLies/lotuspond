@@ -335,6 +335,13 @@ numdot {
     border-radius: 20px;
 }
 
+/* Fancybox */
+
+.fancybox__caption{
+    text-align: center;
+    padding: 20px;
+}
+
 /* Media Queries*/
 
 @media (prefers-reduced-motion: reduce) {
