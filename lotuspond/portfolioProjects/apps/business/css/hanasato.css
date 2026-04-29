@@ -1,0 +1,9 @@
+header {
+    background: url("/assets/AppPortfolio/business/Hanasato/2000x535.png") center/cover;
+    height: 500px
+}
+
+.imgs img:last-of-type {
+    background-color: #fd578c;
+    object-fit: contain;
+}
