@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Raleway:ital,wght@0,100..900;1,100..900&family=Fleur+De+Leah&display=swap&display=swap"
         rel="stylesheet">
 
     <!-- Iconify -->
@@ -61,7 +61,7 @@
                                 <a class="nav-link" href="contact.html">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Mini-Shop</a>
+                                <a class="nav-link nav-cta" href="https://ko-fi.com/lotuspondcreative" target="_blank" rel="noopener noreferrer">Mini-Shop</a>
                             </li>
                         </ul>
                     </div>
@@ -71,70 +71,127 @@
 
         <main class="container-fluid">
             <!-- Header and Tabs -->
-            <header class="d-flex flex-column container-fluid">
-                <div>
-                    <sub>Just some of... </sub>
-                    <h1 class="headerCenter">My Favorite Things</h1>
-                    <p> Click the images to zoom in! </p>
-                </div>
-                <div id="toggleTabRow" class="justify-content-center">
-                    <div id="tab-web" class="toggleTab d-flex" role="button" tabindex="0" aria-controls="content-web">
+            <div class="page-hero portfolio-hero d-flex flex-column container-fluid">
+                <header>
+                    <div>
+                        <p class="titlesub">Just some of... </p>
+                        <h1 class="headerCenter text-glow">My Favorite Things</h1>
+                        <p> Click the images to zoom in! </p>
+                    </div>
+                </header>
+                <nav id="toggleTabRow" class="justify-content-center" role="tablist" aria-label="Portfolio categories">
+                    <button type="button" id="tab-web" class="toggleTab d-flex" role="tab" aria-selected="true"
+                        aria-controls="content-web">
                         Web
-                        Design</div>
-                    <div id="tab-graphic" class="toggleTab d-flex" tabindex="0" role="button"
-                        aria-controls="content-graphic">Graphic Design</div>
-                    <div id="tab-logo" class="toggleTab d-flex" tabindex="0" role="button" aria-controls="content-logo">
+                        Design</button>
+                    <button type="button" id="tab-graphic" class="toggleTab d-flex" role="tab" aria-selected="false"
+                        aria-controls="content-graphic">Digital Design</button>
+                    <button type="button" id="tab-logo" class="toggleTab d-flex" role="tab" aria-selected="false"
+                        aria-controls="content-logo">
                         Logo
-                        Design</div>
-                    <div id="tab-apps" class="toggleTab d-flex" tabindex="0" role="button" aria-controls="content-apps">
+                        Design</button>
+                    <button type="button" id="tab-apps" class="toggleTab d-flex" role="tab" aria-selected="false"
+                        aria-controls="content-apps">
                         App
-                        Development</div>
-                </div>
-            </header>
+                        Development</button>
+                </nav>
+            </div>
 
             <!-- Web Dev Portfolio -->
-            <section id="content-web" class="portfolio-content row" aria-labelledby="tab-web">
-                <div class="col-lg-2"></div>
-                <div class="col-lg">
-                    <div class="webDevPreview row">
-                        <div class="displayScreenshots">
-                            <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png"
-                                alt="HCTrojan Official Website Screenshot">
-                        </div>
-                        <div class="projectDetails">
-                            <div class="aboutProject">
-                                <p>Client: HC Trojan</p>
-                                <p>Project: HC Trojan Website and Logo Package</p>
+            <section id="content-web" class="portfolio-content row" role="tabpanel" aria-labelledby="tab-web">
+                <h2 class="visually-hidden">Web Design</h2>
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="row g-5">
+                        <div class="col-lg-6">
+                            <div class="webDevPreview">
+                                <div class="windowTitleBar">
+                                    <span class="windowDot dot-pink"></span>
+                                    <span class="windowDot dot-yellow"></span>
+                                    <span class="windowDot dot-green"></span>
+                                </div>
+                                <a class="windowBody" href="https://www.hctrojan.com/"
+                                    aria-label="Visit the HC Trojan website">
+                                    <div class="displayScreenshots">
+                                        <img class="img-fluid" src="assets/DisplayScreenshots/HCTrojan.png"
+                                            alt="HCTrojan Official Website Screenshot">
+                                    </div>
+                                    <div class="aboutProject">
+                                        <p>Client: HC Trojan</p>
+                                        <p>Project: HC Trojan Website and Logo Package</p>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="d-flex flex-column projectButton align-items-center">
-                                <a href="https://www.hctrojan.com/"><button type="button" class="seemore"
-                                        aria-label="Link to the Site">See the Site</button></a>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="webDevPreview">
+                                <div class="windowTitleBar">
+                                    <span class="windowDot dot-pink"></span>
+                                    <span class="windowDot dot-yellow"></span>
+                                    <span class="windowDot dot-green"></span>
+                                </div>
+                                <a class="windowBody" href="https://iwishyouroses.neocities.org/"
+                                    aria-label="Visit the I Wish You Roses website">
+                                    <div class="displayScreenshots">
+                                        <img class="img-fluid" src="assets/DisplayScreenshots/IWishYouRoses.png"
+                                            alt="I Wish You Roses Official Website Screenshot">
+                                    </div>
+                                    <div class="aboutProject">
+                                        <p>This is a personal project of mine!</p>
+                                        <p>The goal was to create a highly interative website with lots of customization stored on *your* computer!</p>
+                                        <p>The site is very quirky. Go and have some fun with it! Experiment!</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="webDevPreview row">
-                        <div class="displayScreenshots">
-                            <img class="img-fluid" src="assets/DisplayScreenshots/IWishYouRoses.png"
-                                alt="I Wish You Roses Official Website Screenshot">
-                        </div>
-                        <div class="projectDetails">
-                            <div class="aboutProject">
-                                <p>This is a personal project of mine!</p>
-                                <p>The goal was to create a highly interative website with lots of customization stored on *your* computer!</p>
-                                <p>The site is very quirky. Go and have some fun with it! Experiment!</p>
+                        <div class="col-lg-6">
+                            <div class="webDevPreview">
+                                <div class="windowTitleBar">
+                                    <span class="windowDot dot-pink"></span>
+                                    <span class="windowDot dot-yellow"></span>
+                                    <span class="windowDot dot-green"></span>
+                                </div>
+                                <a class="windowBody" href="kofiTemplates/sugarsweet/Pastel%20Portfolio/index.html"
+                                    aria-label="Preview the Pastel Portfolio Ko-Fi template">
+                                    <div class="displayScreenshots">
+                                        <img class="img-fluid" src="assets/DisplayScreenshots/PastelPortfolio.png"
+                                            alt="The Pastel Portfolio Template">
+                                    </div>
+                                    <div class="aboutProject">
+                                        <p>Ko-Fi Shop Template: Pastel Portfolio</p>
+                                        <p>A cozy, pastel-toned portfolio template made for the Ko-Fi shop.</p>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="d-flex flex-column projectButton align-items-center">
-                                <a href="https://iwishyouroses.neocities.org/"><button type="button" class="seemore"
-                                        aria-label="Link to the site">See the Site</button></a>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="webDevPreview">
+                                <div class="windowTitleBar">
+                                    <span class="windowDot dot-pink"></span>
+                                    <span class="windowDot dot-yellow"></span>
+                                    <span class="windowDot dot-green"></span>
+                                </div>
+                                <a class="windowBody" href="kofiTemplates/sugarsweet/Daylight%20Directory/index.html"
+                                    aria-label="Preview the Daylight Directory Ko-Fi template">
+                                    <div class="displayScreenshots">
+                                        <img class="img-fluid" src="assets/DisplayScreenshots/DaylightDirectory.png"
+                                            alt="The Daylight Directory Template">
+                                    </div>
+                                    <div class="aboutProject">
+                                        <p>Ko-Fi Shop Template: Daylight Directory</p>
+                                        <p>A link-in-bio style directory template with a day/night toggle, made for the
+                                            Ko-Fi shop.</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2"></div>
             </section>
 
             <!-- Graphic Dev Portfolio -->
-            <section id="content-graphic" class="portfolio-content container-fluid" aria-labelledby="tab-graphic">
+            <section id="content-graphic" class="portfolio-content container-fluid" role="tabpanel"
+                aria-labelledby="tab-graphic">
+                <h2 class="visually-hidden">Digital Design</h2>
                 <div id="graphicWrapper" class="d-flex row">
                     <div class="col-lg-2">
                     </div>
@@ -163,21 +220,6 @@
                             <img class="img-fluid" src="assets/GDPortfolio/2024/50slogoV2.png" loading="lazy"
                                 alt="50s Style Diner Logo. Click me for a caption.">
                         </a>
-                        <a href="assets/GDPortfolio/2024/DeliciousIcon.png" data-fancybox="gallery"
-                            data-caption=" Delicious! <br> I made this for a Discord server icon!">
-                            <img class="img-fluid" src="assets/GDPortfolio/2024/DeliciousIcon.png" loading="lazy"
-                                alt="Delicious! Icon. Click me for a caption.">
-                        </a>
-                        <a href="assets/GDPortfolio/2023/SweetLovingLiesHeader.png" data-fancybox="gallery"
-                            data-caption=" Tell me lies, tell me... <br> At some point, I settled on this as a username. All of my accounts have a similar motif now. Unheard of from my side of life.">
-                            <img class="img-fluid" src="assets/GDPortfolio/2023/SweetLovingLiesHeader.png"
-                                loading="lazy" alt="SweetLovingLies Header. Click me for a caption.">
-                        </a>
-                        <a href="assets/GDPortfolio/2023/ShugareSnap! Logo.png" data-fancybox="gallery"
-                            data-caption=" Shugare Snap! <br> The first name I ever branded myself under. I have since moved on from the bakery-style motif I had, but maybe I'll turn this concept into a brand identity in the future.">
-                            <img class="img-fluid" src="assets/GDPortfolio/2023/ShugareSnap! Logo.png" loading="lazy"
-                                alt="Shugare Snap Logo. Click me for a caption.">
-                        </a>
                         <a href="assets/GDPortfolio/2024/StainedGlassRose.png" data-fancybox="gallery"
                             data-caption=" Stained Glass (Rose Edition) <br> This was the first version of the stained glass concept I made. I wanted to make sure I actually understood how to get the effect before making the brand version. I still like this one quite a lot! But the linework annoys me a bit.">
                             <img class="img-fluid" src="assets/GDPortfolio/2024/StainedGlassRose.png" loading="lazy"
@@ -189,20 +231,27 @@
             </section>
 
             <!-- Brand Design Portfolio -->
-            <section id="content-logo" class="portfolio-content container-fluid row" aria-labelledby="tab-logo">
-                <div class="col-lg-2"></div>
-                <div class="col-lg">
-                    <a href="assets/BrandIdentities/HMSDisplayVer.png" data-fancybox="gallery"
-                        data-caption=" Harris Mobility Solutions">
-                        <img id="HMSBrand" class="logos img-fluid" src="assets/BrandIdentities/HMSDisplayVer.png"
-                            loading="lazy" alt="Harris Mobility Solutions Logo Display!">
-                    </a>
+            <section id="content-logo" class="portfolio-content container-fluid" role="tabpanel"
+                aria-labelledby="tab-logo">
+                <h2 class="visually-hidden">Logo Design</h2>
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg">
+                        <a href="assets/BrandIdentities/HMSDisplayVer.png" data-fancybox="gallery"
+                            data-caption=" Harris Mobility Solutions">
+                            <img id="HMSBrand" class="logos img-fluid" src="assets/BrandIdentities/HMSDisplayVer.png"
+                                loading="lazy" alt="Harris Mobility Solutions Logo Display!">
+                        </a>
+                    </div>
+                    <div class="col-lg-2"></div>
                 </div>
-                <div class="col-lg-2"></div>
             </section>
 
             <!-- App Development Portfolio -->
-            <section id="content-apps" class="portfolio-content container-fluid row" aria-labelledby="tab-apps">
+            <section id="content-apps" class="portfolio-content container-fluid" role="tabpanel"
+                aria-labelledby="tab-apps">
+                <h2 class="visually-hidden">App Development</h2>
+                <div class="row">
                 <div class="col-lg-2"></div>
 
                 <div class="col-lg app-portfolio-grid">
@@ -213,6 +262,7 @@
 
                         <a href="portfolioProjects/apps/business/lockin.html">
                             <div class="app-card d-flex flex-column align-items-center business-app">
+                                <span class="app-badge">Business</span>
                                 <img src="assets/AppPortfolio/business/LockIn/LockInIcon.png"
                                     alt="An open lock, the icon for the LockIn! app" class="app-icon">
                                 <h3 class="app-title">Lock In!</h3>
@@ -223,6 +273,7 @@
 
                         <a href="portfolioProjects/apps/games/aethersedge.html">
                             <div class="app-card d-flex flex-column align-items-center game-app">
+                                <span class="app-badge">Game</span>
                                 <img src="assets/AppPortfolio/games/aethersEdge/AethersEdgeIcon.png" alt="Game App Icon" class="app-icon">
                                 <h3 class="app-title">Aether's Edge</h3>
                                 <p class="app-description">A team-developed command line choose your own adventure game!
@@ -232,6 +283,7 @@
 
                         <a href="portfolioProjects/apps/games/mobpunks.html">
                             <div class="app-card d-flex flex-column align-items-center game-app">
+                                <span class="app-badge">Game</span>
                                 <img src="assets/AppPortfolio/games/mobpunks/MobpunksIcon.png"
                                     alt="An emoji face, the icon for the MobPunks game" class="app-icon">
                                 <h3 class="app-title">Mob Punks</h3>
@@ -241,6 +293,7 @@
 
                         <a href="portfolioProjects/apps/business/anglercorner.html">
                             <div class="app-card d-flex flex-column align-items-center business-app">
+                                <span class="app-badge">Business</span>
                                 <img src="assets/AppPortfolio/business/AnglerCorner/AnglerCornerIcon.png"
                                     alt="A generic fish, the icon for the Angler Corner app" class="app-icon">
                                 <h3 class="app-title">Angler Corner</h3>
@@ -260,6 +313,7 @@
 
                         <a href="portfolioProjects/apps/business/hanasato.html">
                             <div class="app-card d-flex flex-column align-items-center business-app">
+                                <span class="app-badge">Business</span>
                                 <img src="assets/AppPortfolio/business/Hanasato/AppIconV2.png" alt="4 simple flowers, the icon for the Hanasato app" class="app-icon">
                                 <h3 class="app-title">Hanasato</h3>
                                 <p class="app-description">"花の里  (Flower Village)" A space for me to organize my life.</p>
@@ -268,6 +322,7 @@
 
                         <a href="portfolioProjects/apps/business/somori.html">
                             <div class="app-card d-flex flex-column align-items-center business-app">
+                                <span class="app-badge">Business</span>
                                 <img src="assets/AppPortfolio/business/somori/AppIcon.png" alt="A simple tree, the icon for the Somori App" class="app-icon">
                                 <h3 class="app-title">Somori</h3>
                                 <p class="app-description">A work-in-progress self-care app designed with neurodivergent people in mind.</p>
@@ -284,6 +339,7 @@
                         
                         <a href="portfolioProjects/apps/business/again.html">
                             <div class="app-card d-flex flex-column align-items-center business-app">
+                                <span class="app-badge">Business</span>
                                 <img src="assets/AppPortfolio/business/AGAIN!/AppIcon.png" alt="A stopwatch, the app icon for AGAIN!" class="app-icon">
                                 <h3 class="app-title">AGAIN!</h3>
                                 <p class="app-description">Do you like to pace in laps? Me too. Here's a simple way to track that.</p>
@@ -294,6 +350,15 @@
                 </div>
 
                 <div class="col-lg-2"></div>
+                </div>
+            </section>
+
+            <section class="ctaSection container-fluid">
+                <h2 class="text-glow">Like what you see?</h2>
+                <p>These are just a few of my favorite things I've made. If any of it caught your eye, let's talk
+                    about making something just as fun for you!</p>
+                <a href="contact.html"><button type="button" class="bt-pink" aria-label="Contact Me">Let's Work
+                        Together!</button></a>
             </section>
 
         </main>
@@ -304,14 +369,10 @@
             </div>
             <div class="row footerLinks">
                 <h4>Not sure yet? Let's connect anyways!</h4>
-                <div class="d-flex socials">
+                <div class="d-flex socials flex-wrap justify-content-center">
                     <a href="https://www.instagram.com/lotuspond.creative" aria-label="Instagram Link">
                         <iconify-icon icon="mdi:instagram" width="24" height="24"></iconify-icon>
                         Instagram
-                    </a>
-                    <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG" aria-label="Facebook Link">
-                        <iconify-icon icon="ic:baseline-facebook" width="24" height="24"></iconify-icon>
-                        Facebook
                     </a>
                     <a href="https://www.linkedin.com/in/morgan-harris-51a968281/" aria-label="LinkedIn Link">
                         <iconify-icon icon="mdi:linkedin" width="24" height="24"></iconify-icon>
@@ -340,30 +401,39 @@
             return window.location.hash ? window.location.hash.replace('#', 'tab-') : localStorage.getItem('activeTab') || 'tab-web';
         };
 
-        let activeTabId = getActiveTabId();
-        const activeTab = document.getElementById(activeTabId);
-        const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
+        // Clear all active/selected states, then mark the given tab id as active
+        const setActiveTab = (activeTabId) => {
+            tabs.forEach(tab => {
+                tab.classList.remove('is-active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            contents.forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
+            });
 
-        // Clear all active states on load
-        tabs.forEach(tab => tab.classList.remove('is-active'));
-        contents.forEach(content => {
-            content.style.display = 'none';
-            content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
-        });
+            const activeTab = document.getElementById(activeTabId);
+            const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
 
-        // Apply the 'is-active' class to the active tab and content
-        if (activeTab && activeContent) {
-            activeTab.classList.add('is-active');
-            activeContent.style.display = 'flex';
-            activeContent.classList.add('is-active', 'fade-in-active');
-        }
+            if (activeTab && activeContent) {
+                activeTab.classList.add('is-active');
+                activeTab.setAttribute('aria-selected', 'true');
+                activeContent.style.display = 'flex';
+                activeContent.classList.add('is-active', 'fade-in-active');
+            }
+        };
+
+        setActiveTab(getActiveTabId());
 
         // Event listener for each tab click
         tabs.forEach(tab => {
             tab.addEventListener('click', function (e) {
                 e.preventDefault();
 
-                tabs.forEach(t => t.classList.remove('is-active'));
+                tabs.forEach(t => {
+                    t.classList.remove('is-active');
+                    t.setAttribute('aria-selected', 'false');
+                });
                 contents.forEach(content => {
                     if (content.classList.contains('is-active')) {
                         content.classList.remove('fade-in-active');
@@ -378,6 +448,7 @@
                 });
 
                 this.classList.add('is-active');
+                this.setAttribute('aria-selected', 'true');
                 const targetContentId = this.id.replace('tab-', 'content-');
                 const targetContent = document.getElementById(targetContentId);
 
@@ -397,31 +468,7 @@
 
         // Handle back/forward browser navigation to load correct tab based on URL
         window.addEventListener('popstate', function () {
-            activeTabId = getActiveTabId();
-
-            tabs.forEach(tab => tab.classList.remove('is-active'));
-            contents.forEach(content => {
-                content.style.display = 'none';
-                content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
-            });
-
-            const activeTab = document.getElementById(activeTabId);
-            const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
-
-            if (activeTab && activeContent) {
-                activeTab.classList.add('is-active');
-                activeContent.style.display = 'flex';
-                activeContent.classList.add('is-active', 'fade-in-active');
-            }
-        });
-    });
-
-    document.querySelectorAll('.toggleTab').forEach(tab => {
-        tab.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                tab.click();
-            }
+            setActiveTab(getActiveTabId());
         });
     });
 

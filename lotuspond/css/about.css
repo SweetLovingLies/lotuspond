@@ -1,7 +1,9 @@
 
 #displayWrapper {
-    margin: 25px auto;
     padding: 40px;
+    padding-top: 80px;
+
+    background: var(--SunsetGradient);
 }
 
 #aboutImg {
@@ -11,6 +13,9 @@
 
 #headshot {
     width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: top;
     border-radius: 15px;
     border: 5px dashed var(--LogoTypeYellow);
 }
@@ -21,15 +26,14 @@
 }
 
  h1 {
-    color: white;
-    font-family: Rochester;
+    color: var(--Pink);
+    font-family: "Fleur De Leah", cursive;
     font-size: 5rem;
 }
 
-h2{
-    font-size: 3rem; 
+#aboutMain h2{
+    font-size: 3rem;
     color: var(--Pink);
-    filter: drop-shadow(1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px  1px 0px var(--WaterTeal1)) drop-shadow(-1px  -1px 0px var(--WaterTeal1));
 }
 
 #arrow {
@@ -57,15 +61,157 @@ h2{
 
 /* Where I begin to yap */
 
-/* #aboutMain{
-} */
-
 #certContainer {
     background-color: var(--Teal2);
 }
 
 #DefiningMe{
-    width: 70%;
+    max-width: 80%;
+    filter: drop-shadow(2px 2px 0 var(--Green)) drop-shadow(-2px -2px 0 var(--Pink));
+}
+
+/* Skills */
+
+.skillsSection {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skillsCategory {
+    flex: 1 1 0;
+    min-width: 220px;
+
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px 18px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+    min-height: 230px;
+}
+
+.skillsCategoryTitle {
+    display: inline-block;
+    font-size: 1.1em;
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 3px solid var(--Pink);
+}
+
+.skillsCategory:nth-of-type(2) .skillsCategoryTitle {
+    border-bottom-color: var(--Green);
+}
+
+.skillsCategory:nth-of-type(3) .skillsCategoryTitle {
+    border-bottom-color: var(--Teal2);
+}
+
+.skillChips {
+    gap: 8px;
+}
+
+.skillChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+    align-self: flex-start;
+
+    background-color: var(--Green);
+    color: var(--sectionTextColor);
+    font-weight: bold;
+    font-size: 0.85em;
+
+    border-radius: 999px;
+    padding: 6px 12px;
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.skillChip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skillChip iconify-icon {
+    font-size: 1.2em;
+}
+
+.skillDisclosure {
+    display: inline-block;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    padding: 0;
+
+    background: var(--Green);
+    border-radius: 15px;
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.skillDisclosure > summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    font-weight: bold;
+    font-size: 0.85em;
+
+    padding: 6px 12px;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+.skillDisclosure > summary::-webkit-details-marker {
+    display: none;
+}
+
+.skillDisclosure > summary::after {
+    content: "▾";
+    margin-left: 6px;
+    font-size: 0.75em;
+}
+
+.skillDisclosure[open] > summary::after {
+    content: "▴";
+}
+
+.skillDisclosure:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skillDisclosure > summary iconify-icon {
+    font-size: 1.2em;
+}
+
+.skillDisclosureContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 8px;
+}
+
+.skillDisclosureContent .skillChip {
+    background-color: white;
+}
+
+.skillsMoreNote {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0 0;
+    flex-basis: 100%;
+}
+
+/* ! Other */
+
+img {
+    user-select: none;
+  pointer-events: none;
 }
 
 @media (orientation: portrait) {}
@@ -84,6 +230,15 @@ h2{
         display: none;
     }
 
+    #displayWrapper {
+        flex-direction: column-reverse;
+    }
+
+    #aboutName,
+    #aboutImg {
+        width: 100%;
+    }
+
     #aboutName h1 {
         margin: 0 auto;
     }
@@ -93,6 +248,10 @@ h2{
         width: 70%;
         height: auto;
         margin: 0 auto;
+    }
+
+    #aboutMain h2 {
+        text-align: center;
     }
 }
 
@@ -108,7 +267,7 @@ h2{
     }
 
     #aboutName h1 {
-        font-size: 2.4rem;
+        font-size: 3.4rem;
         text-align: center;
     }
 }

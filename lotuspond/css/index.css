@@ -1,7 +1,26 @@
-
-
 #start {
-    height: 100vh;
+    height: calc(100vh - 67px);
+
+    /* ? Cool background modified from here https://css-pattern.com/christmas/  */
+  --s: 30px; /* control the size*/
+  --c1: #1D1C45;
+
+  --b: calc(var(--s)/6); /* control the thickness of the wavy line */
+
+  --_r: calc(1.28*var(--s) + var(--b)/2) at left 50%;
+  --_f: calc(100% - var(--b)),var(--c1) calc(101% - var(--b)) 100%,#0000 101%;
+  --g0: calc(-.8*var(--s)),transparent var(--_f);
+  --g1: calc(-.8*var(--s)),transparent var(--_f);
+  --_s: calc(1.5*var(--s) + var(--b));
+
+  background:
+    radial-gradient(var(--_r) bottom var(--g0)) calc(2*var(--s)) calc(-1*var(--_s)),
+    radial-gradient(var(--_r) bottom var(--g1)) calc(-1*var(--s)) calc(var(--_s)/-2),
+    radial-gradient(var(--_r) top    var(--g1)) 0 var(--_s),
+    radial-gradient(var(--_r) top    var(--g0)) var(--s) calc(var(--_s)/ 2),
+    linear-gradient(to bottom, var(--Yellow) 0%, var(--SunsetOrange) 20%, var(--SunsetRed) 40%, var(--Teal2) 65%, var(--WaterBlue1) 85%, var(--WaterBlue2) 100%);
+  background-size: calc(4*var(--s)) var(--_s), calc(4*var(--s)) var(--_s), calc(4*var(--s)) var(--_s), calc(4*var(--s)) var(--_s), 100% 100%;
+  background-repeat: repeat, repeat, repeat, repeat, no-repeat;
 }
 
 #startDisplay {
@@ -10,27 +29,37 @@
     margin: 0 auto;
 }
 
-#startDisplay p {
-    font-size: larger;
-}
-
 #startDName {
     position: absolute;
     bottom: 5%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     z-index: 3;
 
+    width: 100%;
+    white-space: nowrap;
+
     font-family: var(--h1Fonts);
-    font-size: 7rem;
+    font-size: clamp(3rem, 9vw, 7rem);
     letter-spacing: 0px;
 
     color: white;
     filter: drop-shadow(0 0 5px transparent);
     opacity: 0;
 
-    animation: fadeIn 3s forwards, floatglow 1000ms ease-in-out infinite alternate;
+    animation: fadeIn 1s forwards, floatglow 1000ms ease-in-out infinite alternate;
     animation-delay: 2s;
+}
+
+#startTagline {
+    font-size: larger;
+    color: white;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    
+
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 2.5s;
 }
 
 @keyframes floatglow {
@@ -71,9 +100,14 @@
     position: relative;
     width: 30em;
     height: 700px;
-    overflow: hidden;
     margin: 0 auto;
     z-index: 2;
+}
+
+.image-clip {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 @keyframes revealImage {
@@ -88,123 +122,105 @@
 
 /* A little about me */
 
-#aboutBlurb {
-    text-align: center;
-}
-
 #aboutblurbtxt {
+    text-align: center;
     line-height: 1.7em;
     font-size: 1.7vmax;
+
+    margin-bottom: 40px;
+}
+
+#aboutBlurb button {
+    display: block;
     margin: 0 auto;
-    width: 90%;
 }
 
+/* ! Override specifically for this case */
+#aboutBlurb.sectionSplit [class*="col-"]:nth-of-type(2) {
+    background: var(--Green);
+}
 
-/* Contact Me Button */
-.contact {
-    margin-top: 60px;
-    font-size: larger;
-    font-weight: bold;
+/* Services Preview */
+
+.servicePanel {
+    position: relative;
+    min-height: 400px;
+    padding: 30px 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.service-pink {
     background-color: var(--Pink2);
-    color: black;
-    border: white 1px solid;
-    border-radius: 50px;
-    padding: 10px 50px;
-    transition: background-color .25s;
 }
 
-.contact:hover {
-    background-color: var(--Pink);
-    color: black;
+.service-green {
+    background-color: var(--Green);
 }
 
-.contact:active,
-.contact:focus .contact:active:focus {
-    background-color: #ff84c3;
+.service-yellow {
+    background-color: var(--Yellow);
 }
 
-/* Headers */
-
-.indexHeaderStyling {
-    padding: 10px;
+.service-tealBlue {
     background-color: var(--Teal2);
 }
 
-.indexHeaderStyling h2{
+.servicePanelBox {
+    background-color: white;
+    color: var(--sectionTextColor);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.servicePanelBox h3 {
+    margin-bottom: 10px;
+}
+
+.servicesCTA {
+    padding: 30px 0;
+    background-color: var(--LogoTypeYellow);
+}
+
+.servicesCTA .seemore {
+    background-color: var(--Teal2);
     color: white;
 }
 
-/* Skill sets */
-
-.skillsMarquee {
-    gap: 20px;
+.servicesCTA .seemore:hover {
+    background-color: var(--Teal);
 }
 
-.skillsMarquee p {
-    flex: 0 1 150px;
-    align-items: start;
+/* Featured Works */
 
-    background-color: var(--Yellow);
-
-    color: black;
-    /* font-weight: bold; */
-    text-align: center;
-
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
-.skilldisplay {
-    
-}
-
-/* Services I provide */
-
-#services {
+.featuredCard {
     position: relative;
-    margin: auto;
-    width: 80vw;
-}
-
-#services h4{
-    flex: 0 1 90%;
-}
-
-/* Featured Works (Modified from Portfolio!) */
-
-.displayCase {
-    min-height: 450px;
-    background-color: var(--Teal2);
-    padding: 30px;
+    padding: 20px;
     border: 1px solid black;
-    margin: 0; 
+    border-radius: 12px;
+    margin: 0;
+}
+
+.featured-pink {
+    background-color: var(--Pink2);
+}
+
+.featured-green {
+    background-color: var(--Green);
 }
 
 .displayScreenshots {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     height: 300px;
     overflow: hidden;
     border: 1px solid black;
+    border-radius: 8px;
     background: var(--SunsetGradient);
-}
-
-.longimg {
-    transform: translateY(0);
-    transition: transform 12s;
-    filter: grayscale(100%) invert(10%) saturate(350%) hue-rotate(50deg) brightness(105%) contrast(95%);
-}
-
-.longimg:hover,
-.longimg:focus {
-    transform: translateY(calc(-100% + 540px));
-    transition: transform 16s;
-    filter: none;
-}
-
-.smallimg {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
 }
 
 .mediumimg {
@@ -213,50 +229,25 @@
     height: 100%;
 }
 
-.projectDetails {
-    display: flex;
-    min-height: 125px;
+.cardOverlay {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    width: 80%;
+    padding: 7px 14px;
+    background: var(--LogoTypeYellow);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
 }
 
-.projectDetails p {
-    margin: 0 0 3px 0;
-    color: white;
-}
-
-.projectButton {
-    margin-left: auto;
-}
-
-.seemore {
-    height: 70px;
+.cardOverlayTitle {
+    margin: 0;
     font-weight: bold;
-    background-color: var(--LogoTypeYellow);
-    color: black;
-    border: black 1px solid;
-    border-radius: 50px;
-    padding: 10px 50px;
-    transition: background-color .25s;
-}
-
-.seemore:hover {
-    background-color: var(--Yellow);
-    color: black;
-}
-
-.seemore:active,
-.seemore:focus .seemore:active:focus {
-    background-color: var(--Yellow);
-}
-
-/* ~ The Pond */
-
-#LotusPond {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    height: 100px;
-    width: 100vw;
-    z-index: 20;
+    color: var(--sectionTextColor);
+    text-align: center;
 }
 
 /* Media Queries */
@@ -276,35 +267,38 @@
         width: 24em;
         height: 530px;
     }
-
-    .projectDetails {
-        flex-direction: column;
-    }
-
-    .projectDetails p {
-        text-align: center;
-    }
-
-    .projectButton {
-        margin: 0;
-    }
 }
 
 @media screen and (max-width: 900px) {
-    .displayCase {
-        height: unset;
+    .featuredCard {
         margin-bottom: 20px;
     }
 }
 
 @media screen and (max-width: 425px) {
 
+    #start {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     #startDName {
-        font-size: 5rem;
+        font-size: clamp(3.7rem, 11vw, 3.5rem);
+    }
+
+    #startTagline {
+        font-size: 1rem;
+        padding: 0 10px;
     }
 
     .image-container {
-        height: 500px;
-        width: 20em;
+        height: 460px;
+        width: 18em;
+    }
+
+    .displayScreenshots {
+        height: unset;
     }
 }

@@ -2,28 +2,21 @@ body {
     color: var(--greenTextColor);
 }
 
-header {
-    height: 20em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.portfolio-hero {
     background: url(/assets/decor/Palm.svg) no-repeat, var(--SunsetGradient);
     background-size: contain;
     background-position: bottom right, center;
-    position: relative;
 }
 
 h1 {
     color: var(--Pink2);
-    filter: drop-shadow(1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px -1px 0px var(--WaterTeal1));
 }
 
 .titlesub {
     font-size: 1.1em;
     display: block;
     transform: rotate(-3deg);
-    margin: 0;
+    margin: 0 0 6px;
 }
 
 /* Toggle Tabs */
@@ -38,11 +31,15 @@ h1 {
 }
 
 .toggleTab {
+    appearance: none;
+    font: inherit;
+    cursor: pointer;
+
     flex: 0 1 150px;
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #d1bf8c;
+    background-color: var(--TabInactive);
     padding: 5px 15px;
     min-height: 60px;
     border-radius: 10px 10px 0 0;
@@ -103,85 +100,114 @@ h1 {
     padding: 50px 0;
     /* background: url("/assets/Backgrounds/Vines.png"), var(--LogoTypeYellow); */
     background-color: var(--LogoTypeYellow);
-    border: 1px solid black;
+    border-top: 1px solid black;
 }
 
 .webDevPreview {
-    background-color: var(--Teal2);
-    padding: 30px;
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    height: 425px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.webDevPreview:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+}
+
+.windowTitleBar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background-color: var(--Pink2);
+}
+
+.col-lg-6:nth-of-type(even) .windowTitleBar {
+    background-color: var(--Green);
+}
+
+.windowDot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease;
+}
+
+.windowDot:active {
+    transform: scale(0.8);
+}
+
+.dot-pink {
+    background-color: var(--Pink);
+}
+
+.dot-yellow {
+    background-color: var(--Yellow);
+}
+
+.dot-green {
+    background-color: var(--Green);
+}
+
+.windowBody {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.windowBody:hover {
+    font-style: normal;
 }
 
 .displayScreenshots {
-    margin-bottom: 20px;
-    height: 540px;
+    flex-shrink: 0;
+    height: 270px;
     overflow: hidden;
-    border: 1px solid black;
     background: var(--SunsetGradient);
 }
 
 .displayScreenshots img {
     transform: translateY(0);
-    transition: transform 12s;
+    transition: transform 20s;
     filter: grayscale(100%) invert(10%) saturate(350%) hue-rotate(50deg) brightness(105%) contrast(95%);
 }
 
-.displayScreenshots img:hover,
-.displayScreenshots img:focus {
-    transform: translateY(calc(-100% + 540px));
-    transition: transform 16s;
+.webDevPreview:hover .displayScreenshots img,
+.windowBody:focus-visible .displayScreenshots img {
+    transform: translateY(calc(-100% + 270px));
+    transition: transform 20s;
     filter: none;
 }
 
-.projectDetails {
-    display: flex;
+.aboutProject {
+    padding: 16px 20px;
+    overflow-y: auto;
+    color: var(--sectionTextColor);
+
+    height: 110px;
 }
 
-.projectDetails p {
+.aboutProject p {
     margin: 0 0 3px 0;
-    color: white;
 }
-
-.projectButton {
-    margin-left: auto;
-}
-
-.projectButton a {
-    color: var(--LogoTypeYellow);
-    text-decoration: underline solid black;
-}
-
-.seemore {
-    height: 70px;
-    font-weight: bold;
-    background-color: var(--LogoTypeYellow);
-    color: black;
-    border: black 1px solid;
-    border-radius: 50px;
-    padding: 10px 50px;
-    transition: background-color .25s;
-}
-
-.seemore:hover {
-    background-color: var(--Yellow);
-    color: black;
-}
-
-.seemore:active,
-.seemore:focus .seemore:active:focus {
-    background-color: var(--Yellow);
-}
-
 
 /* Graphic Designer Portfolio */
-
 #content-graphic {
     padding: 50px 0;
     /* background: url("/assets/Backgrounds/Roses.png"), var(--LogoTypeYellow); */
     background-color: var(--LogoTypeYellow);
-    border: 1px solid black;
+    border-top: 1px solid black;
 }
 
 #graphicWrapper {
@@ -204,13 +230,14 @@ h1 {
     padding: 50px 0;
     /* background: url("/assets/Backgrounds/RoseVines.png"), var(--LogoTypeYellow); */
     background-color: var(--LogoTypeYellow);
-    border: 1px solid black;
+    border-top: 1px solid black;
 }
 
 .logos {
     padding: 20px;
 }
 
+/* ! This will become a global style after the update! */
 #HMSBrand {
     background-color: white;
     border: 5px solid var(--Teal2);
@@ -222,7 +249,7 @@ h1 {
     padding: 50px 0;
     /* background: url("/assets/Backgrounds/Roses.png"), var(--LogoTypeYellow); */
     background-color: var(--LogoTypeYellow);
-    border: 1px solid black;
+    border-top: 1px solid black;
 }
 
 .app-portfolio-grid {
@@ -286,10 +313,69 @@ h1 {
     border: 3px solid var(--Teal2);
 }
 
+.app-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 999px;
+}
+
+.game-app .app-badge {
+    background-color: var(--Pink);
+}
+
+.business-app .app-badge {
+    background-color: var(--Teal2);
+}
+
 /* Media Queries! */
 
+@media screen and (max-width: 768px) {
+    .portfolio-hero {
+        height: auto;
+        min-height: 26em;
+        justify-content: flex-end;
+
+        /* ! It really is that serious. */
+        background-size:  72%;
+        background-position: 200%;
+    }
+
+    .portfolio-hero header > div {
+        width: 100%;
+        text-align: center;
+    }
+
+    #toggleTabRow {
+        position: relative;
+        left: auto;
+        bottom: 0;
+        transform: none;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0;
+        padding: 15px 0 0;
+    }
+
+    .toggleTab {
+        flex: 1 1 50%;
+        min-width: 0;
+        border: none;
+        border-radius: 0;
+    }
+
+    .webDevPreview {
+        max-width: 350px;
+        margin: 0 auto 20px;
+    }
+}
+
 @media screen and (max-width: 425px) {
-    sub,
+    .titlesub,
     #portfolioHeader p {
         text-align: center;
     }
@@ -298,15 +384,7 @@ h1 {
         max-height: 200px;
     }
 
-    .projectDetails {
-        flex-direction: column;
-    }
-
-    .projectDetails p {
+    .aboutProject p {
         text-align: center;
-    }
-
-    .projectButton {
-        margin: 0;
     }
 }

@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Raleway:ital,wght@0,100..900;1,100..900&family=Fleur+De+Leah&display=swap&display=swap"
         rel="stylesheet">
 
     <!-- Iconify -->
@@ -66,7 +66,7 @@
                                 <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Mini-Shop</a>
+                                <a class="nav-link nav-cta" href="https://ko-fi.com/lotuspondcreative" target="_blank" rel="noopener noreferrer">Mini-Shop</a>
                             </li>
                         </ul>
                     </div>
@@ -75,15 +75,14 @@
         </nav>
 
         <main>
-            <header class="d-flex">
-                <h1 class=" headerCenter">Shall We Talk?</h1>
+            <header class="page-hero d-flex">
+                <h1 class="headerCenter text-glow">Shall We Talk?</h1>
                 <img id="duck" src="/assets/decor/Duck.svg" aria-hidden="true" alt="Duck image">
-    </div>
-    <section class=" row Green">
-        <div class="col-md-1"></div>
-        <div id="GetinTouch" class="col-md-5 d-flex flex-column">
+            </header>
+            <section class=" row sectionDefault">
+        <div id="GetinTouch" class="col-lg-5 offset-lg-1 d-flex flex-column">
             <div>
-                <tag>Get in Touch!</tag>
+                <span class="tag">Get in Touch!</span>
                 <h2>Our friendship begins here!<sup>or by email...</sup></h2>
                 <p class="txt">
                     It's easy to reach me. Just send a friendly "hello" my way! I love making connections and I
@@ -91,40 +90,36 @@
                 </p>
             </div>
         </div>
-        <div class="col-md-5">
-            <p> The built-in contact sheet is currently being updated! For now, please email me directly at
-                <mark>lotuspondcreative@gmail.com</mark></p>
-            <p> Thank you for your patience and take care!</p>
-            <!-- <h3 id="contact-form-heading">Contact Form</h3>
-                    <div id="contactform">
-                        <form method="POST" id="form" aria-labelledby="contact-form-heading">
-                            <input type="hidden" name="access_key" value="545c82ab-9c75-4234-9cc1-439a02ff90bc">
-                            <input type="hidden" name="subject" value="I'm interested in your services!">
+        <div class="col-lg-5">
+            <h3 id="contact-form-heading">Contact Form</h3>
+            <div id="contactform">
+                <form method="POST" id="form" aria-labelledby="contact-form-heading"
+                    action="https://formspree.io/f/xaqrvvaj">
+                    <input type="hidden" name="_subject" value="I'm interested in your services!">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Full Name</label>
-                                <input type="text" name="name" class="form-control" id="name" aria-required="true">
-                            </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" name="name" class="form-control" id="name" aria-required="true">
+                    </div>
 
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" name="email" class="form-control" id="email" aria-required="true">
-                            </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" id="email" aria-required="true">
+                    </div>
 
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" name="message" id="message" rows="3"
-                                    aria-required="true"></textarea>
-                            </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" name="message" id="message" rows="3"
+                            aria-required="true"></textarea>
+                    </div>
 
-                            <div class="h-captcha" data-captcha="true" tabindex="0"></div>
-
-                            <button type="submit" tabindex="0" class="btn bt-pink">Submit</button>
-                            <div id="result"></div>
-                        </form>
-                    </div> -->
+                    <button type="submit" tabindex="0" class="btn bt-pink">Submit</button>
+                    <div id="result"></div>
+                </form>
+            </div>
+            <p id="preferEmail"> Prefer email? Reach me directly at <a href="mailto:lotuspondcreative@gmail.com"><mark>lotuspondcreative@gmail.com</mark></a></p>
         </div>
-        <div class="col-md-1"></div>
     </section>
     </main>
 
@@ -134,14 +129,10 @@
         </div>
         <div class="row footerLinks">
             <h4>Not sure yet? Let's connect anyways!</h4>
-            <div class="d-flex socials">
+            <div class="d-flex socials flex-wrap justify-content-center">
                 <a href="https://www.instagram.com/lotuspond.creative" aria-label="Instagram Link">
                     <iconify-icon icon="mdi:instagram" width="24" height="24"></iconify-icon>
                     Instagram
-                </a>
-                <a href="https://www.facebook.com/share/wQXCRYTkRKVUQzkG" aria-label="Facebook Link">
-                    <iconify-icon icon="ic:baseline-facebook" width="24" height="24"></iconify-icon>
-                    Facebook
                 </a>
                 <a href="https://www.linkedin.com/in/morgan-harris-51a968281/" aria-label="LinkedIn Link">
                     <iconify-icon icon="mdi:linkedin" width="24" height="24"></iconify-icon>
@@ -161,8 +152,7 @@
     </div>
 </body>
 
-<!-- <script src="https://web3forms.com/client/script.js" async defer></script> -->
-<!-- <script src="js/contact.js"></script> -->
+<script src="js/contact.js"></script>
 <script src="js/footer.js"></script>
 
 </html>

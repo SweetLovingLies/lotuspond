@@ -10,7 +10,7 @@ form.addEventListener('submit', function(e) {
 
     result.innerHTML = "Please wait..."
 
-    fetch('https://api.web3forms.com/submit', {
+    fetch(form.action, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -19,12 +19,12 @@ form.addEventListener('submit', function(e) {
             body: json
         })
         .then(async (response) => {
-            let json = await response.json();
-            if (response.status === 200) {
-                result.innerHTML = json.message;
+            if (response.ok) {
+                result.innerHTML = "Thanks for reaching out! I'll get back to you soon.";
             } else {
+                let json = await response.json();
                 console.log(response);
-                result.innerHTML = json.message;
+                result.innerHTML = json.errors ? json.errors.map(e => e.message).join(", ") : "Something went wrong!";
             }
         })
         .catch(error => {

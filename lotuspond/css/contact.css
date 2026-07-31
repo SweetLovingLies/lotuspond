@@ -1,23 +1,23 @@
-main{
+body {
+    padding-bottom: 330px;
+}
+
+
+main {
     margin-bottom: 20px;
 }
 
-sup{
-    font-family: "Bride", Times, serif;
+sup {
     font-size: small;
     vertical-align: top;
     top: 1em;
 }
 
-tag{
+.tag {
     align-self: start;
 }
 
 header {
-    position: relative;
-    height: 20em;
-    justify-content: center;
-    align-items: center;
     background: var(--SunsetGradient2);
     border-bottom: 5px solid white;
     overflow: hidden;
@@ -26,7 +26,7 @@ header {
 #duck {
     position: absolute;
     bottom: 31px;
-    left: 0; 
+    left: 0;
     width: 3em;
     animation: duck 180s linear 4s infinite;
     user-select: none;
@@ -35,36 +35,68 @@ header {
 
 @keyframes duck {
     0% {
-        transform: translateX(0); 
+        transform: translateX(0);
     }
+
     100% {
-        transform: translateX(100vw); 
+        transform: translateX(100vw);
     }
 }
 
-#GetinTouch{
+#GetinTouch {
     justify-content: center;
     align-items: center;
 }
 
-h1{
+h1 {
     color: var(--Pink2);
-    filter: drop-shadow(1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px  1px 0px var(--WaterTeal1)) drop-shadow(-1px  -1px 0px var(--WaterTeal1));
 }
 
-h2{
-    width:  400px;
+h2 {
+    width: 400px;
     font-size: 4em;
-} 
+}
 
-#GetinTouch p{
-    font-weight: bold;
+#GetinTouch p {
     width: 350px;
 }
 
 @media (prefers-reduced-motion: reduce) {
     #duck {
-        animation: none; 
+        animation: none;
         left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sectionDefault {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    #duck {
+        animation: duck 80s linear 4s infinite;
+    }
+
+    h2 {
+        width: 100%;
+        font-size: 2.2em;
+    }
+
+    #GetinTouch .tag {
+        font-size: small;
+    }
+
+    #GetinTouch p {
+        width: 100%;
+    }
+
+    #preferEmail {
+        text-align: center;
+    }
+
+    .sectionDefault {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }

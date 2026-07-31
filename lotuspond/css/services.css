@@ -1,20 +1,10 @@
 header {
-    height: 20em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background: var(--SunsetGradient);
-    /* background-size: contain;
-    background-position: bottom right, center; */
-    position: relative; 
-
     color: black;
 }
 
 h1 {
     color: var(--Pink2);
-    filter: drop-shadow(1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px 1px 0px var(--WaterTeal1)) drop-shadow(-1px -1px 0px var(--WaterTeal1));
 }
 
 h2{
@@ -23,7 +13,6 @@ h2{
 
 h3{
     margin: 10px 0;
-    color: var(--WaterBlue1)
 }
 
 section img {
@@ -35,18 +24,14 @@ section img {
     height: auto;
 }
 
-.caption{
+.caption {
     display: block;
     width: 90%;
     text-align: center;
     margin: 0 auto;
 }
 
-section{
-    border-bottom: solid 5px white;;
-}
-
-section li{
+section li {
     display: block;
     text-align: center;
     margin: 0 auto;
@@ -54,9 +39,15 @@ section li{
     font-weight: bold;
 } 
 
-.emphasis{
-    background-color: white;
+.emphasis {
+    gap: 10px;
+}
+
+.emphasis h3{
+    flex: 1 1 50%;
+    background: var(--Pink2);
     border-radius: 10px;
+    padding: 10px 20px;
 }
 
 section ol{
@@ -75,6 +66,40 @@ ol li p{
     flex: 0 1 90%;
 }
 
-.bt-pink{
+#RUReady {
+    background: var(--Green);
+}
+
+#RUReady .bt-pink {
     margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+
+    .emphasis {
+        flex-direction: column;
+    }
+
+    .emphasis h3 {
+        font-size: 1.4em;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    section ol {
+        width: 100%;
+        padding: 0;
+    }
+
+    ol li.d-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    ol li p {
+        text-align: center;
+    }
 }
