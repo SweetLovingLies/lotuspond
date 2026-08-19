@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pangram Checker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: #fdf6e3;
+            color: #202020;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin: 0 0 30px;
+            color: #555;
+        }
+
+        .wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        textarea#sentenceInput {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font: inherit;
+            font-size: 1.1em;
+            resize: vertical;
+        }
+
+        .example-row {
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .example-row button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffbbde;
+            font-weight: bold;
+            font-size: 0.85em;
+            cursor: pointer;
+        }
+
+        .example-row button:hover {
+            background-color: #ff96cc;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 18px;
+            padding: 14px;
+            border-radius: 10px;
+        }
+
+        .status.pangram {
+            background-color: #e3f0e3;
+            color: #3c6b3c;
+        }
+
+        .status.not-pangram {
+            background-color: #fdeceb;
+            color: #a13b34;
+        }
+
+        .letter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(34px, 1fr));
+            gap: 6px;
+        }
+
+        .letter-tile {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1em;
+            text-transform: uppercase;
+            background-color: #eee;
+            color: #999;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .letter-tile.found {
+            background-color: #88b088;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pangram Checker</h1>
+    <p class="subtitle">Type a line and see which letters of the alphabet it hits.</p>
+
+    <div class="wrapper">
+        <div class="panel">
+            <textarea id="sentenceInput" rows="3" placeholder="Type your sentence here..."></textarea>
+            <div class="example-row">
+                <button type="button" id="exampleBtn">Try an Example</button>
+            </div>
+        </div>
+
+        <div id="status" class="status not-pangram">Start typing to check your sentence!</div>
+
+        <div class="panel">
+            <div class="letter-grid" id="letterGrid"></div>
+            <div class="stats">
+                <span id="letterCount">0 / 26 letters used</span>
+                <span id="charCount">0 characters</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+        const sentenceInput = document.getElementById('sentenceInput');
+        const statusEl = document.getElementById('status');
+        const letterGrid = document.getElementById('letterGrid');
+        const letterCountEl = document.getElementById('letterCount');
+        const charCountEl = document.getElementById('charCount');
+        const exampleBtn = document.getElementById('exampleBtn');
+
+        const tiles = {};
+        alphabet.forEach(letter => {
+            const tile = document.createElement('div');
+            tile.className = 'letter-tile';
+            tile.textContent = letter;
+            letterGrid.appendChild(tile);
+            tiles[letter] = tile;
+        });
+
+        function check() {
+            const text = sentenceInput.value.toLowerCase();
+            const present = new Set(text.replace(/[^a-z]/g, '').split(''));
+
+            alphabet.forEach(letter => {
+                tiles[letter].classList.toggle('found', present.has(letter));
+            });
+
+            const foundCount = present.size;
+            letterCountEl.textContent = `${foundCount} / 26 letters used`;
+            charCountEl.textContent = `${sentenceInput.value.length} characters`;
+
+            if (sentenceInput.value.trim() === '') {
+                statusEl.className = 'status not-pangram';
+                statusEl.textContent = 'Start typing to check your sentence!';
+                return;
+            }
+
+            if (foundCount === 26) {
+                statusEl.className = 'status pangram';
+                statusEl.textContent = '✅ That\'s a full pangram — every letter is in there!';
+            } else {
+                const missing = alphabet.filter(letter => !present.has(letter));
+                statusEl.className = 'status not-pangram';
+                statusEl.textContent = `Missing ${missing.length} letter${missing.length === 1 ? '' : 's'}: ${missing.join(', ').toUpperCase()}`;
+            }
+        }
+
+        sentenceInput.addEventListener('input', check);
+
+        exampleBtn.addEventListener('click', () => {
+            sentenceInput.value = 'The quick brown fox jumps over the lazy dog.';
+            check();
+        });
+
+        check();
+    </script>
+</body>
+
+</html>

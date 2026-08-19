@@ -66,12 +66,12 @@ ol li p{
     flex: 0 1 90%;
 }
 
-#RUReady {
-    background: var(--Green);
+#welcome {
+    text-align: center;
 }
 
-#RUReady .bt-pink {
-    margin: 0 auto;
+#RUReady {
+    background: var(--Green);
 }
 
 @media screen and (max-width: 768px) {

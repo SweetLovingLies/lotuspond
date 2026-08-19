@@ -75,23 +75,8 @@ h1 {
     }
 }
 
-/* Fade-out Animation */
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
 .fade-in-active {
     animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-.fade-out-active {
-    animation: fadeOut 0.5s ease-in-out forwards;
 }
 
 /* Web Dev Portfolio */
@@ -215,7 +200,7 @@ h1 {
 }
 
 #graphicWrapper img {
-    max-width: 100%;
+    width: 100%;
     border: 5px solid var(--Pink);
     padding: 10px;
     background-color: var(--Yellow);

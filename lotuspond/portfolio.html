@@ -132,7 +132,7 @@
                                 <a class="windowBody" href="https://iwishyouroses.neocities.org/"
                                     aria-label="Visit the I Wish You Roses website">
                                     <div class="displayScreenshots">
-                                        <img class="img-fluid" src="assets/DisplayScreenshots/IWishYouRoses.png"
+                                        <img class="img-fluid" src="assets/DisplayScreenshots/IWYR.png"
                                             alt="I Wish You Roses Official Website Screenshot">
                                     </div>
                                     <div class="aboutProject">
@@ -196,6 +196,18 @@
                     <div class="col-lg-2">
                     </div>
                     <div class="col-md-4 col-sm-12">
+                         <a href="assets/GDPortfolio/2026/aiadoruStreamSchedule.png" data-fancybox="gallery"
+                            data-caption="For context, one of my hobbies is vTubing! I stream on Twitch sometimes. Here is a stream schedule I designed for this hobby. If you'd like to know more about Aiadoru, my vTuber persona, visit the 3D modelling portfolio!">
+                            <img class="img-fluid" src="assets/GDPortfolio/2026/aiadoruStreamSchedule.png" loading="lazy"
+                                alt="This is a Twitch streaming schedule for the my vTubing project. It displays the times and days I stream, which are Monday, Friday, and Saturday, respectively.">
+                        </a>
+                        
+                        <a href="assets/GDPortfolio/2026/ParacosmsPageIWYR.png" data-fancybox="gallery"
+                            data-caption="This is a screenshot of the 'paracosms' page of I Wish You Roses. Specifically depicting the 'Heliotrope Supercluster'... or at least, a section of it. It's meant to feel like looking out of 90s sci-fi spaceship.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2026/ParacosmsPageIWYR.png" loading="lazy"
+                                alt="This is a screenshot of the 'paracosms' page of I Wish You Roses. It features a very 90s sci-fi aesthetic in vector style, mimicking a window of a spaceship looking out on a spiral galaxy. Click me for a caption.">
+                        </a>
+
                         <a href="assets/GDPortfolio/2024/ZephyrEmblem.png" data-fancybox="gallery"
                             data-caption=" The Zephyr <br> A very personal piece displaying a dream animal from my childhood.">
                             <img class="img-fluid" src="assets/GDPortfolio/2024/ZephyrEmblem.png" loading="lazy"
@@ -215,6 +227,12 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-12">
+                        <a href="assets/GDPortfolio/2026/DolcetTechAd.png" data-fancybox="gallery"
+                            data-caption="This is a poster/ad created for a faux-company in the I Wish You Roses universe called 'DolcetTech'. This ad appears in the shrines directory: Andromeda's Obsession.">
+                            <img class="img-fluid" src="assets/GDPortfolio/2026/DolcetTechAd.png" loading="lazy"
+                                alt="An early 2000s cyber aesthetic ad I created for an in-world company on I Wish You Roses. Click me for a caption.">
+                        </a>
+
                         <a href="assets/GDPortfolio/2024/50slogoV2.png" data-fancybox="gallery"
                             data-caption=" Diner-Style Emblem <br> More art indicative of my interests. I love the aesthetics of the 1950s. I took my own modern spin on the emblem though and gave it some youthful life while keeping the classic text-style and delivery.">
                             <img class="img-fluid" src="assets/GDPortfolio/2024/50slogoV2.png" loading="lazy"
@@ -409,7 +427,7 @@
             });
             contents.forEach(content => {
                 content.style.display = 'none';
-                content.classList.remove('is-active', 'fade-in-active', 'fade-out-active');
+                content.classList.remove('is-active', 'fade-in-active');
             });
 
             const activeTab = document.getElementById(activeTabId);
@@ -434,29 +452,24 @@
                     t.classList.remove('is-active');
                     t.setAttribute('aria-selected', 'false');
                 });
-                contents.forEach(content => {
-                    if (content.classList.contains('is-active')) {
-                        content.classList.remove('fade-in-active');
-                        content.classList.add('fade-out-active');
-
-                        // Wait for the fade-out animation to complete before hiding the content (.5s)
-                        setTimeout(() => {
-                            content.style.display = 'none';
-                            content.classList.remove('is-active');
-                        }, 500);
-                    }
-                });
-
                 this.classList.add('is-active');
                 this.setAttribute('aria-selected', 'true');
+
                 const targetContentId = this.id.replace('tab-', 'content-');
                 const targetContent = document.getElementById(targetContentId);
 
-                setTimeout(() => {
-                    targetContent.classList.remove('fade-out-active');
-                    targetContent.style.display = 'flex';
-                    targetContent.classList.add('is-active', 'fade-in-active');
-                }, 500);
+                // Settle every other panel into its hidden state immediately, even one
+                // that was still mid fade-in/out from a previous, rapidly-interrupted
+                // click — otherwise its own pending timeout could show it later on top
+                // of whichever tab the user actually landed on.
+                contents.forEach(content => {
+                    if (content === targetContent) return;
+                    content.style.display = 'none';
+                    content.classList.remove('is-active', 'fade-in-active');
+                });
+
+                targetContent.style.display = 'flex';
+                targetContent.classList.add('is-active', 'fade-in-active');
 
                 // Update the URL without reloading the page
                 const newUrl = '#' + this.id.replace('tab-', '');

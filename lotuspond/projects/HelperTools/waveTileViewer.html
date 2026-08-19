@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Tile Viewer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: #fdf6e3;
+            color: #202020;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin: 0 0 30px;
+            color: #555;
+        }
+
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 800px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        .field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 4px;
+            font-size: 0.9em;
+        }
+
+        .field input[type="number"],
+        .field input[type="text"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .color-field {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .color-field input[type="color"] {
+            width: 42px;
+            height: 38px;
+            padding: 2px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: none;
+        }
+
+        .color-field input[type="text"] {
+            flex: 1;
+        }
+
+        button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffbbde;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #ff96cc;
+        }
+
+        button.copied {
+            background-color: #88b088;
+        }
+
+        .preview-panel h2 {
+            margin: 0 0 4px;
+            font-size: 1.1em;
+        }
+
+        .preview-panel .dims {
+            margin: 0 0 14px;
+            color: #555;
+            font-size: 0.9em;
+            font-family: monospace;
+        }
+
+        .tile-frame {
+            display: inline-block;
+            padding: 2px;
+            border: 2px dashed #ff6767;
+            margin-bottom: 30px;
+        }
+
+        .tile {
+            display: block;
+        }
+
+        .tiled-preview {
+            width: 100%;
+            height: 260px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        textarea#cssOutput {
+            width: 100%;
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: 0.8em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Wave Tile Viewer</h1>
+    <p class="subtitle">Isolates exactly one repeat unit of the #start wave pattern so you can trace it into a vector
+        pattern.</p>
+
+    <div class="wrapper">
+        <div class="panel">
+            <div class="field">
+                <label for="sizeInput">Pattern Size (--s, px)</label>
+                <input type="number" id="sizeInput" value="30" min="4" step="1">
+            </div>
+
+            <div class="field">
+                <label for="lineColor">Line Color (--c1)</label>
+                <div class="color-field">
+                    <input type="color" id="lineColorPicker" value="#1d1c45">
+                    <input type="text" id="lineColor" value="#1d1c45">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="bgColor">Background (flat fill)</label>
+                <div class="color-field">
+                    <input type="color" id="bgColorPicker" value="#fff4d6">
+                    <input type="text" id="bgColor" value="#fff4d6">
+                </div>
+            </div>
+
+            <button type="button" id="resetBtn">Reset to Site Defaults</button>
+        </div>
+
+        <div class="panel preview-panel">
+            <h2>Single Tile (exact repeat unit)</h2>
+            <p class="dims" id="tileDims"></p>
+            <div class="tile-frame">
+                <div class="tile" id="singleTile"></div>
+            </div>
+
+            <h2>Tiled Preview (checking the seams)</h2>
+            <div class="tiled-preview" id="tiledPreview"></div>
+        </div>
+    </div>
+
+    <div class="wrapper" style="margin-top: 30px; grid-template-columns: 1fr;">
+        <div class="panel">
+            <h2 style="margin-top:0;">CSS (for reference)</h2>
+            <textarea id="cssOutput" rows="14" readonly></textarea>
+            <div style="margin-top: 10px;">
+                <button type="button" id="copyCssBtn">Copy CSS</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sizeInput = document.getElementById('sizeInput');
+        const lineColorPicker = document.getElementById('lineColorPicker');
+        const lineColor = document.getElementById('lineColor');
+        const bgColorPicker = document.getElementById('bgColorPicker');
+        const bgColor = document.getElementById('bgColor');
+
+        const singleTile = document.getElementById('singleTile');
+        const tiledPreview = document.getElementById('tiledPreview');
+        const tileDims = document.getElementById('tileDims');
+        const cssOutput = document.getElementById('cssOutput');
+
+        function syncPickerToText(picker, text) {
+            picker.addEventListener('input', () => {
+                text.value = picker.value;
+                render();
+            });
+            text.addEventListener('input', () => {
+                if (/^#[0-9a-fA-F]{6}$/.test(text.value)) {
+                    picker.value = text.value;
+                }
+                render();
+            });
+        }
+
+        syncPickerToText(lineColorPicker, lineColor);
+        syncPickerToText(bgColorPicker, bgColor);
+        sizeInput.addEventListener('input', render);
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            sizeInput.value = 30;
+            lineColor.value = '#1d1c45';
+            lineColorPicker.value = '#1d1c45';
+            bgColor.value = '#fff4d6';
+            bgColorPicker.value = '#fff4d6';
+            render();
+        });
+
+        function waveBackgroundCSS(s, c1) {
+            return `
+    --s: ${s}px;
+    --c1: ${c1};
+    --b: calc(var(--s)/6);
+    --_r: calc(1.28*var(--s) + var(--b)/2) at left 50%;
+    --_f: calc(100% - var(--b)),var(--c1) calc(101% - var(--b)) 100%,#0000 101%;
+    --g0: calc(-.8*var(--s)),transparent var(--_f);
+    --g1: calc(-.8*var(--s)),transparent var(--_f);
+    --_s: calc(1.5*var(--s) + var(--b));
+
+    background-image:
+        radial-gradient(var(--_r) bottom var(--g0)),
+        radial-gradient(var(--_r) bottom var(--g1)),
+        radial-gradient(var(--_r) top    var(--g1)),
+        radial-gradient(var(--_r) top    var(--g0));
+    background-position:
+        calc(2*var(--s)) calc(-1*var(--_s)),
+        calc(-1*var(--s)) calc(var(--_s)/-2),
+        0 var(--_s),
+        var(--s) calc(var(--_s)/ 2);
+    background-size: calc(4*var(--s)) var(--_s);
+    background-repeat: repeat;`.trim();
+        }
+
+        function render() {
+            const s = parseFloat(sizeInput.value) || 30;
+            const c1 = lineColor.value || '#1d1c45';
+            const bg = bgColor.value || '#fff4d6';
+
+            const styleText = waveBackgroundCSS(s, c1);
+
+            [singleTile, tiledPreview].forEach(el => {
+                el.style.cssText = styleText + `; background-color: ${bg};`;
+            });
+
+            // Exact tile dimensions: width = 4*s, height = 1.5*s + s/6
+            const b = s / 6;
+            const tileW = 4 * s;
+            const tileH = 1.5 * s + b;
+
+            singleTile.style.width = tileW + 'px';
+            singleTile.style.height = tileH + 'px';
+
+            tileDims.textContent = `${tileW}px × ${tileH.toFixed(2)}px`;
+
+            cssOutput.value = `.your-element {${styleText}\n    background-color: ${bg};\n}`;
+        }
+
+        document.getElementById('copyCssBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('copyCssBtn');
+            try {
+                await navigator.clipboard.writeText(cssOutput.value);
+            } catch (err) {
+                cssOutput.select();
+                document.execCommand('copy');
+            }
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy CSS';
+                btn.classList.remove('copied');
+            }, 1200);
+        });
+
+        render();
+    </script>
+</body>
+
+</html>
