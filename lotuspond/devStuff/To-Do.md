@@ -1,8 +1,7 @@
 # Lotus Pond Creative To-Do list! ✔⟳𐌗
 
-## If I come across something technical, I'll add it here
-
 ## These must be done by me!
+
 - Finish the Services page 
   - See if reworking the layout makes sense? 𐌗
   - Figure out what to make the placeholder images be
@@ -47,6 +46,7 @@
   - Update the one on the Index page too
 
 # Done! 
+- Update placeholder images
 - Maybe decide if I'm going to rebrand or not 𐌗
   - LPC no longer matches my identity. I came up with it back in 2022 and it has since become outdated. We'll see about this though. 
 - Decide if I want to redesign the site from the ground up (matching the rebrand idea) 𐌗

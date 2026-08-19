@@ -466,6 +466,10 @@ a:hover {
 
 /* ~ Decor */
 
+.placehold {
+    border-radius: 20px;
+}
+
 #logo {
     width: 150px;
     margin-bottom: 10px;

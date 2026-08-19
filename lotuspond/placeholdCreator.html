@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ? This would be a simple tool to help me quickly preview and create a https://placehold.co/ image for this site! Could also be helpful to others later.  https://placeholderimage.dev/ something kind of like this one. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placehold.co Creator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: #fdf6e3;
+            color: #202020;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin: 0 0 30px;
+            color: #555;
+        }
+
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 700px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        .field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 4px;
+            font-size: 0.9em;
+        }
+
+        .field input[type="number"],
+        .field input[type="text"],
+        .field select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .field-row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .field-row .field {
+            flex: 1;
+        }
+
+        .color-field {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .color-field input[type="color"] {
+            width: 42px;
+            height: 38px;
+            padding: 2px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: none;
+        }
+
+        .color-field input[type="text"] {
+            flex: 1;
+        }
+
+        .checkbox-field {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .checkbox-field input {
+            width: 16px;
+            height: 16px;
+        }
+
+        .checkbox-field label {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        #preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background:
+                linear-gradient(45deg, #eee 25%, transparent 25%),
+                linear-gradient(-45deg, #eee 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #eee 75%),
+                linear-gradient(-45deg, transparent 75%, #eee 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        #preview img {
+            max-width: 100%;
+            max-height: 400px;
+            display: block;
+        }
+
+        .output-field {
+            margin-bottom: 14px;
+        }
+
+        .output-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .output-row input,
+        .output-row textarea {
+            flex: 1;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font: inherit;
+            font-family: monospace;
+            font-size: 0.85em;
+            resize: none;
+        }
+
+        .output-row button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffbbde;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .output-row button:hover {
+            background-color: #ff96cc;
+        }
+
+        .output-row button.copied {
+            background-color: #88b088;
+        }
+
+        .presets-panel {
+            max-width: 900px;
+            margin: 30px auto 0;
+        }
+
+        .presets-panel h2 {
+            margin: 0 0 16px;
+            font-size: 1.2em;
+        }
+
+        .preset-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .preset-row select,
+        .preset-row input[type="text"] {
+            flex: 1;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .preset-row button,
+        #savePresetBtn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffbbde;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .preset-row button:hover,
+        #savePresetBtn:hover {
+            background-color: #ff96cc;
+        }
+
+        #deletePresetBtn {
+            background-color: #f3c2c2;
+        }
+
+        #deletePresetBtn:hover {
+            background-color: #e69a9a;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+
+        .preset-fields-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 8px 16px;
+            margin-bottom: 16px;
+        }
+
+        .preset-fields-list label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: normal;
+            font-size: 0.9em;
+        }
+
+        .preset-fields-list input {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Placehold.co Creator</h1>
+    <p class="subtitle">Quickly build and preview a placehold.co image URL, then copy the link or an &lt;img&gt; tag.
+    </p>
+
+    <div class="wrapper">
+        <div class="panel">
+            <div class="field-row">
+                <div class="field">
+                    <label for="width">Width</label>
+                    <input type="number" id="width" value="600" min="1">
+                </div>
+                <div class="field">
+                    <label for="height">Height</label>
+                    <input type="number" id="height" value="400" min="1">
+                </div>
+            </div>
+
+            <div class="checkbox-field">
+                <input type="checkbox" id="useDefaultColors">
+                <label for="useDefaultColors">Use placehold.co's default colors</label>
+            </div>
+
+            <div class="field-row">
+                <div class="field">
+                    <label for="bgColor">Background Color</label>
+                    <div class="color-field">
+                        <input type="color" id="bgColorPicker" value="#cccccc">
+                        <input type="text" id="bgColor" value="cccccc">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="textColor">Text Color</label>
+                    <div class="color-field">
+                        <input type="color" id="textColorPicker" value="#333333">
+                        <input type="text" id="textColor" value="333333">
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="customText">Custom Text (optional)</label>
+                <input type="text" id="customText" placeholder="Leave blank for WxH">
+            </div>
+
+            <div class="field-row">
+                <div class="field">
+                    <label for="font">Font (optional)</label>
+                    <select id="font">
+                        <option value="">Default</option>
+                        <option value="lato">Lato</option>
+                        <option value="lora">Lora</option>
+                        <option value="montserrat">Montserrat</option>
+                        <option value="noto-sans">Noto Sans</option>
+                        <option value="open-sans">Open Sans</option>
+                        <option value="oswald">Oswald</option>
+                        <option value="playfair-display">Playfair Display</option>
+                        <option value="poppins">Poppins</option>
+                        <option value="pt-sans">PT Sans</option>
+                        <option value="raleway">Raleway</option>
+                        <option value="roboto">Roboto</option>
+                        <option value="source-sans-pro">Source Sans Pro</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="format">Format</label>
+                    <select id="format">
+                        <option value="">Auto</option>
+                        <option value="svg">SVG</option>
+                        <option value="png">PNG</option>
+                        <option value="jpg">JPG</option>
+                        <option value="webp">WEBP</option>
+                        <option value="gif">GIF</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field-row">
+                <div class="field">
+                    <label for="imgClass">img Class (optional)</label>
+                    <input type="text" id="imgClass" value="img-fluid">
+                </div>
+                <div class="field">
+                    <label for="imgId">img ID (optional)</label>
+                    <input type="text" id="imgId" placeholder="e.g. HMSBrand">
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div id="preview">
+                <img id="previewImg" src="" alt="Placeholder preview">
+            </div>
+
+            <div class="output-field">
+                <label for="urlOutput">Image URL</label>
+                <div class="output-row">
+                    <input type="text" id="urlOutput" readonly>
+                    <button type="button" data-copy-target="urlOutput">Copy</button>
+                </div>
+            </div>
+
+            <div class="output-field">
+                <label for="tagOutput">&lt;img&gt; Tag</label>
+                <div class="output-row">
+                    <textarea id="tagOutput" readonly rows="2"></textarea>
+                    <button type="button" data-copy-target="tagOutput">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel presets-panel">
+        <h2>Presets</h2>
+
+        <div class="preset-row">
+            <select id="presetSelect">
+                <option value="">-- Select a preset --</option>
+            </select>
+            <button type="button" id="loadPresetBtn">Load</button>
+            <button type="button" id="deletePresetBtn">Delete</button>
+        </div>
+
+        <hr>
+
+        <div class="preset-row">
+            <input type="text" id="presetName" placeholder="New preset name, e.g. Brand Colors">
+        </div>
+
+        <label>Fields to Save:</label>
+        <div id="presetFieldsList" class="preset-fields-list"></div>
+
+        <button type="button" id="savePresetBtn">Save Preset</button>
+    </div>
+
+    <script>
+        const widthInput = document.getElementById('width');
+        const heightInput = document.getElementById('height');
+        const useDefaultColors = document.getElementById('useDefaultColors');
+        const bgColorPicker = document.getElementById('bgColorPicker');
+        const bgColor = document.getElementById('bgColor');
+        const textColorPicker = document.getElementById('textColorPicker');
+        const textColor = document.getElementById('textColor');
+        const customText = document.getElementById('customText');
+        const font = document.getElementById('font');
+        const format = document.getElementById('format');
+        const imgClass = document.getElementById('imgClass');
+        const imgId = document.getElementById('imgId');
+
+        const previewImg = document.getElementById('previewImg');
+        const urlOutput = document.getElementById('urlOutput');
+        const tagOutput = document.getElementById('tagOutput');
+
+        function syncPickerToText(picker, text) {
+            picker.addEventListener('input', () => {
+                text.value = picker.value.replace('#', '');
+                buildUrl();
+            });
+            text.addEventListener('input', () => {
+                const hex = text.value.replace('#', '');
+                if (/^[0-9a-fA-F]{6}$/.test(hex)) {
+                    picker.value = '#' + hex;
+                }
+                buildUrl();
+            });
+        }
+
+        syncPickerToText(bgColorPicker, bgColor);
+        syncPickerToText(textColorPicker, textColor);
+
+        useDefaultColors.addEventListener('change', () => {
+            const disabled = useDefaultColors.checked;
+            bgColorPicker.disabled = disabled;
+            bgColor.disabled = disabled;
+            textColorPicker.disabled = disabled;
+            textColor.disabled = disabled;
+            buildUrl();
+        });
+
+        [widthInput, heightInput, customText, font, format, imgClass, imgId].forEach(el => {
+            el.addEventListener('input', buildUrl);
+        });
+
+        function buildUrl() {
+            const w = widthInput.value || 600;
+            const h = heightInput.value || 400;
+
+            let path = `${w}x${h}`;
+
+            if (!useDefaultColors.checked) {
+                const bg = bgColor.value.replace('#', '') || 'cccccc';
+                const txt = textColor.value.replace('#', '') || '333333';
+                path += `/${bg}/${txt}`;
+            }
+
+            if (format.value) {
+                path += `.${format.value}`;
+            }
+
+            const params = new URLSearchParams();
+            if (customText.value.trim()) {
+                params.set('text', customText.value.trim());
+            }
+            if (font.value) {
+                params.set('font', font.value);
+            }
+
+            let url = `https://placehold.co/${path}`;
+            const query = params.toString();
+            if (query) {
+                url += `?${query}`;
+            }
+
+            previewImg.src = url;
+            urlOutput.value = url;
+
+            const altText = customText.value.trim() || `Placeholder image, ${w} by ${h}`;
+
+            let attrs = '';
+            if (imgClass.value.trim()) {
+                attrs += ` class="${escapeAttr(imgClass.value.trim())}"`;
+            }
+            if (imgId.value.trim()) {
+                attrs += ` id="${escapeAttr(imgId.value.trim())}"`;
+            }
+
+            tagOutput.value = `<img${attrs} src="${url}" alt="${escapeAttr(altText)}">`;
+        }
+
+        function escapeAttr(value) {
+            return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+        }
+
+        // Presets: each field can be independently included/excluded when saving,
+        // so loading a preset only overwrites the fields it was saved with.
+        const FIELDS = [
+            { key: 'width', label: 'Width', get: () => widthInput.value, set: v => { widthInput.value = v; } },
+            { key: 'height', label: 'Height', get: () => heightInput.value, set: v => { heightInput.value = v; } },
+            {
+                key: 'useDefaultColors', label: 'Default Colors Toggle', get: () => useDefaultColors.checked,
+                set: v => { useDefaultColors.checked = v; useDefaultColors.dispatchEvent(new Event('change')); }
+            },
+            {
+                key: 'bgColor', label: 'Background Color', get: () => bgColor.value,
+                set: v => { bgColor.value = v; if (/^[0-9a-fA-F]{6}$/.test(v)) bgColorPicker.value = '#' + v; }
+            },
+            {
+                key: 'textColor', label: 'Text Color', get: () => textColor.value,
+                set: v => { textColor.value = v; if (/^[0-9a-fA-F]{6}$/.test(v)) textColorPicker.value = '#' + v; }
+            },
+            { key: 'customText', label: 'Custom Text', get: () => customText.value, set: v => { customText.value = v; } },
+            { key: 'font', label: 'Font', get: () => font.value, set: v => { font.value = v; } },
+            { key: 'format', label: 'Format', get: () => format.value, set: v => { format.value = v; } },
+            { key: 'imgClass', label: 'img Class', get: () => imgClass.value, set: v => { imgClass.value = v; } },
+            { key: 'imgId', label: 'img ID', get: () => imgId.value, set: v => { imgId.value = v; } },
+        ];
+
+        const PRESETS_KEY = 'placeholdCreatorPresets';
+        const LAST_PRESET_KEY = 'placeholdCreatorLastPreset';
+        const presetSelect = document.getElementById('presetSelect');
+        const presetName = document.getElementById('presetName');
+        const presetFieldsList = document.getElementById('presetFieldsList');
+
+        FIELDS.forEach(field => {
+            const label = document.createElement('label');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.dataset.fieldKey = field.key;
+            label.appendChild(checkbox);
+            label.append(field.label);
+            presetFieldsList.appendChild(label);
+        });
+
+        function getPresets() {
+            try {
+                return JSON.parse(localStorage.getItem(PRESETS_KEY)) || {};
+            } catch (err) {
+                return {};
+            }
+        }
+
+        function savePresets(presets) {
+            localStorage.setItem(PRESETS_KEY, JSON.stringify(presets));
+        }
+
+        function refreshPresetDropdown(selectName) {
+            const presets = getPresets();
+            presetSelect.innerHTML = '<option value="">-- Select a preset --</option>';
+            Object.keys(presets).sort().forEach(name => {
+                const option = document.createElement('option');
+                option.value = name;
+                option.textContent = name;
+                presetSelect.appendChild(option);
+            });
+            if (selectName) {
+                presetSelect.value = selectName;
+            }
+        }
+
+        document.getElementById('savePresetBtn').addEventListener('click', () => {
+            const name = presetName.value.trim();
+            if (!name) {
+                alert('Give the preset a name first.');
+                return;
+            }
+
+            const checkedKeys = Array.from(presetFieldsList.querySelectorAll('input:checked'))
+                .map(cb => cb.dataset.fieldKey);
+
+            if (checkedKeys.length === 0) {
+                alert('Check at least one field to save.');
+                return;
+            }
+
+            const savedFields = {};
+            FIELDS.forEach(field => {
+                if (checkedKeys.includes(field.key)) {
+                    savedFields[field.key] = field.get();
+                }
+            });
+
+            const presets = getPresets();
+            presets[name] = savedFields;
+            savePresets(presets);
+            refreshPresetDropdown(name);
+            presetName.value = '';
+        });
+
+        function applyPreset(name) {
+            const savedFields = getPresets()[name];
+            if (!savedFields) return;
+
+            FIELDS.forEach(field => {
+                if (Object.prototype.hasOwnProperty.call(savedFields, field.key)) {
+                    field.set(savedFields[field.key]);
+                }
+            });
+
+            buildUrl();
+        }
+
+        document.getElementById('loadPresetBtn').addEventListener('click', () => {
+            const name = presetSelect.value;
+            if (!name) {
+                alert('Select a preset to load first.');
+                return;
+            }
+
+            applyPreset(name);
+            localStorage.setItem(LAST_PRESET_KEY, name);
+        });
+
+        document.getElementById('deletePresetBtn').addEventListener('click', () => {
+            const name = presetSelect.value;
+            if (!name) {
+                alert('Select a preset to delete first.');
+                return;
+            }
+            if (!confirm(`Delete the preset "${name}"?`)) return;
+
+            const presets = getPresets();
+            delete presets[name];
+            savePresets(presets);
+            if (localStorage.getItem(LAST_PRESET_KEY) === name) {
+                localStorage.removeItem(LAST_PRESET_KEY);
+            }
+            refreshPresetDropdown();
+        });
+
+        refreshPresetDropdown();
+
+        // Auto-apply whichever preset was last loaded, so the tool opens with your defaults.
+        const lastPreset = localStorage.getItem(LAST_PRESET_KEY);
+        if (lastPreset && getPresets()[lastPreset]) {
+            presetSelect.value = lastPreset;
+            applyPreset(lastPreset);
+        }
+
+        document.querySelectorAll('[data-copy-target]').forEach(button => {
+            button.addEventListener('click', async () => {
+                const target = document.getElementById(button.dataset.copyTarget);
+                try {
+                    await navigator.clipboard.writeText(target.value);
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                        button.classList.remove('copied');
+                    }, 1200);
+                } catch (err) {
+                    target.select();
+                    document.execCommand('copy');
+                }
+            });
+        });
+
+        buildUrl();
+    </script>
+</body>
+
+</html>
