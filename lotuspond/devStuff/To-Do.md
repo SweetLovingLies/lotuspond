@@ -1,9 +1,57 @@
 # Lotus Pond Creative To-Do list! ✔⟳𐌗
+
+## Anything Technical (?)
+
 ## These must be done by me!
 
-- Finish the Services page ⟳
-  - Add a small writing section about how services work (to the top!)
-    - Update my terms
+- Create the site mascot in VRoi + Blender! ⟳
+  - See the MascotDesignBrief.md for more info! ✔
+  - Add her to the 3D modelling Portfolio
+
+- Finish the index ⟳
+  - Add more up to date showcases! ✔
+  - Create images for: ⟳
+    - Index About Me Blurb (This will come after the Mascot creation)
+    - AGAIN! project page ✔
+    - somori project page ✔
+
+- Brand Design Portfolio  ⟳
+  - Figure out a better way of showcasing my brand design work in the Brand Design portfolio ✔
+    - Inspo is here: devStuff\inspiration\BrandDesignShowcase\ and assets\AppPortfolio\business\somori\BrandStyleGuide.png
+  - Update Brand Design for HMS
+  - Add Brand Designs for: ⟳
+    - IWYR 𐌗
+    - IdolLine
+    - DolcetTech ✔
+
+- Update a few of the App Dev portfolio project pages ⟳
+  - Hanasato needs more writing ✔
+  - Finish Ponder and ConvoJo's pages entirely
+  - Add my Henry Ford Health Vision Pro app here! 
+
+- Finish the Services page (Pass 2)
+  - Complete Lotus Pond image (after mascot creation)
+
+# Done! 
+
+
+
+- Add aiadoru.com to the web design portfolio ✔
+  - Take screenshots for the display case! ✔
+
+- 3D Modelling Portfolio ✔
+  - Create it in the portfolio page! ✔
+  - Add Aiadoru as a project ✔
+    - Finish page for Aiadoru ✔
+    - Create an image for the link to Aiadoru ✔  
+
+- Find a place to link the projects/helperTools that makes sense ✔
+  - Fix the link design ✔
+  - Update the index ✔
+
+- Get closer* to finishing the Services page ✔
+  - Add a small writing section about how services work (to the top!) ✔
+    - Update my terms ✔
   - Figure out what to make the placeholder images be ✔
     - And also decide if they will be shared with the index (no) ✔
   - Add new sections for the other kinds of works I can do 𐌗
@@ -11,38 +59,6 @@
   - Rename the packages ✔
   - Update CTA ✔
   - - See if reworking the layout makes sense? 𐌗
-
-- Brand Design Portfolio 
-  - Figure out a better way of showcasing my brand design work in the Brand Design portfolio
-    - Right now, I only have HMS (assets\BrandIdentities\HMSDisplayVer.png) on display but it looks kind of lazy... 
-      - Inspo is here: devStuff\inspiration\BrandDesignShowcase\ and assets\AppPortfolio\business\somori\BrandStyleGuide.png
-  - Add Brand Designs for IWYR, IdolLine, DolcetTech, etc
-
-- Update a few of the App Dev portfolio project pages
-  - Hanasato needs more writing
-  - Finish Ponder and ConvoJo's pages entirely
-  - Add my Henry Ford Health Vision Pro app here! 
-
-
-- 3D Modelling Portfolio
-  - Create it 
-  - Add Aiadoru as a project. This should probably have it's own major page in the future!
-
-- Create the site mascot in VRoid (she can be simple!)
-  - Add her to the 3D modelling Portfolio
-  - Use her to create some art pieces!
-
-- Finish the index ⟳
-  - Add more up to date showcases! ✔
-  - Create images for:
-    - Index About Me Blurb (This will come after the Mascot creation, maybe?)
-
-- Finish the Services page (Pass 2)
-  - Complete Lotus Pond image (after mascot creation)
-
-
-
-# Done! 
 
 - Edit CTA on: ✔
   - About Me ✔

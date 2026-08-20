@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Previewer</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: #fdf6e3;
+            color: #202020;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin: 0 0 30px;
+            color: #555;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .toolbar button,
+        .toolbar label.file-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffbbde;
+            font-weight: bold;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .toolbar button:hover,
+        .toolbar label.file-button:hover {
+            background-color: #ff96cc;
+        }
+
+        .toolbar input[type="file"] {
+            display: none;
+        }
+
+        .file-name {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .panes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 70vh;
+        }
+
+        .panes.source-hidden {
+            grid-template-columns: 1fr;
+        }
+
+        .panes.source-hidden #sourcePanel {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            .panes {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            #source,
+            #preview {
+                height: 60vh;
+            }
+        }
+
+        .panel {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-label {
+            padding: 10px 16px;
+            font-weight: bold;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #555;
+            background-color: #f4f0e0;
+            border-bottom: 1px solid #eee;
+        }
+
+        #source {
+            flex: 1;
+            width: 100%;
+            border: none;
+            resize: none;
+            padding: 16px;
+            font-family: "Cascadia Code", Consolas, monospace;
+            font-size: 0.9em;
+            outline: none;
+        }
+
+        #preview {
+            flex: 1;
+            padding: 16px 24px;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+
+        #preview h1,
+        #preview h2,
+        #preview h3 {
+            margin-top: 1.2em;
+        }
+
+        #preview h1:first-child,
+        #preview h2:first-child,
+        #preview h3:first-child {
+            margin-top: 0;
+        }
+
+        #preview code {
+            background-color: #f4f0e0;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        #preview pre code {
+            display: block;
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        #preview blockquote {
+            margin: 0;
+            padding: 4px 16px;
+            border-left: 4px solid #ffbbde;
+            color: #555;
+        }
+
+        #preview a {
+            color: #227fab;
+        }
+
+        #preview input[type="checkbox"] {
+            margin-right: 6px;
+        }
+
+        .drop-hint {
+            text-align: center;
+            color: #999;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Markdown Previewer</h1>
+    <p class="subtitle">Load a .md file (or paste text) and see it rendered live, right in the browser.</p>
+
+    <div class="wrapper">
+        <div class="toolbar">
+            <label class="file-button" for="fileInput">Open .md File</label>
+            <input type="file" id="fileInput" accept=".md,.markdown,text/markdown,text/plain">
+            <button type="button" id="clearBtn">Clear</button>
+            <button type="button" id="toggleSourceBtn">Hide Source</button>
+            <span class="file-name" id="fileName"></span>
+        </div>
+
+        <div class="panes" id="dropZone">
+            <div class="panel" id="sourcePanel">
+                <div class="panel-label">Source</div>
+                <textarea id="source" placeholder="Paste markdown here, or open/drag a .md file in..."></textarea>
+            </div>
+            <div class="panel">
+                <div class="panel-label">Preview</div>
+                <div id="preview">
+                    <p class="drop-hint">Nothing to preview yet — open a file or start typing!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const source = document.getElementById('source');
+        const preview = document.getElementById('preview');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const clearBtn = document.getElementById('clearBtn');
+        const dropZone = document.getElementById('dropZone');
+        const toggleSourceBtn = document.getElementById('toggleSourceBtn');
+
+        function render() {
+            const text = source.value;
+            if (!text.trim()) {
+                preview.innerHTML = '<p class="drop-hint">Nothing to preview yet — open a file or start typing!</p>';
+                return;
+            }
+            preview.innerHTML = marked.parse(text);
+        }
+
+        function loadFile(file) {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                source.value = reader.result;
+                fileName.textContent = file.name;
+                render();
+            };
+            reader.readAsText(file);
+        }
+
+        source.addEventListener('input', render);
+
+        fileInput.addEventListener('change', () => {
+            loadFile(fileInput.files[0]);
+        });
+
+        clearBtn.addEventListener('click', () => {
+            source.value = '';
+            fileName.textContent = '';
+            render();
+        });
+
+        toggleSourceBtn.addEventListener('click', () => {
+            const hidden = dropZone.classList.toggle('source-hidden');
+            toggleSourceBtn.textContent = hidden ? 'Show Source' : 'Hide Source';
+        });
+
+        ['dragenter', 'dragover'].forEach(evt => {
+            dropZone.addEventListener(evt, e => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+        });
+
+        dropZone.addEventListener('drop', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            const file = e.dataTransfer.files[0];
+            loadFile(file);
+        });
+
+        render();
+    </script>
+</body>
+
+</html>

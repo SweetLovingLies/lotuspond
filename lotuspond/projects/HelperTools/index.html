@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helper Tools</title>
+    <meta name="description" content="Small web tools built along the way while making Lotus Pond Creative.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: #fdf6e3;
+            color: #202020;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin: 0 0 30px;
+            color: #555;
+        }
+
+        .wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tool-card {
+            display: block;
+            background: white;
+            border-radius: 14px;
+            padding: 22px 24px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-card h2 {
+            margin: 0 0 6px;
+            font-size: 1.3em;
+            color: #202020;
+        }
+
+        .tool-card p {
+            margin: 0;
+            color: #555;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mini Helper Tools</h1>
+    <p class="subtitle">Small web tools built along the way while working on this site! They might serve some use to you too! </p>
+
+    <div class="wrapper">
+        <a class="tool-card" href="placeholdCreator.html">
+            <h2>Placehold.co Creator</h2>
+            <p>Build and preview a placehold.co placeholder image URL, then copy the link or a ready-to-paste
+                <code>&lt;img&gt;</code> tag.</p>
+        </a>
+
+        <a class="tool-card" href="pangramChecker.html">
+            <h2>Pangram Checker</h2>
+            <p>Trying to make a pangram for something? This tool helps you find what letters you're missing.</p>
+        </a>
+
+        <a class="tool-card" href="markdownPreviewer.html">
+            <h2>Markdown Previewer</h2>
+            <p>Open or drag in a .md file and see it rendered live — handy when you're away from an editor.</p>
+        </a>
+    </div>
+
+    <a class="back-link" href="../../portfolio.html">&larr; Back to the portfolio!</a>
+</body>
+
+</html>
