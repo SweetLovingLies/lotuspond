@@ -13,7 +13,8 @@
   - Create images for: ⟳
     - Index About Me Blurb (This will come after the Mascot creation)
     - AGAIN! project page ✔
-    - somori project page ✔
+    - somori project ps
+    age ✔
 
 - Brand Design Portfolio  ⟳
   - Figure out a better way of showcasing my brand design work in the Brand Design portfolio ✔
@@ -33,8 +34,6 @@
   - Complete Lotus Pond image (after mascot creation)
 
 # Done! 
-
-
 
 - Add aiadoru.com to the web design portfolio ✔
   - Take screenshots for the display case! ✔
