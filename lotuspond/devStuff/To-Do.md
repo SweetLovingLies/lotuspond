@@ -4,7 +4,7 @@
 
 ## These must be done by me!
 
-- Create the site mascot in VRoi + Blender! ⟳
+- Create the site mascot in VRoid + Blender! ⟳
   - See the MascotDesignBrief.md for more info! ✔
   - Add her to the 3D modelling Portfolio
 
