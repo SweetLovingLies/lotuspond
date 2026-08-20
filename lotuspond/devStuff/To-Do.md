@@ -13,8 +13,7 @@
   - Create images for: ⟳
     - Index About Me Blurb (This will come after the Mascot creation)
     - AGAIN! project page ✔
-    - somori project ps
-    age ✔
+    - somori project page ✔
 
 - Brand Design Portfolio  ⟳
   - Figure out a better way of showcasing my brand design work in the Brand Design portfolio ✔
