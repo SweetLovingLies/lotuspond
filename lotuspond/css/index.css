@@ -18,7 +18,7 @@
     radial-gradient(var(--_r) bottom var(--g1)) calc(-1*var(--s)) calc(var(--_s)/-2),
     radial-gradient(var(--_r) top    var(--g1)) 0 var(--_s),
     radial-gradient(var(--_r) top    var(--g0)) var(--s) calc(var(--_s)/ 2),
-    linear-gradient(to bottom, var(--Yellow) 0%, var(--SunsetOrange) 20%, var(--SunsetRed) 40%, var(--Teal2) 65%, var(--WaterBlue1) 85%, var(--WaterBlue2) 100%);
+    linear-gradient(to bottom, var(--SunsetRed) 0%, var(--SunsetOrange) 20%, var(--Yellow) 40%, var(--Teal2) 65%, var(--WaterBlue1) 85%, var(--WaterBlue2) 100%);
   background-size: calc(4*var(--s)) var(--_s), calc(4*var(--s)) var(--_s), calc(4*var(--s)) var(--_s), calc(4*var(--s)) var(--_s), 100% 100%;
   background-repeat: repeat, repeat, repeat, repeat, no-repeat;
 }
