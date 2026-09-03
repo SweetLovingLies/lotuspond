@@ -499,8 +499,16 @@
                 content.classList.remove('is-active', 'fade-in-active');
             });
 
-            const activeTab = document.getElementById(activeTabId);
-            const activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
+            let activeTab = document.getElementById(activeTabId);
+            let activeContent = document.getElementById(activeTabId.replace('tab-', 'content-'));
+
+            // Fall back to the default tab if the requested id doesn't exist —
+            // e.g. stale localStorage/URL hash from before a tab was renamed
+            // or removed, which otherwise leaves every panel hidden.
+            if (!activeTab || !activeContent) {
+                activeTab = document.getElementById('tab-web');
+                activeContent = document.getElementById('content-web');
+            }
 
             if (activeTab && activeContent) {
                 activeTab.classList.add('is-active');

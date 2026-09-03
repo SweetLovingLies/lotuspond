@@ -61,6 +61,12 @@ h2 {
     width: 350px;
 }
 
+.formkit-form[data-uid="b98e3f8a98"] .formkit-header {
+    display: flex;
+    justify-content: center;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
     #duck {
         animation: none;
@@ -82,6 +88,13 @@ h2 {
         width: 100%;
         font-size: 2.2em;
     }
+
+
+    .formkit-form[data-uid="b98e3f8a98"] h2 {
+        font-size: 1em !important;
+        margin: 0 !important;
+    }
+
 
     #GetinTouch .tag {
         font-size: small;
