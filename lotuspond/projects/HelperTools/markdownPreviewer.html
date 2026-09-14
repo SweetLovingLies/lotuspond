@@ -61,6 +61,11 @@
             background-color: #ff96cc;
         }
 
+        .toolbar button.active {
+            background-color: #d46fa3;
+            color: white;
+        }
+
         .toolbar input[type="file"] {
             display: none;
         }
@@ -75,6 +80,13 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             height: 70vh;
+        }
+
+        .panes[hidden] {
+            /* .panes sets display:grid below, which otherwise beats the
+               browser's default [hidden]{display:none} at equal specificity
+               since author styles win cascade ties over UA styles. */
+            display: none;
         }
 
         .panes.source-hidden {
@@ -180,6 +192,241 @@
             color: #999;
             margin-top: 60px;
         }
+
+        /* ---------- Book View ---------- */
+
+        .book-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .book-wrap[hidden] {
+            display: none;
+        }
+
+        .book-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .page-nav {
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: #ffbbde;
+            font-size: 1.3em;
+            line-height: 1;
+            cursor: pointer;
+            color: #4a2e1c;
+        }
+
+        .page-nav:hover:not(:disabled) {
+            background-color: #ff96cc;
+        }
+
+        .page-nav:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        #sectionJump {
+            font: inherit;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #d8cdb0;
+            background: #fffaf0;
+            max-width: 46vw;
+        }
+
+        .page-counter {
+            color: #6b5a3f;
+            font-size: 0.9em;
+            min-width: 90px;
+            text-align: center;
+        }
+
+        .book-viewport {
+            width: min(760px, 92vw);
+            perspective: 2400px;
+        }
+
+        .book {
+            position: relative;
+            width: 100%;
+            height: min(72vh, 620px);
+            border-radius: 6px 10px 10px 6px;
+        }
+
+        .book::before {
+            /* spine shadow, gives the page stack a bound-book feel */
+            content: "";
+            position: absolute;
+            top: 2%;
+            bottom: 2%;
+            left: -10px;
+            width: 22px;
+            background: linear-gradient(to right, rgba(74, 46, 28, 0.35), rgba(74, 46, 28, 0));
+            filter: blur(2px);
+            border-radius: 10px;
+            z-index: 0;
+        }
+
+        .page-surface {
+            position: absolute;
+            inset: 0;
+            overflow-y: auto;
+            padding: clamp(20px, 4vw, 46px);
+            background:
+                radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.5), transparent 60%),
+                linear-gradient(155deg, #fbf3dd 0%, #f3e6c1 60%, #ecdcae 100%);
+            border: 1px solid #d9c79c;
+            border-radius: 6px 10px 10px 6px;
+            box-shadow: 0 10px 30px rgba(74, 46, 28, 0.25), inset 0 0 40px rgba(120, 90, 40, 0.08);
+            font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+            color: #3a2c18;
+            line-height: 1.65;
+            transform: rotateY(0deg);
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            transition: transform 0.75s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .page-back {
+            z-index: 1;
+        }
+
+        .page-front {
+            z-index: 2;
+        }
+
+        .page-surface h1 {
+            font-size: 1.5em;
+            text-align: left;
+            color: #7a3b1e;
+            border-bottom: 2px solid #d9b98a;
+            padding-bottom: 0.3em;
+            margin-top: 0;
+        }
+
+        .page-surface h2 {
+            color: #7a3b1e;
+            font-size: 1.15em;
+        }
+
+        .page-surface blockquote {
+            margin: 1em 0;
+            padding: 0.4em 1em;
+            border-left: 3px solid #b5854a;
+            background: rgba(181, 133, 74, 0.08);
+            font-style: italic;
+            color: #5a4423;
+        }
+
+        .page-surface code {
+            background: rgba(120, 90, 40, 0.12);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .page-surface hr {
+            position: relative;
+            border: none;
+            height: 1px;
+            margin: 1.8em 0;
+            /* Two separate gradient segments (each fading to transparent
+               before reaching center) instead of one continuous line plus a
+               flat-color patch to mask the middle -- a flat patch can never
+               match the page's own gradient background exactly, so it always
+               shows a seam. Leaving a genuine transparent gap lets the real
+               page background show through underneath the diamond instead. */
+            background:
+                linear-gradient(to right, transparent, #b5854a 60%) left / 46% 100% no-repeat,
+                linear-gradient(to left, transparent, #b5854a 60%) right / 46% 100% no-repeat;
+            /* Browsers' own default UA stylesheet gives <hr> `overflow: hidden`
+               (left over from its classic beveled-line rendering). Since this
+               hr is only 1px tall and is also the containing block for the
+               diamond below (position: relative), that inherited overflow:
+               hidden was clipping the diamond down to whatever sliver crossed
+               this 1px band -- which is exactly the stray dash fragments seen
+               instead of a full diamond. */
+            overflow: visible;
+        }
+
+        .page-surface hr::after {
+            /* The actual diamond mark, drawn as a rotated square rather than
+               a text glyph -- a dingbat character like U+2756 isn't in every
+               font's coverage, and an unsupported glyph renders as blank
+               space rather than a visible fallback box, which is what was
+               happening before. z-index forces it above ::before explicitly
+               rather than relying on generated-content paint order. */
+            content: "";
+            position: absolute;
+            z-index: 30;
+            left: 50%;
+            top: 50%;
+            width: 11px;
+            height: 11px;
+            aspect-ratio: 1;
+            background: #b5854a;
+            border: 1px solid #8a5f2f;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .page-surface .cover-page {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page-surface .cover-page h1 {
+            border: none;
+            font-size: 2em;
+        }
+
+        .click-zone {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15%;
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        .click-zone-left {
+            left: 0;
+        }
+
+        .click-zone-right {
+            right: 0;
+        }
+
+        .book-empty[hidden] {
+            display: none;
+        }
+
+        .book-empty {
+            width: min(760px, 92vw);
+            height: min(72vh, 620px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #8a7a5c;
+            font-family: Georgia, serif;
+            font-size: 1.1em;
+            border: 2px dashed #d9c79c;
+            border-radius: 10px;
+            padding: 20px;
+        }
     </style>
 </head>
 
@@ -193,6 +440,7 @@
             <input type="file" id="fileInput" accept=".md,.markdown,text/markdown,text/plain">
             <button type="button" id="clearBtn">Clear</button>
             <button type="button" id="toggleSourceBtn">Hide Source</button>
+            <button type="button" id="bookViewBtn">📖 Book View</button>
             <span class="file-name" id="fileName"></span>
         </div>
 
@@ -208,6 +456,26 @@
                 </div>
             </div>
         </div>
+
+        <div class="book-wrap" id="bookWrap" hidden>
+            <div class="book-toolbar">
+                <button type="button" class="page-nav" id="prevPageBtn" aria-label="Previous page">&#8249;</button>
+                <select id="sectionJump" aria-label="Jump to section"></select>
+                <span class="page-counter" id="pageCounter"></span>
+                <button type="button" class="page-nav" id="nextPageBtn" aria-label="Next page">&#8250;</button>
+            </div>
+
+            <div class="book-viewport">
+                <div class="book" id="book" hidden>
+                    <div class="page-surface page-back" id="pageBack"></div>
+                    <div class="page-surface page-front" id="pageFront"></div>
+                    <div class="click-zone click-zone-left" id="clickLeft"></div>
+                    <div class="click-zone click-zone-right" id="clickRight"></div>
+                </div>
+                <div class="book-empty" id="bookEmpty">Open a .md file (or paste text in Edit View) to turn it into a
+                    book.</div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -218,6 +486,23 @@
         const clearBtn = document.getElementById('clearBtn');
         const dropZone = document.getElementById('dropZone');
         const toggleSourceBtn = document.getElementById('toggleSourceBtn');
+        const bookViewBtn = document.getElementById('bookViewBtn');
+        const bookWrap = document.getElementById('bookWrap');
+        const book = document.getElementById('book');
+        const bookEmpty = document.getElementById('bookEmpty');
+        const pageBack = document.getElementById('pageBack');
+        const pageFront = document.getElementById('pageFront');
+        const clickLeft = document.getElementById('clickLeft');
+        const clickRight = document.getElementById('clickRight');
+        const prevPageBtn = document.getElementById('prevPageBtn');
+        const nextPageBtn = document.getElementById('nextPageBtn');
+        const pageCounter = document.getElementById('pageCounter');
+        const sectionJump = document.getElementById('sectionJump');
+
+        let inBookView = false;
+        let bookPages = [];
+        let currentPage = 0;
+        let isFlipping = false;
 
         function render() {
             const text = source.value;
@@ -235,6 +520,7 @@
                 source.value = reader.result;
                 fileName.textContent = file.name;
                 render();
+                if (inBookView) rebuildBook();
             };
             reader.readAsText(file);
         }
@@ -249,6 +535,7 @@
             source.value = '';
             fileName.textContent = '';
             render();
+            if (inBookView) rebuildBook();
         });
 
         toggleSourceBtn.addEventListener('click', () => {
@@ -268,6 +555,140 @@
             e.stopPropagation();
             const file = e.dataTransfer.files[0];
             loadFile(file);
+        });
+
+        // ---------- Book View ----------
+
+        // Splits raw markdown into one "page" per top-level (`# `) heading.
+        // Anything before the first H1 becomes the cover page. Deeper
+        // headings (##, ###, ...) stay inside whichever page they fall under
+        // instead of starting a new one.
+        function splitIntoPages(markdown) {
+            const lines = markdown.split(/\r\n|\n/);
+            const raw = [];
+            let current = null;
+
+            for (const line of lines) {
+                const h1 = /^#\s+(.*)/.exec(line);
+                if (h1) {
+                    if (current) raw.push(current);
+                    current = { title: h1[1].trim(), lines: [line] };
+                } else {
+                    if (!current) current = { title: null, lines: [] };
+                    current.lines.push(line);
+                }
+            }
+            if (current) raw.push(current);
+
+            return raw
+                .map(p => {
+                    let text = p.lines.join('\n').trim();
+                    text = text.replace(/\n?-{3,}\s*$/, '').trim(); // drop a trailing --- divider
+                    return { title: p.title, markdown: text };
+                })
+                .filter(p => p.markdown.length > 0);
+        }
+
+        function renderPageHTML(page) {
+            const html = marked.parse(page.markdown);
+            return page.title === null ? `<div class="cover-page">${html}</div>` : html;
+        }
+
+        function updatePageChrome() {
+            pageCounter.textContent = bookPages.length ? `Page ${currentPage + 1} of ${bookPages.length}` : '';
+            prevPageBtn.disabled = currentPage <= 0;
+            nextPageBtn.disabled = currentPage >= bookPages.length - 1;
+            sectionJump.value = String(currentPage);
+        }
+
+        function populateSectionJump() {
+            sectionJump.innerHTML = '';
+            bookPages.forEach((page, i) => {
+                const opt = document.createElement('option');
+                opt.value = String(i);
+                opt.textContent = `${i + 1}. ${page.title || 'Cover'}`;
+                sectionJump.appendChild(opt);
+            });
+        }
+
+        function rebuildBook() {
+            bookPages = splitIntoPages(source.value);
+            currentPage = 0;
+            isFlipping = false;
+
+            const hasPages = bookPages.length > 0;
+            book.hidden = !hasPages;
+            bookEmpty.hidden = hasPages;
+            prevPageBtn.disabled = true;
+            nextPageBtn.disabled = bookPages.length <= 1;
+            sectionJump.innerHTML = '';
+            pageCounter.textContent = '';
+
+            if (!hasPages) return;
+
+            populateSectionJump();
+            pageFront.style.transition = 'none';
+            pageFront.style.transform = 'rotateY(0deg)';
+            pageFront.innerHTML = renderPageHTML(bookPages[0]);
+            pageBack.innerHTML = '';
+            // Re-enable the transition on the next frame so the reset above
+            // doesn't itself animate.
+            requestAnimationFrame(() => {
+                pageFront.style.transition = '';
+            });
+            updatePageChrome();
+        }
+
+        function flipTo(targetIndex) {
+            if (isFlipping || !bookPages.length) return;
+            if (targetIndex < 0 || targetIndex >= bookPages.length || targetIndex === currentPage) return;
+
+            const direction = targetIndex > currentPage ? 'next' : 'prev';
+            isFlipping = true;
+
+            pageBack.innerHTML = renderPageHTML(bookPages[targetIndex]);
+            pageFront.style.transformOrigin = direction === 'next' ? 'left center' : 'right center';
+
+            // Force layout so the browser registers the origin change before
+            // the transform change, or the flip direction can look wrong.
+            void pageFront.offsetWidth;
+            pageFront.style.transform = direction === 'next' ? 'rotateY(-180deg)' : 'rotateY(180deg)';
+
+            const onDone = () => {
+                pageFront.removeEventListener('transitionend', onDone);
+                pageFront.style.transition = 'none';
+                pageFront.style.transform = 'rotateY(0deg)';
+                pageFront.innerHTML = pageBack.innerHTML;
+                pageBack.innerHTML = '';
+                void pageFront.offsetWidth;
+                pageFront.style.transition = '';
+
+                currentPage = targetIndex;
+                isFlipping = false;
+                updatePageChrome();
+            };
+            pageFront.addEventListener('transitionend', onDone);
+        }
+
+        prevPageBtn.addEventListener('click', () => flipTo(currentPage - 1));
+        nextPageBtn.addEventListener('click', () => flipTo(currentPage + 1));
+        clickLeft.addEventListener('click', () => flipTo(currentPage - 1));
+        clickRight.addEventListener('click', () => flipTo(currentPage + 1));
+        sectionJump.addEventListener('change', () => flipTo(Number(sectionJump.value)));
+
+        document.addEventListener('keydown', e => {
+            if (!inBookView) return;
+            if (e.key === 'ArrowLeft') flipTo(currentPage - 1);
+            if (e.key === 'ArrowRight') flipTo(currentPage + 1);
+        });
+
+        bookViewBtn.addEventListener('click', () => {
+            inBookView = !inBookView;
+            dropZone.hidden = inBookView;
+            bookWrap.hidden = !inBookView;
+            bookViewBtn.textContent = inBookView ? '✏️ Edit View' : '📖 Book View';
+            bookViewBtn.classList.toggle('active', inBookView);
+            if (inBookView) rebuildBook();
         });
 
         render();
